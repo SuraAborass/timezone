@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
+import '../../widgets/TopBrands.dart';
+import '../../widgets/TopCategories.dart';
 import '../../widgets/appbar.dart';
-import '../../widgets/collections.dart';
 import '../../widgets/drawer.dart';
-import '../../widgets/featured_products.dart';
 import '../../widgets/search_field.dart';
 import 'button_navigation.dart';
 
@@ -32,20 +32,20 @@ class MyHomePage extends StatelessWidget {
                     horizontal: 20.0, vertical: 10),
                 child: Row(
                   children: [
-                    Text("Collections".tr, style: title3,),],),),
+                    Text("Top Categories".tr, style: title3,),],),),
                Padding(
                 padding: const EdgeInsets.all(8.0),
-                child:  Collections(),
+                child:  TopCategories(),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0, vertical: 15),
+                    horizontal: 20.0, vertical: 10),
                 child: Row(
                   children: [
-                    Text("Featured Products".tr, style: title3,),],),),
+                    Text("Top Brands".tr, style: title3,),],),),
                Padding(
                 padding:  const EdgeInsets.all(8.0),
-                child:  FeaturedProducts(),
+                child:  TopBrands(),
               ),
             ],
           ),

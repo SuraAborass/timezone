@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
 import '../../widgets/appbar.dart';
@@ -37,7 +36,7 @@ class Profile extends StatelessWidget {
                       radius: 90,
                       child: CircleAvatar(
                         radius: 85,
-                        backgroundImage: AssetImage("assets/images/pexels-motional-studio-1081685.png"),
+                        backgroundImage: AssetImage("assets/images/R.png"),
                       ),
                     ),
                     subtitle: Padding(

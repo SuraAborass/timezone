@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../Constants/font_styles.dart';
+import '../../Constants/routes.dart';
+import '../../DataAccessLayer/Models/category.dart';
 import 'package:get/get.dart';
-import '../../DataAccessLayer/Models/featured_product.dart';
-import '../screens/public/product_screen.dart';
 
 
-class FeaturedProductItem extends StatelessWidget {
-  const FeaturedProductItem({Key? key,required this.featuredProduct,}) : super(key: key);
-  final FeaturedProduct featuredProduct;
+class TopCategoryItem extends StatelessWidget {
+   const TopCategoryItem({Key? key,required this.category,}) : super(key: key);
+   final Category category;
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +17,12 @@ class FeaturedProductItem extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              onTap: ()=> Get.to(const ProductScreen(),arguments: [featuredProduct]),
+              onTap: ()=> Get.toNamed(AppRoutes.collection,arguments: [category]),
               child: Container(
-                height: 250,
-                width: 200,
+                height: 160,
+                width: 110,
                 decoration:  BoxDecoration(
-                  image: DecorationImage(image: NetworkImage(featuredProduct.images[0]),fit: BoxFit.cover),
+                  image: DecorationImage(image: NetworkImage(category.image),fit: BoxFit.cover),
                   borderRadius:  const BorderRadius.all(Radius.circular(20.0)),
                 ),
               ),
@@ -31,7 +31,7 @@ class FeaturedProductItem extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(5.0),
-          child: Text(featuredProduct.name,style: title8,),
+          child: Text(category.name,style: title8,),
         ),
       ],
     );

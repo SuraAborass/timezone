@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../BusinessLayer/controllers/featured_products_controller.dart';
+import 'package:timezone/PresentationLayer/widgets/top_brand_item.dart';
+import '../../BusinessLayer/controllers/top_brands_controller.dart';
 import '../../Constants/colors.dart';
-import 'featured_product_item.dart';
+import 'package:get/get.dart';
 
 
-class FeaturedProducts extends StatelessWidget {
-  FeaturedProducts({Key? key,}) : super(key: key);
-  final FeaturedProductController featuredProductController = Get.find();
+class TopBrands extends StatelessWidget {
+   TopBrands({Key? key}) : super(key: key);
+  final TopBrandsController _controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -15,18 +15,19 @@ class FeaturedProducts extends StatelessWidget {
     return Column(
       children: [
         GetBuilder(
-            init: featuredProductController,
+            init: _controller,
             builder: (context) {
               return Container(
-                height: 250,
+
+                height: 140,
                 width: deviceSize.width,
                 decoration: const BoxDecoration(color: AppColors.black),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   physics: const ClampingScrollPhysics(),
-                  itemCount: featuredProductController.featuredProducts.length,
+                  itemCount: _controller.topBrands.length,
                   itemBuilder: (context, index) {
-                    return FeaturedProductItem(featuredProduct: featuredProductController.featuredProducts[index],);
+                    return TopBrandItem(brand: _controller.topBrands[index],);
                   },
                 ),
               );

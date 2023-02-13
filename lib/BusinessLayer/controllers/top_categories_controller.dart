@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import '../../DataAccessLayer/Models/category.dart';
 import '../../DataAccessLayer/Repositories/category_repo.dart';
 
-class CategoriesController extends GetxController{
+class TopCategoriesController extends GetxController{
   CategoriesRepo repo = CategoriesRepo();
   List<Category> categories = [];
   Category? category;

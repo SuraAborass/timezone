@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../BusinessLayer/controllers/language_controller.dart';
-import '../../BusinessLayer/controllers/theme_controller.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 
 class MyDrawer extends StatelessWidget {
   MyDrawer({Key? key}) : super(key: key);
-
   final LanguageController _languageController = Get.find();
-  final ThemeController _themeController = Get.find();
-  final themeData = Get.isDarkMode ? ThemeData.dark() : ThemeData.light();
 
   @override
   Widget build(BuildContext context) {
@@ -33,26 +29,6 @@ class MyDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.person, color: AppColors.white,),
             title: Text("Profile".tr,style: title,),
-          ),
-          ListTile(
-            leading: Icon(
-                Theme.of(context).brightness == Brightness.dark
-                    ? Icons.light_mode_rounded
-                    : Icons.dark_mode_rounded,
-                color: AppColors.white),
-            title: Text(
-                themeData == ThemeData.dark()
-                    ? 'Light Theme'.tr
-                    : 'Dark Theme'.tr,
-                style: title),
-            onTap: () {
-              if (Get.isDarkMode) {
-                Get.changeThemeMode(ThemeMode.light);
-              } else {
-                Get.changeThemeMode(ThemeMode.dark);
-              }
-              _themeController.switchTheme();
-            },
           ),
           ListTile(
             leading: const Icon(Icons.language,color: AppColors.white),

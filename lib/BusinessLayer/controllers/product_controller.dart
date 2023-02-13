@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
+import 'package:timezone/BusinessLayer/controllers/top_categories_controller.dart';
 import '../../DataAccessLayer/Models/category.dart';
 import '../../DataAccessLayer/Models/product.dart';
 import '../../DataAccessLayer/Repositories/products_repo.dart';
-import 'categories_controller.dart';
+
 
 class ProductController extends GetxController {
-  final CategoriesController categoriesController = Get.find();
+  final TopCategoriesController categoriesController = Get.find();
   ProductsRepo repo = ProductsRepo();
   Product? product;
   List<Product> products = [];

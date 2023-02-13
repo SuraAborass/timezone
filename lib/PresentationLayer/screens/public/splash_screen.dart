@@ -23,8 +23,8 @@ final SplashController splashController = Get.put(SplashController());
         body: Center(
           child: Image.asset(
             'assets/images/logo-gold.png',
-            height: 88,
-            width: 205,
+            height:44 ,
+            width: 245,
           ),
 
         ));

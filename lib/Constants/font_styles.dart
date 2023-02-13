@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
+
 const title =
 TextStyle(color: AppColors.white, fontWeight: FontWeight.bold,fontSize: 20,);
 

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../BusinessLayer/controllers/categories_controller.dart';
+import '../../BusinessLayer/controllers/top_categories_controller.dart';
 import '../../Constants/colors.dart';
-import 'collection_item.dart';
+import 'TopCategoryItem.dart';
 
-class Collections extends StatelessWidget {
-  Collections({Key? key,}) : super(key: key);
-  final CategoriesController _controller = Get.find();
+class TopCategories extends StatelessWidget {
+  TopCategories({Key? key,}) : super(key: key);
+  final TopCategoriesController _controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class Collections extends StatelessWidget {
               init: _controller,
               builder: (context) {
                 return Container(
-                  height: 140,
+                  height: 150,
                   width: deviceSize.width,
                   decoration: const BoxDecoration(color: AppColors.black),
                   child: ListView.builder(
@@ -25,7 +25,7 @@ class Collections extends StatelessWidget {
                     physics: const ClampingScrollPhysics(),
                     itemCount: _controller.categories.length,
                     itemBuilder: (context, index) {
-                      return CollectionItem(category: _controller.categories[index],);
+                      return TopCategoryItem(category: _controller.categories[index],);
                     },
                   ),
                 );
