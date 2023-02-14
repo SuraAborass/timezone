@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import '../../../BusinessLayer/controllers/product_controller.dart';
+import '../../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
 import '../../widgets/product_by_category_item.dart';
 import 'package:get/get.dart';
 import 'button_navigation.dart';
 
-class OneCollection extends StatelessWidget {
- OneCollection({Key? key,}) : super(key: key);
-   final ProductController productController = Get.put(ProductController(Get.arguments[0]));
+class ProductsByCategoryId extends StatelessWidget {
+  ProductsByCategoryId({Key? key,}) : super(key: key);
+   final ProductsByCategoryController productController = Get.put(ProductsByCategoryController(Get.arguments[0]));
 
   @override
   Widget build(BuildContext context) {

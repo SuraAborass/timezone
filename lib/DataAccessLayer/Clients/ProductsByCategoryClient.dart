@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import '../../Constants/links.dart';
 
-class ProductsClient {
+class ProductsByCategoryClient {
   Future<dynamic> getProducts(categoryId) async {
     var response =
     await http.get(Uri.parse(baseLink + "category/${categoryId}/products"));

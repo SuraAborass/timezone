@@ -1,10 +1,10 @@
 import 'dart:convert';
-import '../Clients/products_client.dart';
+import '../Clients/ProductsByCategoryClient.dart';
 import '../Models/product.dart';
 
 
-class ProductsRepo {
-  ProductsClient client = ProductsClient();
+class ProductsByCategoryRepo {
+  ProductsByCategoryClient client = ProductsByCategoryClient();
 
   Future<List<Product>> products(categoryId) async {
     var response = await client.getProducts(categoryId);

@@ -11,7 +11,6 @@ class Product {
   final String brand;
   final List<String> images;
   final String category;
-  //final Category category;
   final List<ProductColor>? colors;
   Product({
     required this.id,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../BusinessLayer/controllers/product_controller.dart';
+import '../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 import '../../DataAccessLayer/Models/product.dart';
@@ -9,7 +9,7 @@ import '../screens/public/product_screen.dart';
 class ProductByCategoryItem extends StatelessWidget {
   ProductByCategoryItem({Key? key,required this.product}) : super(key: key);
   final Product product;
-  final ProductController productController = Get.find();
+  final ProductsByCategoryController productController = Get.find();
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -39,45 +39,31 @@ class ProductByCategoryItem extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 3,
-                  child: ListTile(
-                    title:  Text(product.description,style: title5,textAlign: TextAlign.start),
-                    subtitle: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(product.price,style: title7),
-                        Text(product.offer,style: title8),
-                      ],
-                    ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title:  Text(product.brand,style: title5,textAlign: TextAlign.start),
+                        subtitle: Text(product.name,style: title5.copyWith(fontSize: 10),)
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.start,
+                        //   children: [
+                        //     Text(product.price,style: title7),
+                        //     const Spacer(),
+                        //     Text(product.offer,style: title8),
+                        //   ],
+                        // ),
+                      ),
+                      RichText(text: TextSpan(children:[
+                        TextSpan(text: product.price ,style: title7,),
+                        TextSpan(text: product.offer ,style: title8),
+                      ])),
+                    ],
                   ),
                 ),
-                Expanded(
+                const Expanded(
                     flex: 1,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.all(3.0),
-                            child: CircleAvatar(
-                              radius: 8,
-                              backgroundColor: AppColors.white,
-                            ),
-                          ),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: AppColors.blue,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(3.0),
-                            child: CircleAvatar(
-                              radius: 8,
-                              backgroundColor: AppColors.pink,
-                            ),
-                          ),
-                          CircleAvatar(
-                            radius: 8,
-                            backgroundColor: AppColors.black1,
-                          ),],),))],),
+                   child: Icon(Icons.add_shopping_cart,color: AppColors.white,),
+                )],),
         );
   }
 }

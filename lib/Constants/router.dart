@@ -3,9 +3,9 @@ import 'package:timezone/Constants/routes.dart';
 import '../BusinessLayer/bindings/home_bindings.dart';
 import '../BusinessLayer/bindings/init_bindings.dart';
 import '../PresentationLayer/screens/auth/login_screen.dart';
+import '../PresentationLayer/screens/public/ProductsByCategoryId_screen.dart';
 import '../PresentationLayer/screens/public/home_screen.dart';
 import '../PresentationLayer/screens/public/notification_screen.dart';
-import '../PresentationLayer/screens/public/one_collection_screen.dart';
 import '../PresentationLayer/screens/public/splash_screen.dart';
 
 List<GetPage<dynamic>> router = [
@@ -32,7 +32,7 @@ List<GetPage<dynamic>> router = [
   ),
   GetPage(
       name: AppRoutes.collection,
-      page: () => OneCollection(),
+      page: () => ProductsByCategoryId(),
       binding: HomeBinding()
   ),
 
