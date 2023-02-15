@@ -13,15 +13,13 @@ class TopBrandItem extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, right: 5.0, left: 5.0),
-            child: InkWell(
-              onTap: ()=> Get.toNamed(AppRoutes.collection,arguments: [brand]),
-              child: CircleAvatar(
-                radius: 60,
-                backgroundImage: NetworkImage(brand.image),
-              )
-            ),),),
+          child: InkWell(
+            onTap: ()=> Get.toNamed(AppRoutes.collection,arguments: [brand]),
+            child: CircleAvatar(
+              radius: 50,
+              backgroundImage: NetworkImage(brand.image),
+            )
+          ),),
         Padding(
           padding: const EdgeInsets.all(5.0),
           child: Text(brand.name,style: title8,),

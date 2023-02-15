@@ -17,7 +17,7 @@ class TopCategories extends StatelessWidget {
               init: _controller,
               builder: (context) {
                 return Container(
-                  height: 150,
+                  height: 114,
                   width: deviceSize.width,
                   decoration: const BoxDecoration(color: AppColors.black),
                   child: ListView.builder(

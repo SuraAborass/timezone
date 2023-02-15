@@ -6,11 +6,13 @@ class FeaturedProduct {
   final List<String> images;
   final String price;
   final String offer;
+  final String brand;
   final String description;
   FeaturedProduct ({
     required this.id,
     required this.name,
     required this.images,
+    required this.brand,
     required this.price,
     required this.offer,
     required this.description,
@@ -24,6 +26,7 @@ class FeaturedProduct {
       'description' : description,
       'price' : price,
       'offer' : offer,
+      'brand' : brand
     };
   }
 
@@ -31,6 +34,7 @@ class FeaturedProduct {
     return FeaturedProduct(
       id: map['id'] as int,
       name: map['name'] as String,
+      brand: map['brand'] as String,
       images: getImages(map['images']) ,
       price: num.parse(map['price'].toString()).toString(),
       offer: num.parse(map['offer'].toString()).toString(),

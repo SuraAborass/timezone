@@ -6,6 +6,7 @@ import '../../widgets/TopBrands.dart';
 import '../../widgets/TopCategories.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
+import '../../widgets/featured_products.dart';
 import '../../widgets/search_field.dart';
 import 'button_navigation.dart';
 
@@ -46,6 +47,16 @@ class MyHomePage extends StatelessWidget {
                Padding(
                 padding:  const EdgeInsets.all(8.0),
                 child:  TopBrands(),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0, vertical: 10),
+                child: Row(
+                  children: [
+                    Text("Featured Products".tr, style: title3,),],),),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child:  FeaturedProducts(),
               ),
             ],
           ),
