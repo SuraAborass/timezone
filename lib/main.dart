@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      //translations: Languages(),
-      //locale:Get.deviceLocale,
-      //fallbackLocale: const Locale.fromSubtags(languageCode: "ar"),
+      translations: Languages(),
+      locale:Get.deviceLocale,
+      fallbackLocale: const Locale.fromSubtags(languageCode: "ar"),
       initialBinding: InitBinding(),
       getPages: router,
     );

@@ -15,7 +15,7 @@ const title2 =
 TextStyle(color: AppColors.yellow, fontWeight: FontWeight.bold,fontSize: 16,);
 
 const title3 =
-TextStyle(color: AppColors.grey3, fontWeight: FontWeight.bold,fontSize: 20,);
+TextStyle(color: AppColors.grey3, fontWeight: FontWeight.normal,fontSize: 18,);
 
 const titleCopy3 =
 TextStyle(color: AppColors.grey3, fontWeight: FontWeight.bold,fontSize: 25,);

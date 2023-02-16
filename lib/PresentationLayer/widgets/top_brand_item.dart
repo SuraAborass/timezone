@@ -15,15 +15,14 @@ class TopBrandItem extends StatelessWidget {
         Expanded(
           child: InkWell(
             onTap: ()=> Get.toNamed(AppRoutes.collection,arguments: [brand]),
-            child: CircleAvatar(
-              radius: 50,
-              backgroundImage: NetworkImage(brand.image),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                radius: 30,
+                backgroundImage: NetworkImage(brand.image),
+              ),
             )
           ),),
-        Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: Text(brand.name,style: title8,),
-        ),
       ],
     );
   }

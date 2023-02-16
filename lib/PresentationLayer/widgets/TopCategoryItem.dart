@@ -20,7 +20,7 @@ class TopCategoryItem extends StatelessWidget {
               onTap: ()=> Get.toNamed(AppRoutes.collection,arguments: [category]),
               child: Container(
                 height: 160,
-                width: 89,
+                width: 90,
                 decoration:  BoxDecoration(
                   image: DecorationImage(image: NetworkImage(category.image),fit: BoxFit.cover),
                   borderRadius:  const BorderRadius.all(Radius.circular(20.0)),

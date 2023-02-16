@@ -7,6 +7,7 @@ class FeaturedProduct {
   final String price;
   final String offer;
   final String brand;
+  //final String category;
   final String description;
   FeaturedProduct ({
     required this.id,
@@ -15,6 +16,7 @@ class FeaturedProduct {
     required this.brand,
     required this.price,
     required this.offer,
+   //required this.category,
     required this.description,
   });
 
@@ -26,7 +28,8 @@ class FeaturedProduct {
       'description' : description,
       'price' : price,
       'offer' : offer,
-      'brand' : brand
+      'brand' : brand,
+      //'category' : category,
     };
   }
 
@@ -35,6 +38,7 @@ class FeaturedProduct {
       id: map['id'] as int,
       name: map['name'] as String,
       brand: map['brand'] as String,
+     // category: map['category'] as String,
       images: getImages(map['images']) ,
       price: num.parse(map['price'].toString()).toString(),
       offer: num.parse(map['offer'].toString()).toString(),
