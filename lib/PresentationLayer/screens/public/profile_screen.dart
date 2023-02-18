@@ -36,7 +36,7 @@ class Profile extends StatelessWidget {
                       radius: 90,
                       child: CircleAvatar(
                         radius: 85,
-                        backgroundImage: AssetImage("assets/images/R.png"),
+                        backgroundImage: AssetImage("assets/images/Mask Group 7/.png"),
                       ),
                     ),
                     subtitle: Padding(

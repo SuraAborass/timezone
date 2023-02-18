@@ -5,11 +5,9 @@ import '../../Constants/font_styles.dart';
 
 class MyBagItem extends StatelessWidget {
   const MyBagItem({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final deviceSize=MediaQuery.of(context).size;
-
     return Container(
         decoration: const BoxDecoration(color: AppColors.lightblack,
             borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -25,7 +23,7 @@ class MyBagItem extends StatelessWidget {
                 child: Container(
                   margin: const EdgeInsets.all(8.0),
                   decoration: const  BoxDecoration(
-                      image: DecorationImage(image: AssetImage('assets/images/Image 6.png'),fit: BoxFit.cover),
+                      image: DecorationImage(image: AssetImage('assets/images/Mask Group 1.png'),fit: BoxFit.cover),
                       color: AppColors.white,
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),
                   height: 90,
@@ -33,11 +31,25 @@ class MyBagItem extends StatelessWidget {
                 ),
               ),
             ),
-            const Expanded(
+             Expanded(
               flex: 3,
-              child: ListTile(
-                title:  Text("Flounce Sleeve V Neck Puff Sleeve Blouse",style: title5,textAlign: TextAlign.start),
-                subtitle: Text("Qty: 5   Price: 40.000   Total: 20000",style: titleCopy7),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("CASIO ",style: title5.copyWith(fontSize: 18),textAlign: TextAlign.start),
+                  ListTile(
+                    title:  Text("asaccfvfb ",style: title5.copyWith(fontWeight: FontWeight.normal),textAlign: TextAlign.start),
+                    subtitle: ListTile(title:  RichText(text: TextSpan(children:[
+                        const TextSpan(text: "Qty:  " ,style: titleCopy7),
+                        TextSpan(text: "5" ,style: titleCopy7.copyWith(color: AppColors.white)),
+                      const TextSpan(text: "   price: " ,style: titleCopy7),
+                      TextSpan(text: "40" ,style: titleCopy7.copyWith(color: AppColors.white)),])),
+                    )),
+                  RichText(text: TextSpan(children:[
+                    const TextSpan(text: "Total:  " ,style: titleCopy7),
+                    TextSpan(text: "200.000" ,style: titleCopy7.copyWith(color: AppColors.white)),])),
+                ],
               ),
             ),
             Expanded(

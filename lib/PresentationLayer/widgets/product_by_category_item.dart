@@ -40,29 +40,36 @@ class ProductByCategoryItem extends StatelessWidget {
                 Expanded(
                   flex: 3,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       ListTile(
                         title:  Text(product.brand,style: title5,textAlign: TextAlign.start),
                         subtitle: Text(product.name,style: title5.copyWith(fontSize: 10),)
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.start,
-                        //   children: [
-                        //     Text(product.price,style: title7),
-                        //     const Spacer(),
-                        //     Text(product.offer,style: title8),
-                        //   ],
-                        // ),
                       ),
-                      RichText(text: TextSpan(children:[
-                        TextSpan(text: product.price ,style: title7,),
-                        TextSpan(text: product.offer ,style: title8),
-                      ])),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const SizedBox(width: 20,height: 1,),
+                          Text(product.price,style: title7),
+                        const SizedBox(width: 30,height: 1,),
+                          Text(product.offer,style: title8),
+                        ],
+                      ),
+                      // RichText(text: TextSpan(children:[
+                      //   TextSpan(text: product.price ,style: title7,),
+                      //   TextSpan(text: product.offer ,style: title8),
+                      // ])),
                     ],
                   ),
                 ),
-                const Expanded(
+                 Expanded(
                     flex: 1,
-                   child: Icon(Icons.add_shopping_cart,color: AppColors.white,),
+                   child: Column(
+                     children: const [
+                        SizedBox(height: 60 ,),
+                       Icon(Icons.add_shopping_cart,color: AppColors.white,size: 30,),
+                     ],
+                   ),
                 )],),
         );
   }

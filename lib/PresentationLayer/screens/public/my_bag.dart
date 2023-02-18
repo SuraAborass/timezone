@@ -65,14 +65,7 @@ class MyBag extends StatelessWidget {
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
                           Radius.circular(20.0))),
-                  child: Text('Check Out'.tr, style: titleCopy ),
-
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+                  child: Text('Check Out'.tr, style: titleCopy ),),),],),),),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

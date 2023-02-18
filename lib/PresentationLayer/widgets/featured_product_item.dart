@@ -41,7 +41,7 @@ class FeaturedProductItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(featuredProduct.brand,style: title5),
-                  const SizedBox(width: 30,height: 1 ,),
+                  const SizedBox(width: 30,height: 1,),
                   Text(
                     featuredProduct.price,style: title8,),
                 ],

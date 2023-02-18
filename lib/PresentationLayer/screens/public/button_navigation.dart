@@ -7,9 +7,6 @@ import '../../../main.dart';
 import 'favorites_screen.dart';
 import 'my_bag.dart';
 
-
-
-
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);
 
