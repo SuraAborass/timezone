@@ -5,14 +5,14 @@ class UserNotification {
   final int id;
   final String title;
   final String description;
-  final String user;
+  final String time;
 
 
   UserNotification({
     required this.id,
     required this.title,
     required this.description,
-    required this.user,
+    required this.time,
   });
 
   Map<String, dynamic> toMap() {
@@ -20,7 +20,7 @@ class UserNotification {
       'id' : id,
       'title': title,
       'description': description,
-      'user' : user
+      'time' : time
     };
   }
 
@@ -29,7 +29,7 @@ class UserNotification {
       id: map['id'] as int,
       title: map['title'] as String,
       description: map['description'] as String,
-      user: map['user'] as String,
+      time:  map['time'] as String
     );
   }
 

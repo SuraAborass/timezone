@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../BusinessLayer/controllers/favourite_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
@@ -8,8 +9,8 @@ import '../../widgets/page_title.dart';
 import 'button_navigation.dart';
 
 class Favorites extends StatelessWidget {
-  const Favorites({Key? key}) : super(key: key);
-
+   Favorites({Key? key}) : super(key: key);
+  final FavouriteController favouriteController = Get.find();
   @override
   Widget build(BuildContext context) {
 
@@ -32,16 +33,23 @@ class Favorites extends StatelessWidget {
                 child:Column(
                   children:
                       [
-                         pageTitle("Favorites".tr),
-                         const FavoriteItem(),
-                        const SizedBox(height: 15,),
-                        const FavoriteItem(),
-                        const SizedBox(height: 15,),
-                        const FavoriteItem(),
-                        const SizedBox(height: 15,),
-                        const FavoriteItem(),
-                        const SizedBox(height: 15,),
-                        const FavoriteItem(),
+                         Padding(
+                           padding: const EdgeInsets.all(8.0),
+                           child: pageTitle("Favorites".tr),
+                         ),
+                        Padding(padding: const EdgeInsets.only(top: 10, bottom: 10,),
+                          child: SizedBox(
+                            height: Get.height - 300,
+                            child: ListView.builder(
+                              itemCount: favouriteController.userFavourites.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return FavoriteItem(
+                                  favourite: favouriteController.userFavourites[index],
+                                );
+                              },
+                            ),
+                          ),
+                        ),
                   ])
                 ),
               ],

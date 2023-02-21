@@ -38,9 +38,9 @@ class NotificationItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                     children:[
-                     Text(notification.title,style: title6,),
-                     Text(notification.description, style: title7),
-                      //Text(notification.user, style: title6.copyWith(fontSize: 14)),
+                     Text(notification.title,style: title6.copyWith(fontWeight: FontWeight.normal,fontSize: 18),),
+                     Text(notification.description, style: title6.copyWith(fontWeight: FontWeight.normal,fontSize: 18)),
+                      Text(notification.time, style: titleCopy7),
                   ]),
                 )),
           ],

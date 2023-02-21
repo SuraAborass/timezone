@@ -32,15 +32,13 @@ class LoginScreen extends StatelessWidget {
                       margin: const EdgeInsets.only(top: 100),
                       alignment: Alignment.center,
                       child:  Text(
-                          "Welcome Back !".tr, style: title),
-                    ),
+                          "Welcome Back !".tr, style: title),),
                     Container(
                       margin: const EdgeInsets.only(top: 10),
                       alignment: Alignment.center,
                       child: Text(
                           "Please Sign In To Your Account".tr,
-                          style: title),
-                    ),
+                          style: title),),
                     const SizedBox(height: 60),
                     TextFormField(
                       controller: loginController.emailTextController,
@@ -54,14 +52,11 @@ class LoginScreen extends StatelessWidget {
                           borderSide: const BorderSide(
                               width: 2,
                               color: AppColors.lightgrey),
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
+                          borderRadius: BorderRadius.circular(20.0),),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(color: AppColors.grey2)),
-                      ),
-                      maxLines: 1,
-                    ),
+                            borderSide: const BorderSide(color: AppColors.grey2)),),
+                      maxLines: 1,),
                     const SizedBox(height: 20),
                     Obx(() {
                       return TextFormField(
@@ -75,9 +70,7 @@ class LoginScreen extends StatelessWidget {
                                 : Icons.visibility_off),
                             color: AppColors.grey2,
                             onPressed: () {
-                              loginController.togglePasswordVisible();
-                            },
-                          ),
+                              loginController.togglePasswordVisible();},),
                           border: const OutlineInputBorder(),
                           hintText: 'Enter Your Password'.tr,
                           hintStyle: title1,
@@ -92,12 +85,8 @@ class LoginScreen extends StatelessWidget {
                         ),
                         keyboardType: TextInputType.visiblePassword,
                         obscureText: loginController.passwordVisible.value,
-                        maxLines: 1,
-                      );
-                    }),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                        maxLines: 1,);}),
+                    const SizedBox(height: 15,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       textDirection: TextDirection.rtl,
@@ -106,11 +95,7 @@ class LoginScreen extends StatelessWidget {
                           onTap: () {},
                           child:  Text(
                             'Forget Password ?'.tr,
-                            style: title1,
-                          ),
-                        ),
-                      ],
-                    ),
+                            style: title1,),),],),
                     const SizedBox(
                       height: 60,
                     ),
@@ -127,16 +112,10 @@ class LoginScreen extends StatelessWidget {
                           children: [
                             if (loginController.sending.value)
                               const CircularProgressIndicator(),
-                            Text('Login'.tr, style: title )
-                          ],
-                        );}),
+                            Text('Login'.tr, style: title )],);}),
                       onPressed: () async {
-                        await loginController.login();
-                      },
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                        await loginController.login();},),
+                    const SizedBox(height: 15,),
                     MaterialButton(height: 56,
                       minWidth: deviceSize.width,
                       color: AppColors.white ,
@@ -147,34 +126,16 @@ class LoginScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset('assets/images/Image 1.png',height: 20, width: 20,),
-                          Text('  Continue With Google'.tr, style: title1 ),
-                        ],
-                      ),
+                          Text('  Continue With Google'.tr, style: title1 ),],),
                       onPressed: () {},
                     ),
                     const SizedBox( height: 30,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                            'Don`t Have an Account?'.tr,
+                        Text('Don\'t Have an Account?'.tr,
                             style: title1),
                         InkWell(
-                          onTap: () {
-                            Get.to(const Register());
-                          },
-                          child: Text(
-                              ' Create One'.tr,
-                              style: title2),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }
-      ),
-    );
-  }
-}
+                          onTap: () {Get.to(const Register());},
+                          child: Text(' Create One'.tr, style: title2),
+                        ),],),],),),);}),);}}

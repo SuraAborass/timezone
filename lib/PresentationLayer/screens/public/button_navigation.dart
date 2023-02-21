@@ -29,7 +29,7 @@ class NavBar extends StatelessWidget {
             Get.to(const MyBag());
             break;
           case 3:
-            Get.to(const Favorites());
+            Get.to( Favorites());
             break;
           case 4:
             Get.to(const Profile());
