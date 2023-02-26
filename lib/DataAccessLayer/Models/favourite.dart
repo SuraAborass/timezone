@@ -11,6 +11,7 @@ class Favourite {
     required this.product,
   });
 
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id' : id,

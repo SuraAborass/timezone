@@ -55,31 +55,6 @@ class MyBagItem extends StatelessWidget {
                       const Text("Total: ",style: titleCopy7),
                       Text("200.000",style: titleCopy7.copyWith(color: AppColors.white)),
                     ],),
-
-                  // ListTile(title: Row(children: [
-                  //     RichText(text:  TextSpan(children:  [
-                  //       const TextSpan(text: "Qty:  " ,style: titleCopy7),
-                  //       TextSpan(text: "5" ,style: titleCopy7.copyWith(color: AppColors.white)),
-                  //     ]),),
-                  //     const SizedBox(height: 1,width: 5.0,),
-                  //     RichText(text: TextSpan(children: [
-                  //       const TextSpan(text: "   price: " ,style: titleCopy7),
-                  //           TextSpan(text: "40.000" ,style: titleCopy7.copyWith(color: AppColors.white)),
-                  //     ]))
-                  //   ],
-                  // ))
-                  // Text("CASIO ",style: title5.copyWith(fontSize: 18),textAlign: TextAlign.start),
-                  // ListTile(
-                  //   title:  Text("asaccfvfb ",style: title5.copyWith(fontWeight: FontWeight.normal),textAlign: TextAlign.start),
-                  //   subtitle: ListTile(title:  RichText(text: TextSpan(children:[
-                  //       const TextSpan(text: "Qty:  " ,style: titleCopy7),
-                  //       TextSpan(text: "5" ,style: titleCopy7.copyWith(color: AppColors.white)),
-                  //     const TextSpan(text: "   price: " ,style: titleCopy7),
-                  //     TextSpan(text: "40" ,style: titleCopy7.copyWith(color: AppColors.white)),])),
-                  //   )),
-                  // RichText(text: TextSpan(children:[
-                  //   const TextSpan(text: "Total:  " ,style: titleCopy7),
-                  //   TextSpan(text: "200.000" ,style: titleCopy7.copyWith(color: AppColors.white)),])),
                 ],
               ),
             ),

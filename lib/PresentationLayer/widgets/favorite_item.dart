@@ -25,10 +25,10 @@ final Favourite favourite;
           Expanded(
             flex: 2,
             child: InkWell(
-              onTap: ()=> Get.to(const ProductScreen()),
+              onTap: ()=> Get.to( ProductScreen()),
               child: Container(
                 decoration: BoxDecoration(
-                    image: DecorationImage(image: NetworkImage(favourite.product!.images[0]),
+                    image: DecorationImage(image: NetworkImage(favourite.product.images[0]),
                         fit: BoxFit.cover),
                     color: AppColors.white,
                     borderRadius: const BorderRadius.all(Radius.circular(10.0))),
@@ -43,31 +43,29 @@ final Favourite favourite;
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ListTile(
-                    title:  Text(favourite.product!.brand,style: title5,textAlign: TextAlign.start),
-                    subtitle: Text(favourite.product!.name,style: title5.copyWith(fontSize: 10),)
+                    title:  Text(favourite.product.brand,style: title5,textAlign: TextAlign.start),
+                    subtitle: Text(favourite.product.name,style: title5.copyWith(fontSize: 10),)
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const SizedBox(width: 20,height: 1,),
-                    Text(favourite.product!.price,style: title7),
+                    Text(favourite.product.price,style: title7),
                     const SizedBox(width: 30,height: 1,),
-                    Text(favourite.product!.offer,style: title8),
-                  ],
-                ),
-                // RichText(text: TextSpan(children:[
-                //   TextSpan(text: product.price ,style: title7,),
-                //   TextSpan(text: product.offer ,style: title8),
-                // ])),
-              ],
-            ),
-          ),
+                    Text(favourite.product.offer,style: title8),
+                  ],),],),),
           Expanded(
             flex: 1,
             child: Column(
-              children: const [
-                SizedBox(height: 60 ,),
-                Icon(Icons.add_shopping_cart,color: AppColors.white,size: 30,),
+              mainAxisAlignment: MainAxisAlignment.start,
+              children:  [
+                SizedBox(height: 3.0,),
+                IconButton(icon: Icon(Icons.remove_circle),
+                  color: AppColors.white,
+                  onPressed: (){},),
+                IconButton(icon:Icon(Icons.add_shopping_cart,),
+                  color: AppColors.white,
+                onPressed: (){},),
               ],
             ),
           )],),

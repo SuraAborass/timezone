@@ -25,15 +25,17 @@ class ProductByCategoryItem extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: InkWell(
-                    onTap: ()=> Get.to(const ProductScreen()),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(image: NetworkImage(product.images[0]),
-                              fit: BoxFit.cover),
-                          color: AppColors.white,
-                          borderRadius: const BorderRadius.all(Radius.circular(10.0))),
-                      height: 90,
-                      width: 90 ,
+                    onTap: ()=> Get.to( ProductScreen()),
+                    child: Hero(tag: "product",
+                      child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(image: NetworkImage(product.images[0]),
+                                fit: BoxFit.cover),
+                            color: AppColors.white,
+                            borderRadius: const BorderRadius.all(Radius.circular(10.0))),
+                        height: 90,
+                        width: 90 ,
+                      ),
                     ),
                   ),
                 ),

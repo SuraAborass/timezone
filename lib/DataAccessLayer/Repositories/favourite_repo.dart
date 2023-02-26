@@ -11,7 +11,7 @@ class FavouriteRepo{
     if (response.isNotEmpty) {
       final myFavourites = json.decode(response).cast<Map<String, dynamic>>();
       return myFavourites
-          .map<Favourite>((json) => Favourite.fromJson(json))
+          .map<Favourite>((json) => Favourite.fromMap(json))
           .toList();
     }
     return [];

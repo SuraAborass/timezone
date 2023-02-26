@@ -48,7 +48,7 @@ class Product {
       brand: map['brand'] as String,
       images: getImages(map['images']) ,
       //category: Category.fromMap(map['category']),
-      category: map['category'] as String,
+      category:map['category']!=null? map['category'] as String : "",
       colors: null,
       //map['colors'] !=null ? colorsfromJson(map['colors'].toString()) : ,
     );
