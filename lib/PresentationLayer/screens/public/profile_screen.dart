@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../BusinessLayer/controllers/profile _controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
 import '../../widgets/appbar.dart';
@@ -7,8 +8,8 @@ import '../../widgets/drawer.dart';
 import '../../widgets/page_title.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
-
+   Profile({Key? key}) : super(key: key);
+  final ProfileController _profileController = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
     final deviceSize=MediaQuery.of(context).size;
@@ -33,10 +34,10 @@ class Profile extends StatelessWidget {
                   child: ListTile(
                     title: const CircleAvatar(
                       backgroundColor: AppColors.yellow,
-                      radius: 90,
+                      radius: 60,
                       child: CircleAvatar(
-                        radius: 85,
-                        backgroundImage: AssetImage("assets/images/Mask Group 7/.png"),
+                        radius: 55,
+                        backgroundImage: AssetImage("assets/images/Mask Group 7.png"),
                       ),
                     ),
                     subtitle: Padding(
@@ -47,6 +48,7 @@ class Profile extends StatelessWidget {
                 ),
                 const SizedBox(height: 15,),
                 TextFormField(
+                  controller: _profileController.nameController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: AppColors.lightblack,
@@ -67,6 +69,7 @@ class Profile extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 TextFormField(
+                  controller: _profileController.emailController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: AppColors.lightblack,
@@ -87,6 +90,7 @@ class Profile extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 TextFormField(
+                  controller: _profileController.passwordController,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: AppColors.lightblack,
@@ -130,8 +134,13 @@ class Profile extends StatelessWidget {
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
                           Radius.circular(20.0))),
-                  child: Text('Update Profile Info'.tr, style: titleCopy ),
-                  onPressed: () {},
+                  child: Obx((){
+                    if (_profileController.loading.value)
+                      {CircularProgressIndicator();}
+                    return Text('Update Profile Info'.tr, style: titleCopy );}),
+                  onPressed: () async {
+                    await _profileController.updateInfo();
+                  },
                 ),
               ],
             ),

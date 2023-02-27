@@ -17,7 +17,7 @@ final FeaturedProductsController featuredProductsController = Get.find();
             init: featuredProductsController,
             builder: (context) {
               return Container(
-                height: 210,
+                height: 250,
                 width: deviceSize.width,
                 decoration: const BoxDecoration(color: AppColors.black),
                 child: ListView.builder(

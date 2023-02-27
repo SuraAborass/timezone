@@ -18,7 +18,7 @@ class FeaturedProductItem extends StatelessWidget {
             child: InkWell(
               onTap: (){},
               child: Container(
-                width: 120,
+                width: 130,
                 decoration:  BoxDecoration(
                   image: DecorationImage(image: NetworkImage(featuredProduct.images[0]),fit: BoxFit.cover),
                   borderRadius:  const BorderRadius.all(Radius.circular(20.0)),
@@ -30,6 +30,8 @@ class FeaturedProductItem extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(5.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // RichText(text: TextSpan(children:[
               //   TextSpan(text: featuredProduct.brand ,style: title5.copyWith(fontSize: 12),),
@@ -39,6 +41,7 @@ class FeaturedProductItem extends StatelessWidget {
               // Text(featuredProduct.name,style: title8.copyWith(color: AppColors.yellow),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(featuredProduct.brand,style: title5),
                   const SizedBox(width: 30,height: 1,),
@@ -46,10 +49,7 @@ class FeaturedProductItem extends StatelessWidget {
                     featuredProduct.price,style: title8,),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(featuredProduct.name,style: title8.copyWith(color: AppColors.yellow),),
-              ),
+              Text(featuredProduct.name,style: title8.copyWith(color: AppColors.yellow),),
             ],
           ),
         ),

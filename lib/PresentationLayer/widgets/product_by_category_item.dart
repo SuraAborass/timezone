@@ -25,7 +25,7 @@ class ProductByCategoryItem extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: InkWell(
-                    onTap: ()=> Get.to( ProductScreen()),
+                    onTap: ()=> Get.to( ProductScreen(product: product,)),
                     child: Hero(tag: "product",
                       child: Container(
                         decoration: BoxDecoration(
@@ -57,10 +57,6 @@ class ProductByCategoryItem extends StatelessWidget {
                           Text(product.offer,style: title8),
                         ],
                       ),
-                      // RichText(text: TextSpan(children:[
-                      //   TextSpan(text: product.price ,style: title7,),
-                      //   TextSpan(text: product.offer ,style: title8),
-                      // ])),
                     ],
                   ),
                 ),

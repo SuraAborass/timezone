@@ -32,7 +32,7 @@ class NavBar extends StatelessWidget {
             Get.to( Favorites());
             break;
           case 4:
-            Get.to(const Profile());
+            Get.to( Profile());
             break;
           default:
         }},

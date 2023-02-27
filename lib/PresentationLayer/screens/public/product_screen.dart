@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import '../../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
+import 'package:get/get.dart';
+
+import '../../../DataAccessLayer/Models/product.dart';
 
 
 class ProductScreen extends StatelessWidget {
-  const ProductScreen({Key? key}) : super(key: key);
-
+   ProductScreen({Key? key,required this.product}) : super(key: key);
+ final Product product;
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -38,7 +42,18 @@ class ProductScreen extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
                 background: Hero
                   (tag: "product",
-                    child: Image.asset('assets/images/Mask Group 5.png',fit: BoxFit.cover,),)), ),
+                    child: Container(
+                      height: 400,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(product.images[0]),
+                              fit: BoxFit.cover),
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20))),
+                    ),
+                )),
+          ),
           SliverList(delegate: SliverChildListDelegate([
             Padding(
               padding: const EdgeInsets.only(top: 30.0, right: 20.0, left: 20.0),
