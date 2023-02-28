@@ -11,6 +11,7 @@ class Product {
   final String brand;
   final List<String> images;
   final String category;
+  final String reference_number;
   final List<ProductColor>? colors;
   Product({
     required this.id,
@@ -21,6 +22,7 @@ class Product {
     required this.brand,
     required this.images,
     required this.category,
+    required this.reference_number,
     this.colors,
   });
 
@@ -33,6 +35,7 @@ class Product {
       'description': description,
       'brand' : brand,
       'images' : images,
+      'reference_number' : reference_number,
       'category' : category,
       'colors' : colors,
     };
@@ -44,6 +47,7 @@ class Product {
       name: map['name'] as String,
       price: map['price'].toString(),
       offer: map['offer'].toString(),
+      reference_number: map['reference_number'].toString(),
       description: map['description'] as String,
       brand: map['brand'] as String,
       images: getImages(map['images']) ,

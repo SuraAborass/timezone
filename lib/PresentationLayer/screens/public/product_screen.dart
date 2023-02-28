@@ -61,13 +61,13 @@ class ProductScreen extends StatelessWidget {
                 children:  [
                    Expanded(
                     flex: 2,
-                    child: Text("CASIO",style: title.copyWith(color: AppColors.yellow,fontSize: 21)),),
+                    child: Text(product.brand,style: title.copyWith(color: AppColors.yellow,fontSize: 21)),),
                    Expanded(
                     flex: 1,
                       child: Column(
                     children: [
-                      Text("50.000",style: title7.copyWith(fontSize: 15)),
-                      const Text("    40.000 S.P",style: titleCopy8,),],))],),),
+                      Text(product.price,style: num.parse(product.offer)>0 ? title7 :titleCopy7.copyWith(fontSize: 16,color: AppColors.white)),
+                      if(num.parse(product.offer)>0) Text(product.offer,style: titleCopy8,),],))],),),
                    Padding(padding: const EdgeInsets.only(top: 2.0, right: 20.0, left: 20.0),
                             child:Text("vfgxsh1251ed4",style: title8.copyWith(fontSize: 18),),),
             Padding(padding: const EdgeInsets.only(top: 8.0, right: 20.0, left: 20.0),
@@ -98,7 +98,7 @@ class ProductScreen extends StatelessWidget {
                   Container(height: 50,width: 15, color: AppColors.yellow,),
                   Expanded(child: Row(children: [
                     const Text("   Brand :  ",style: title,textAlign: TextAlign.start),
-                    Text("CASIO",style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
+                    Text(product.brand,style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
             const SizedBox(height: 15,),
             Container(
               height: 70,

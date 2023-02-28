@@ -52,9 +52,9 @@ class ProductByCategoryItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           const SizedBox(width: 20,height: 1,),
-                          Text(product.price,style: title7),
+                          Text(product.price,style:num.parse(product.offer)>0 ? title7.apply(decoration: TextDecoration.lineThrough):titleCopy7),
                         const SizedBox(width: 30,height: 1,),
-                          Text(product.offer,style: title8),
+                         if(num.parse(product.offer)>0) Text(product.offer,style: title8),
                         ],
                       ),
                     ],
