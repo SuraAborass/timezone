@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezone/Constants/routes.dart';
 import '../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
@@ -25,7 +26,7 @@ class ProductByCategoryItem extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: InkWell(
-                    onTap: ()=> Get.to( ProductScreen(product: product,)),
+                    onTap: ()=> Get.to(ProductScreen(product: product,)),
                     child: Hero(tag: "product",
                       child: Container(
                         decoration: BoxDecoration(

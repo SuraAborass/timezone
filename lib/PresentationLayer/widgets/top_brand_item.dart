@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timezone/DataAccessLayer/Models/brand.dart';
 import 'package:get/get.dart';
-import '../../Constants/font_styles.dart';
 import '../../Constants/routes.dart';
 
 class TopBrandItem extends StatelessWidget {
@@ -14,7 +13,7 @@ class TopBrandItem extends StatelessWidget {
       children: [
         Expanded(
           child: InkWell(
-            onTap: ()=> Get.toNamed(AppRoutes.collection,arguments: [brand]),
+            onTap: ()=> Get.toNamed(AppRoutes.brand,arguments: [brand]),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: CircleAvatar(

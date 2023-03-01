@@ -9,6 +9,9 @@ class Product {
   final String offer;
   final String description;
   final String brand;
+  final String movement;
+  final String case_size;
+  final String case_material;
   final List<String> images;
   final String category;
   final String reference_number;
@@ -20,6 +23,9 @@ class Product {
     required this.offer,
     required this.description,
     required this.brand,
+    required this.movement,
+    required this.case_size,
+    required this.case_material,
     required this.images,
     required this.category,
     required this.reference_number,
@@ -36,6 +42,9 @@ class Product {
       'brand' : brand,
       'images' : images,
       'reference_number' : reference_number,
+      'movement' : movement,
+      'case_size' : case_size,
+      'case_material' : case_material,
       'category' : category,
       'colors' : colors,
     };
@@ -48,6 +57,9 @@ class Product {
       price: map['price'].toString(),
       offer: map['offer'].toString(),
       reference_number: map['reference_number'].toString(),
+      movement : map['movement'] as String,
+      case_material : map['case_material'] as String,
+      case_size : map['case_size'] as String,
       description: map['description'] as String,
       brand: map['brand'] as String,
       images: getImages(map['images']) ,

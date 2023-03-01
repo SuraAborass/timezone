@@ -22,7 +22,7 @@ class MyBagItem extends StatelessWidget {
             Expanded(
               flex: 2,
               child: InkWell(
-                onTap: (){},
+                onTap: ()=> Get.to,
                 child: Container(
                   margin: const EdgeInsets.all(8.0),
                   decoration: const  BoxDecoration(

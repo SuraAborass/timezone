@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timezone/Constants/colors.dart';
+import 'package:timezone/Constants/routes.dart';
 import 'package:timezone/PresentationLayer/screens/public/product_screen.dart';
 import '../../Constants/font_styles.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,7 @@ class FeaturedProductItem extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
               onTap: (){
-                Get.to(ProductScreen(product: featuredProduct));
+                Get.to(ProductScreen(product: featuredProduct ,));
               },
               child: Container(
                 width: 130,

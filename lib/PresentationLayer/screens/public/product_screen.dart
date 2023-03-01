@@ -66,10 +66,12 @@ class ProductScreen extends StatelessWidget {
                     flex: 1,
                       child: Column(
                     children: [
-                      Text(product.price,style: num.parse(product.offer)>0 ? title7 :titleCopy7.copyWith(fontSize: 16,color: AppColors.white)),
-                      if(num.parse(product.offer)>0) Text(product.offer,style: titleCopy8,),],))],),),
+                      Text(product.price,style: num.parse(product.offer)>0 ? title7.copyWith(fontSize: 16) :titleCopy7.copyWith(fontSize: 16,color: AppColors.white)),
+                      if(num.parse(product.offer)>0) Text(product.offer,style: titleCopy8,),],))
+                ],
+              ),),
                    Padding(padding: const EdgeInsets.only(top: 2.0, right: 20.0, left: 20.0),
-                            child:Text("vfgxsh1251ed4",style: title8.copyWith(fontSize: 18),),),
+                            child:Text(product.name,style: title8.copyWith(fontSize: 18),),),
             Padding(padding: const EdgeInsets.only(top: 8.0, right: 20.0, left: 20.0),
             child: Row(
               children: const [
@@ -109,7 +111,7 @@ class ProductScreen extends StatelessWidget {
                   Container(height: 70,width: 15, color: AppColors.yellow,),
                   Expanded(child: Row(children: [
                     const Text("   Reference N :  ",style: title,),
-                    Expanded(child: Text("wj-66hh ",style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),))],))],),),
+                    Expanded(child: Text(product.reference_number,style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),))],))],),),
             const SizedBox(height: 15,),
             Container(
               height: 50,
@@ -131,7 +133,7 @@ class ProductScreen extends StatelessWidget {
                   Container(height: 50,width: 15, color: AppColors.yellow,),
                   Expanded(child: Row(children: [
                     const Text("   Movement :  ",style: title,),
-                    Text("Quartz",style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
+                    Text(product.movement,style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
             const SizedBox(height: 15,),
             Container(
               height: 50,
@@ -141,8 +143,8 @@ class ProductScreen extends StatelessWidget {
                 children: [
                   Container(height: 50,width: 15, color: AppColors.yellow,),
                   Expanded(child: Row(children: [
-                    const Text("   Case size :  ",style: title,),
-                    Text("15.0 mm",style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
+                    const Text("   Case-size :  ",style: title,),
+                    Text(product.case_size,style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
             const SizedBox(height: 15,),
             Container(
               height: 50,
@@ -152,8 +154,8 @@ class ProductScreen extends StatelessWidget {
                 children: [
                   Container(height: 50,width: 15, color: AppColors.yellow,),
                   Expanded(child: Row(children: [
-                    const Text("   Case size :  ",style: title,),
-                    Text("15.0 mm",style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),)
+                    const Text("   Case-material :  ",style: title,),
+                    Text(product.case_material,style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),)
           ]))
         ],
       ),

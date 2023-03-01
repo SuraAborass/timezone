@@ -6,5 +6,7 @@ class AppRoutes{
   static const notifications = "/homepage/Notifications";
   static const favorites = "/homepage/favorites";
   static const myBag = "/homepage/myBag";
-  static const collection = "/homepage/oneCollection";
+  static const category = "/homepage/category";
+  static const brand = "/homepage/brand";
+  //static const product = "/homepage/ProductScreen";
 }
