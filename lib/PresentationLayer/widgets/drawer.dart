@@ -5,7 +5,10 @@ import '../../BusinessLayer/controllers/language_controller.dart';
 import '../../BusinessLayer/controllers/user_controller.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
+import '../screens/public/TopCategories_screen.dart';
 import '../screens/public/profile_screen.dart';
+
+
 
 class MyDrawer extends StatelessWidget {
   MyDrawer({Key? key}) : super(key: key);
@@ -58,7 +61,7 @@ class MyDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.category,color: AppColors.white,),
             title: Text('Top Categories'.tr, style: title.copyWith(fontSize: 14)),
-            onTap: () {},
+            onTap: () => Get.to(TopCategories()),
           ),
           ListTile(
             leading: const Icon(Icons.branding_watermark,color: AppColors.white,),

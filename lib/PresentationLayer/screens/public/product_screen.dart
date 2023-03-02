@@ -13,6 +13,8 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
+    //bool favouriteVisible;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.black,
@@ -74,12 +76,16 @@ class ProductScreen extends StatelessWidget {
                             child:Text(product.name,style: title8.copyWith(fontSize: 18),),),
             Padding(padding: const EdgeInsets.only(top: 8.0, right: 20.0, left: 20.0),
             child: Row(
-              children: const [
+              children:  [
                 Icon(Icons.star, color: AppColors.yellow,),
                 Icon(Icons.star, color: AppColors.yellow,),
                 Icon(Icons.star, color: AppColors.yellow,),
                 Icon(Icons.star, color: AppColors.yellow,),
-                Icon(Icons.star, color: AppColors.yellow,),],)),
+                Icon(Icons.star, color: AppColors.yellow,),
+                Spacer(),
+                // IconButton(onPressed: (){},
+                // icon: Icon( Icons.favorite_outline),)
+               ],)),
             Padding(padding: const EdgeInsets.only(top: 8.0, bottom: 20.0,right: 20.0, left: 20.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,

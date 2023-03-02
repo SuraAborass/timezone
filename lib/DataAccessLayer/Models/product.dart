@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'color.dart';
 
 
 class Product {
@@ -15,7 +14,7 @@ class Product {
   final List<String> images;
   final String category;
   final String reference_number;
-  final List<ProductColor>? colors;
+
   Product({
     required this.id,
     required this.name,
@@ -29,7 +28,6 @@ class Product {
     required this.images,
     required this.category,
     required this.reference_number,
-    this.colors,
   });
 
   Map<String, dynamic> toMap() {
@@ -46,27 +44,23 @@ class Product {
       'case_size' : case_size,
       'case_material' : case_material,
       'category' : category,
-      'colors' : colors,
     };
   }
 
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
       id: map['id'] as int,
-      name: map['name'] as String,
+      name: map['name'] as String ,
       price: map['price'].toString(),
       offer: map['offer'].toString(),
-      reference_number: map['reference_number'].toString(),
-      movement : map['movement'] as String,
-      case_material : map['case_material'] as String,
-      case_size : map['case_size'] as String,
-      description: map['description'] as String,
-      brand: map['brand'] as String,
+      reference_number: map['reference_number'] !=null? map['reference_number'].toString() : "",
+      movement : map['movement'] !=null?map['movement'] as String :"",
+      case_material : map['case_material'] !=null? map['case_material'] as String : "",
+      case_size : map['case_size'] !=null? map['case_size'] as String :"",
+      description:  map['description'] as String,
+      brand:  map['brand'] as String  ,
       images: getImages(map['images']) ,
-      //category: Category.fromMap(map['category']),
       category:map['category']!=null? map['category'] as String : "",
-      colors: null,
-      //map['colors'] !=null ? colorsfromJson(map['colors'].toString()) : ,
     );
   }
 
@@ -77,10 +71,10 @@ class Product {
     }
     return result;
   }
-  static List<ProductColor> colorsfromJson(String json) {
-    final parsed = jsonDecode(jsonEncode(json)).cast<Map<String, dynamic>>();
-    return parsed.map<ProductColor>((json) => ProductColor.fromMap(json)).toList();
-  }
+  // static List<ProductColor> colorsfromJson(String json) {
+  //   final parsed = jsonDecode(jsonEncode(json)).cast<Map<String, dynamic>>();
+  //   return parsed.map<ProductColor>((json) => ProductColor.fromMap(json)).toList();
+  // }
 
   String toJson() => json.encode(toMap());
   factory Product.fromJson(String source) =>
