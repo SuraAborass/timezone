@@ -11,6 +11,7 @@ import 'button_navigation.dart';
 class Favorites extends StatelessWidget {
    Favorites({Key? key}) : super(key: key);
   final FavouriteController favouriteController = Get.find();
+
   @override
   Widget build(BuildContext context) {
 

@@ -25,7 +25,7 @@ final Favourite favourite;
           Expanded(
             flex: 2,
             child: InkWell(
-              onTap: ()=> Get.to( ProductScreen()),
+              onTap: (){},
               child: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(image: NetworkImage(favourite.product.images[0]),

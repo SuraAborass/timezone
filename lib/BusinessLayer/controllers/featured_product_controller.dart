@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
-import '../../DataAccessLayer/Models/featured_product.dart';
+import '../../DataAccessLayer/Models/product.dart';
 import '../../DataAccessLayer/Repositories/featured_repo.dart';
 
 
 class FeaturedProductsController extends GetxController{
   FeaturedRepo repo = FeaturedRepo();
-  List<FeaturedProduct> featuredProducts = [];
-  FeaturedProduct? featuredProduct;
+  List<Product> featuredProducts = [];
+  Product? featuredProduct;
   var loading = false.obs;
 
   @override

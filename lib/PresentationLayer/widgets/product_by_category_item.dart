@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezone/Constants/routes.dart';
 import '../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
@@ -25,7 +26,7 @@ class ProductByCategoryItem extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: InkWell(
-                    onTap: ()=> Get.to( ProductScreen()),
+                    onTap: ()=> Get.to(ProductScreen(product: product,)),
                     child: Hero(tag: "product",
                       child: Container(
                         decoration: BoxDecoration(
@@ -52,15 +53,11 @@ class ProductByCategoryItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           const SizedBox(width: 20,height: 1,),
-                          Text(product.price,style: title7),
+                          Text(product.price,style:num.parse(product.offer)>0 ? title7.apply(decoration: TextDecoration.lineThrough):titleCopy7),
                         const SizedBox(width: 30,height: 1,),
-                          Text(product.offer,style: title8),
+                         if(num.parse(product.offer)>0) Text(product.offer,style: title8),
                         ],
                       ),
-                      // RichText(text: TextSpan(children:[
-                      //   TextSpan(text: product.price ,style: title7,),
-                      //   TextSpan(text: product.offer ,style: title8),
-                      // ])),
                     ],
                   ),
                 ),

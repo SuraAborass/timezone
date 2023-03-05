@@ -3,6 +3,7 @@ import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 
 
+
 class MyBagItem extends StatelessWidget {
   const MyBagItem({Key? key}) : super(key: key);
   @override

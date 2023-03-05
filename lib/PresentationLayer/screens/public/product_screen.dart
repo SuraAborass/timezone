@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
+import '../../../BusinessLayer/controllers/ProductsByCategoryController.dart';
+import '../../../BusinessLayer/controllers/favourite_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
+import 'package:get/get.dart';
+
+import '../../../DataAccessLayer/Models/favourite.dart';
+import '../../../DataAccessLayer/Models/product.dart';
 
 
 class ProductScreen extends StatelessWidget {
-  const ProductScreen({Key? key}) : super(key: key);
+   ProductScreen({Key? key,required this.product}) : super(key: key);
+ final Product product;
+ final FavouriteController favouriteController = Get.find();
 
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
+    //bool IsFavourite;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.black,
@@ -30,7 +40,9 @@ class ProductScreen extends StatelessWidget {
             backgroundColor: AppColors.black,
             actions: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    favouriteController.addToFavouriteList(product);
+                    },
                   icon: const Icon(
                     Icons.shopping_cart,
                     size: 30,
@@ -38,7 +50,18 @@ class ProductScreen extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
                 background: Hero
                   (tag: "product",
-                    child: Image.asset('assets/images/Mask Group 5.png',fit: BoxFit.cover,),)), ),
+                    child: Container(
+                      height: 400,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(product.images[0]),
+                              fit: BoxFit.cover),
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20))),
+                    ),
+                )),
+          ),
           SliverList(delegate: SliverChildListDelegate([
             Padding(
               padding: const EdgeInsets.only(top: 30.0, right: 20.0, left: 20.0),
@@ -46,23 +69,31 @@ class ProductScreen extends StatelessWidget {
                 children:  [
                    Expanded(
                     flex: 2,
-                    child: Text("CASIO",style: title.copyWith(color: AppColors.yellow,fontSize: 21)),),
+                    child: Text(product.brand,style: title.copyWith(color: AppColors.yellow,fontSize: 21)),),
                    Expanded(
                     flex: 1,
                       child: Column(
                     children: [
-                      Text("50.000",style: title7.copyWith(fontSize: 15)),
-                      const Text("    40.000 S.P",style: titleCopy8,),],))],),),
+                      Text(product.price,style: num.parse(product.offer)>0 ? title7.copyWith(fontSize: 16) :titleCopy7.copyWith(fontSize: 16,color: AppColors.white)),
+                      if(num.parse(product.offer)>0) Text(product.offer,style: titleCopy8,),],))
+                ],
+              ),),
                    Padding(padding: const EdgeInsets.only(top: 2.0, right: 20.0, left: 20.0),
-                            child:Text("vfgxsh1251ed4",style: title8.copyWith(fontSize: 18),),),
+                            child:Text(product.name,style: title8.copyWith(fontSize: 18),),),
             Padding(padding: const EdgeInsets.only(top: 8.0, right: 20.0, left: 20.0),
             child: Row(
-              children: const [
+              children:  [
                 Icon(Icons.star, color: AppColors.yellow,),
                 Icon(Icons.star, color: AppColors.yellow,),
                 Icon(Icons.star, color: AppColors.yellow,),
                 Icon(Icons.star, color: AppColors.yellow,),
-                Icon(Icons.star, color: AppColors.yellow,),],)),
+                Icon(Icons.star, color: AppColors.yellow,),
+                Spacer(),
+                 IconButton(onPressed: (){
+
+                 },
+                 icon: Icon( Icons.favorite_outline,color: AppColors.white,),)
+               ],)),
             Padding(padding: const EdgeInsets.only(top: 8.0, bottom: 20.0,right: 20.0, left: 20.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -83,7 +114,7 @@ class ProductScreen extends StatelessWidget {
                   Container(height: 50,width: 15, color: AppColors.yellow,),
                   Expanded(child: Row(children: [
                     const Text("   Brand :  ",style: title,textAlign: TextAlign.start),
-                    Text("CASIO",style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
+                    Text(product.brand,style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
             const SizedBox(height: 15,),
             Container(
               height: 70,
@@ -94,7 +125,7 @@ class ProductScreen extends StatelessWidget {
                   Container(height: 70,width: 15, color: AppColors.yellow,),
                   Expanded(child: Row(children: [
                     const Text("   Reference N :  ",style: title,),
-                    Expanded(child: Text("wj-66hh ",style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),))],))],),),
+                    Expanded(child: Text(product.reference_number,style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),))],))],),),
             const SizedBox(height: 15,),
             Container(
               height: 50,
@@ -116,7 +147,7 @@ class ProductScreen extends StatelessWidget {
                   Container(height: 50,width: 15, color: AppColors.yellow,),
                   Expanded(child: Row(children: [
                     const Text("   Movement :  ",style: title,),
-                    Text("Quartz",style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
+                    Text(product.movement,style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
             const SizedBox(height: 15,),
             Container(
               height: 50,
@@ -126,8 +157,8 @@ class ProductScreen extends StatelessWidget {
                 children: [
                   Container(height: 50,width: 15, color: AppColors.yellow,),
                   Expanded(child: Row(children: [
-                    const Text("   Case size :  ",style: title,),
-                    Text("15.0 mm",style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
+                    const Text("   Case-size :  ",style: title,),
+                    Text(product.case_size,style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),),
             const SizedBox(height: 15,),
             Container(
               height: 50,
@@ -137,8 +168,8 @@ class ProductScreen extends StatelessWidget {
                 children: [
                   Container(height: 50,width: 15, color: AppColors.yellow,),
                   Expanded(child: Row(children: [
-                    const Text("   Case size :  ",style: title,),
-                    Text("15.0 mm",style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),)
+                    const Text("   Case-material :  ",style: title,),
+                    Text(product.case_material,style: title8.copyWith(fontSize: 15,fontWeight: FontWeight.normal),)],))],),)
           ]))
         ],
       ),
