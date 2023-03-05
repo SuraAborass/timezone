@@ -10,7 +10,7 @@ Widget pageTitle(title) {
       children: [
         Text(
           title,
-          style: titleCopy3,
+          style: titleBold,
         ),
       ],
     ),

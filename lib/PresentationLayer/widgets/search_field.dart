@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:timezone/Constants/font_styles.dart';
 
 import '../../Constants/colors.dart';
 
@@ -10,6 +11,7 @@ class SearchField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
       child: TextFormField(
+        style: mediumNormal.apply(color: Colors.white),
         onTap: () {},
         textDirection: TextDirection.rtl,
         textAlign: TextAlign.center,
@@ -18,10 +20,7 @@ class SearchField extends StatelessWidget {
             fillColor: AppColors.lightgrey,
             prefixIcon: const Icon(Icons.search, color: AppColors.grey2),
             hintText: "Search For a Product , Category ,Brand",
-            hintStyle: const TextStyle(
-              fontSize: 13,
-              color: AppColors.grey2,
-            ),
+            hintStyle: mediumNormal.apply(color: Colors.grey),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 borderSide: const BorderSide(color: AppColors.grey2)),

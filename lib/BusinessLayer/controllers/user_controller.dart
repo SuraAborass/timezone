@@ -16,6 +16,7 @@ class UserController extends GetxController {
     authed = await boxClient.getAuthState();
     if (authed) {
       user = await boxClient.getAuthedUser();
+      update();
       print(user!.toMap());
     }
     update();

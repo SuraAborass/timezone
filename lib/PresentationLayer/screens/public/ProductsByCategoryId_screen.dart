@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:timezone/Constants/font_styles.dart';
+
 import '../../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../../Constants/colors.dart';
-import '../../../Constants/font_styles.dart';
 import '../../widgets/product_by_category_item.dart';
-import 'package:get/get.dart';
 import 'button_navigation.dart';
 
 class ProductsByCategoryId extends StatelessWidget {
-  ProductsByCategoryId({Key? key,}) : super(key: key);
-   final ProductsByCategoryController productController = Get.put(ProductsByCategoryController(Get.arguments[0]));
+  ProductsByCategoryId({
+    Key? key,
+  }) : super(key: key);
+  final ProductsByCategoryController productController =
+      Get.put(ProductsByCategoryController(Get.arguments[0]));
 
   @override
   Widget build(BuildContext context) {
@@ -17,66 +21,83 @@ class ProductsByCategoryId extends StatelessWidget {
       bottomNavigationBar: const NavBar(),
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(expandedHeight: 400,
-            pinned: true,
+          SliverAppBar(
+            floating: true,
+            expandedHeight: 300,
+            /* pinned: true, */
             backgroundColor: AppColors.black,
-           actions: [
-             IconButton(
-                 onPressed: () {},
-                 icon: const Icon(
-                   Icons.shopping_cart,
-                   size: 30,
-                   color: AppColors.white,
-                 ))
-           ],
+            actions: [
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.shopping_cart,
+                    size: 30,
+                    color: AppColors.white,
+                  ))
+            ],
             flexibleSpace: FlexibleSpaceBar(
               background: Stack(
                 alignment: Alignment.topCenter,
                 children: [
                   Hero(
-                    tag: "category",
-                    child:  Container(
-                      height: 400,
+                    tag: productController.category.id.toString() +
+                        productController.category.name,
+                    child: Container(
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: NetworkImage(productController.category.image),
+                              image: NetworkImage(
+                                  productController.category.image),
                               fit: BoxFit.cover),
                           borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                               bottomRight: Radius.circular(20))),
                     ),
                   ),
-                ],
-              ),
-            ), ),
-          SliverList(delegate: SliverChildListDelegate([
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child:  Row(
-                children:[
-                  Text(productController.category.name,style: title3),
+                  Container(
+                    height: 100,
+                    width: Get.width,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [Colors.black, Colors.transparent])),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    child: Container(
+                      height: 50,
+                      width: Get.width,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [Colors.black, Colors.transparent])),
+                    ),
+                  ),
+                  Positioned(
+                      bottom: 20,
+                      child: Center(
+                        child: Text(
+                          productController.category.name,
+                          style: title.apply(color: Colors.white),
+                        ),
+                      ))
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right:10,left:10,top: 10),
-              child: GetBuilder(
-                init: productController,
-                builder: (context) {
-                  return SizedBox(
-                    height: Get.height - 400,
-                    child: ListView.builder(
-                      itemCount: productController.products.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ProductByCategoryItem(
-                            product: productController.products[index]);
-                      },
-                    ),
-                  );
-                }
-              ),
-            )
-          ],),),
+          ),
+          GetBuilder(
+              init: productController,
+              builder: (_) {
+                return SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                  childCount: productController.products.length,
+                  (context, index) {
+                    return ProductByCategoryItem(
+                        product: productController.products[index]);
+                  },
+                ));
+              })
         ],
       ),
     );

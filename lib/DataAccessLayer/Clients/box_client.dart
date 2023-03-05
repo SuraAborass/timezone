@@ -1,10 +1,11 @@
 import 'package:get_storage/get_storage.dart';
+
 import '../Models/user.dart';
 
 class BoxClient {
   var box = GetStorage();
   Future<bool> getAuthState() async {
-    print( box.read('authed'));
+    print(box.read('authed'));
     if (await box.read('authed') != null) {
       return true;
     }
@@ -12,6 +13,7 @@ class BoxClient {
   }
 
   Future<User> getAuthedUser() async {
+    print(await box.read('userdata'));
     return User.fromBoxMap(await box.read('userdata'));
   }
 

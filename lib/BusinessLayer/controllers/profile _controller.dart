@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/user_controller.dart';
+
 import '../../Constants/routes.dart';
 import '../../DataAccessLayer/Models/user.dart';
 import '../../DataAccessLayer/Repositories/user_repo.dart';
@@ -10,6 +11,7 @@ class ProfileController extends GetxController {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController adressController = TextEditingController();
   final UserController _userController = Get.find();
 
   UserRepo userRepo = UserRepo();
@@ -35,10 +37,11 @@ class ProfileController extends GetxController {
     print("start Updating ");
     loading.value = true;
     User? user = await userRepo.updateInfo(
-        _userController.user!.id,
-        nameController.value.text,
-        emailController.value.text,
-        passwordController.value.text,);
+      _userController.user!.id,
+      nameController.value.text,
+      emailController.value.text,
+      passwordController.value.text,
+    );
 
     if (user != null) {
       print(user.toMap());

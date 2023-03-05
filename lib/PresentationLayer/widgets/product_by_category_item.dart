@@ -27,7 +27,7 @@ class ProductByCategoryItem extends StatelessWidget {
                   flex: 2,
                   child: InkWell(
                     onTap: ()=> Get.to(ProductScreen(product: product,)),
-                    child: Hero(tag: "product",
+                    child: Hero(tag: product.id.toString() + product.name,
                       child: Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(image: NetworkImage(product.images[0]),
