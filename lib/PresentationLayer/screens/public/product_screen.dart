@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import '../../../BusinessLayer/controllers/ProductsByCategoryController.dart';
+import '../../../BusinessLayer/controllers/favourite_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
 import 'package:get/get.dart';
 
+import '../../../DataAccessLayer/Models/favourite.dart';
 import '../../../DataAccessLayer/Models/product.dart';
 
 
 class ProductScreen extends StatelessWidget {
    ProductScreen({Key? key,required this.product}) : super(key: key);
  final Product product;
+ final FavouriteController favouriteController = Get.find();
+
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-    //bool favouriteVisible;
+    //bool IsFavourite;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -36,7 +40,9 @@ class ProductScreen extends StatelessWidget {
             backgroundColor: AppColors.black,
             actions: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    favouriteController.addToFavouriteList(product);
+                    },
                   icon: const Icon(
                     Icons.shopping_cart,
                     size: 30,
@@ -83,8 +89,10 @@ class ProductScreen extends StatelessWidget {
                 Icon(Icons.star, color: AppColors.yellow,),
                 Icon(Icons.star, color: AppColors.yellow,),
                 Spacer(),
-                // IconButton(onPressed: (){},
-                // icon: Icon( Icons.favorite_outline),)
+                 IconButton(onPressed: (){
+
+                 },
+                 icon: Icon( Icons.favorite_outline,color: AppColors.white,),)
                ],)),
             Padding(padding: const EdgeInsets.only(top: 8.0, bottom: 20.0,right: 20.0, left: 20.0),
                   child: Column(

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
-import 'package:get/get.dart';
 
-import '../screens/public/product_screen.dart';
 
 
 class MyBagItem extends StatelessWidget {
