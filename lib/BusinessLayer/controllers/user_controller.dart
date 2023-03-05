@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
 import '../../Constants/routes.dart';
 import '../../DataAccessLayer/Clients/box_client.dart';
 import '../../DataAccessLayer/Models/user.dart';
@@ -7,7 +8,7 @@ import '../../DataAccessLayer/Models/user.dart';
 class UserController extends GetxController {
   final BoxClient boxClient = BoxClient();
   final box = GetStorage();
-  late User? user;
+  User? user;
   bool authed = false;
   @override
   void onInit() async {
