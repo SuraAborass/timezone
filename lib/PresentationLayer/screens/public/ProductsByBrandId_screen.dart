@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../BusinessLayer/controllers/ProductsByBrandId_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
+import '../../widgets/Shimmers/productsByBrandId_shimmer.dart';
 import '../../widgets/product_by_Brand_id_item.dart';
 import 'button_navigation.dart';
 import 'package:get/get.dart';
@@ -66,7 +67,15 @@ class ProductsByBrandId extends StatelessWidget {
                   builder: (context) {
                     return SizedBox(
                       height: Get.height - 400,
-                      child: ListView.builder(
+                      child: productController.loading.value == true
+                      ?ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: 8,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ProductsByBrandIdItemShimmer();
+                        },
+                      )
+                      :ListView.builder(
                         itemCount: productController.products.length,
                         itemBuilder: (BuildContext context, int index) {
                           return ProductByBrandIdItem(

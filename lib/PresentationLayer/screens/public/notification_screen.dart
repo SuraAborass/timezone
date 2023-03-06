@@ -33,16 +33,21 @@ class Notifications extends StatelessWidget {
                 child: pageTitle("Notifications".tr),
               ),
               Padding(padding: const EdgeInsets.only(top: 10, bottom: 10,),
-              child: SizedBox(
-                height: Get.height - 300,
-                child: ListView.builder(
-                  itemCount: backNotificationController.userNotifications.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return NotificationItem(
-                      notification:
-                      backNotificationController.userNotifications[index],
-                    );
-                  },
+              child: RefreshIndicator(
+                onRefresh: () async{
+                  backNotificationController.getBackNotifications();
+                },
+                child: SizedBox(
+                  height: Get.height - 250,
+                  child: ListView.builder(
+                    itemCount: backNotificationController.userNotifications.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return NotificationItem(
+                        notification:
+                        backNotificationController.userNotifications[index],
+                      );
+                    },
+                  ),
                 ),
               ),
         ),

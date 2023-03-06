@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'BusinessLayer/bindings/init_bindings.dart';
 import 'Constants/languages.dart';
 import 'Constants/router.dart';
+import 'DataAccessLayer/Models/user.dart';
 
 
 void main() async {
@@ -15,6 +16,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   static int currentPage = 0;
+  //static User? appUser;
 
   @override
   Widget build(BuildContext context) {

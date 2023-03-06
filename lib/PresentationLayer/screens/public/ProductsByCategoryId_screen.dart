@@ -4,6 +4,7 @@ import 'package:timezone/Constants/font_styles.dart';
 
 import '../../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../../Constants/colors.dart';
+import '../../widgets/Shimmers/productsByCategoryId_shimmer.dart';
 import '../../widgets/product_by_category_item.dart';
 import 'button_navigation.dart';
 
@@ -16,89 +17,99 @@ class ProductsByCategoryId extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.black,
-      bottomNavigationBar: const NavBar(),
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            floating: true,
-            expandedHeight: 300,
-            /* pinned: true, */
-            backgroundColor: AppColors.black,
-            actions: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.shopping_cart,
-                    size: 30,
-                    color: AppColors.white,
-                  ))
-            ],
-            flexibleSpace: FlexibleSpaceBar(
-              background: Stack(
-                alignment: Alignment.topCenter,
-                children: [
-                  Hero(
-                    tag: productController.category.id.toString() +
-                        productController.category.name,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                  productController.category.image),
-                              fit: BoxFit.cover),
-                          borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              bottomRight: Radius.circular(20))),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColors.black,
+        bottomNavigationBar: const NavBar(),
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              floating: true,
+              expandedHeight: 300,
+              /* pinned: true, */
+              backgroundColor: AppColors.black,
+              actions: [
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.shopping_cart,
+                      size: 30,
+                      color: AppColors.white,
+                    ))
+              ],
+              flexibleSpace: FlexibleSpaceBar(
+                background: Stack(
+                  alignment: Alignment.topCenter,
+                  children: [
+                    Hero(
+                      tag: productController.category.id.toString() +
+                          productController.category.name,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    productController.category.image),
+                                fit: BoxFit.cover),
+                            borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20))),
+                      ),
                     ),
-                  ),
-                  Container(
-                    height: 100,
-                    width: Get.width,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [Colors.black, Colors.transparent])),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    child: Container(
-                      height: 50,
+                    Container(
+                      height: 100,
                       width: Get.width,
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter,
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
                               colors: [Colors.black, Colors.transparent])),
                     ),
-                  ),
-                  Positioned(
-                      bottom: 20,
-                      child: Center(
-                        child: Text(
-                          productController.category.name,
-                          style: title.apply(color: Colors.white),
-                        ),
-                      ))
-                ],
+                    Positioned(
+                      bottom: 0,
+                      child: Container(
+                        height: 50,
+                        width: Get.width,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                                colors: [Colors.black, Colors.transparent])),
+                      ),
+                    ),
+                    Positioned(
+                        bottom: 20,
+                        child: Center(
+                          child: Text(
+                            productController.category.name,
+                            style: title.apply(color: Colors.white),
+                          ),
+                        ))
+                  ],
+                ),
               ),
             ),
-          ),
-          GetBuilder(
-              init: productController,
-              builder: (_) {
-                return SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                  childCount: productController.products.length,
-                  (context, index) {
-                    return ProductByCategoryItem(
-                        product: productController.products[index]);
-                  },
-                ));
-              })
-        ],
+            GetBuilder(
+                init: productController,
+                builder: (_) {
+                  return productController.loading.value == true
+                  ?SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        childCount: 5,
+                            (context, index) {
+                          return ProductsByCategoryIdShimmer();
+                        },
+                      ))
+                    :SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                    childCount: productController.products.length,
+                    (context, index) {
+                      return ProductByCategoryItem(
+                          product: productController.products[index]);
+                    },
+                  ));
+                })
+          ],
+        ),
       ),
     );
   }
