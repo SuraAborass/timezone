@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import '../../Constants/font_styles.dart';
 import '../../Constants/routes.dart';
 import '../../DataAccessLayer/Models/category.dart';
+import 'package:get/get.dart';
 
-class TopCategoryItem extends StatelessWidget {
-  const TopCategoryItem({Key? key, required this.category,}) : super(key: key);
+class CategoryItem extends StatelessWidget {
+  const CategoryItem({Key? key,required this.category}) : super(key: key);
   final Category category;
 
   @override
@@ -20,8 +19,8 @@ class TopCategoryItem extends StatelessWidget {
               onTap: () =>
                   Get.toNamed(AppRoutes.category, arguments: [category]),
               child: Container(
-                height: 160,
-                width: 90,
+                height: 120,
+                width: Get.width,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       image: NetworkImage(category.image), fit: BoxFit.cover),
@@ -32,10 +31,10 @@ class TopCategoryItem extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(10.0),
           child: Text(
             category.name,
-            style: bodyBold,
+            style: bodyBold.copyWith(fontSize: 14 ),
           ),
         ),
       ],

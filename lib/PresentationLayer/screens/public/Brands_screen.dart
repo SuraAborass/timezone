@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:timezone/Constants/colors.dart';
-import '../../../BusinessLayer/controllers/top_categories_controller.dart';
-import '../../widgets/Shimmers/category_shimmer.dart';
+import '../../../BusinessLayer/controllers/top_brands_controller.dart';
+import '../../../Constants/colors.dart';
+import '../../widgets/Shimmers/brandDrawer_shimmer.dart';
 import '../../widgets/appbar.dart';
-import '../../widgets/categoryItemFromDrawer.dart';
+import '../../widgets/brandItemFromDrawer.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/page_title.dart';
 import 'button_navigation.dart';
 
 
-class TopCategories extends StatelessWidget {
-   TopCategories({Key? key}) : super(key: key);
-final TopCategoriesController topCategoriesController = Get.find();
+class BrandScreen extends StatelessWidget {
+   BrandScreen({Key? key}) : super(key: key);
+final TopBrandsController topBrandsController = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    print(topCategoriesController.categories);
-    return Directionality(
+    return  Directionality(
         textDirection: Get.locale!.languageCode == "ar"
             ? TextDirection.rtl
             : TextDirection.ltr,
@@ -31,33 +30,34 @@ final TopCategoriesController topCategoriesController = Get.find();
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: pageTitle("Top Categories"),
+                    child: pageTitle("Top Brands"),
                   ),
                   GetBuilder(
-                      init: topCategoriesController,
+                      init: topBrandsController,
                       builder: (context) {
-                        return topCategoriesController.loading.value == true
+                        return topBrandsController.loading.value == true
                             ?SizedBox(
                           height: Get.height - 250,
                           child: GridView.builder(
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,),
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
+                            physics: BouncingScrollPhysics(),
                             scrollDirection: Axis.vertical,
                             itemCount: 10,
                             itemBuilder: (BuildContext context, int index) {
-                              return CategoryShimmerItem();
+                              return BrandShimmer();
                             },
                           ),
                         )
                           :SizedBox(
                           height: Get.height - 250,
                           child: GridView.builder(
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,),
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
                             physics: BouncingScrollPhysics(),
                             scrollDirection: Axis.vertical,
-                            itemCount: topCategoriesController.categories.length,
+                            itemCount: topBrandsController.topBrands.length,
                             itemBuilder: (BuildContext context, int index) {
-                              return CategoryItem(
-                                  category: topCategoriesController.categories[index]);
+                              return BrandItem(
+                                  brand: topBrandsController.topBrands[index]);
                             },
                           ),
                         );

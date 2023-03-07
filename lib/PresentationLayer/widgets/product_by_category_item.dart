@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:timezone/Constants/routes.dart';
 import '../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
@@ -11,6 +10,7 @@ class ProductByCategoryItem extends StatelessWidget {
   ProductByCategoryItem({Key? key,required this.product}) : super(key: key);
   final Product product;
   final ProductsByCategoryController productController = Get.find();
+
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;

@@ -5,7 +5,9 @@ import '../../BusinessLayer/controllers/language_controller.dart';
 import '../../BusinessLayer/controllers/user_controller.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
+import '../screens/public/Brands_screen.dart';
 import '../screens/public/TopCategories_screen.dart';
+import '../screens/public/featuredProducts_screen.dart';
 import '../screens/public/profile_screen.dart';
 
 
@@ -64,14 +66,14 @@ class MyDrawer extends StatelessWidget {
             onTap: () => Get.to(TopCategories()),
           ),
           ListTile(
-            leading: const Icon(Icons.branding_watermark,color: AppColors.white,),
+            leading: const Icon(Icons.stacked_line_chart,color: AppColors.white,),
             title: Text('Top Brands'.tr, style: title.copyWith(fontSize: 14)),
-            onTap: () {},
+            onTap: () => Get.to(BrandScreen()),
           ),
           ListTile(
-            leading: const Icon(Icons.featured_play_list,color: AppColors.white,),
+            leading: const Icon(Icons.star,color: AppColors.white,),
             title: Text('Featured Products'.tr, style: title.copyWith(fontSize: 14)),
-            onTap: () {},
+            onTap: () => Get.to(FeaturedProducts())
           ),
           ListTile(
             leading: const Icon(Icons.language,color: AppColors.white),

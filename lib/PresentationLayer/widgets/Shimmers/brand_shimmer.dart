@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:timezone/PresentationLayer/widgets/Shimmers/shimmer.dart';
-
 import '../../../Constants/colors.dart';
 
 class BrandShimmerItem extends StatelessWidget {

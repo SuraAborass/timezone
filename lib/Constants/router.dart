@@ -7,7 +7,6 @@ import '../PresentationLayer/screens/public/ProductsByBrandId_screen.dart';
 import '../PresentationLayer/screens/public/ProductsByCategoryId_screen.dart';
 import '../PresentationLayer/screens/public/home_screen.dart';
 import '../PresentationLayer/screens/public/notification_screen.dart';
-import '../PresentationLayer/screens/public/product_screen.dart';
 import '../PresentationLayer/screens/public/splash_screen.dart';
 
 List<GetPage<dynamic>> router = [
