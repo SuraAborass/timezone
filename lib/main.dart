@@ -6,16 +6,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'BusinessLayer/bindings/init_bindings.dart';
 import 'Constants/languages.dart';
 import 'Constants/router.dart';
+import 'PresentationLayer/widgets/snackbars.dart';
 
-// const AndroidNotificationChannel channel = AndroidNotificationChannel(
-//     'importance-channel',
-//     'high importance notifications',
-//     description: 'this channel is used for importance notifications',
-//     importance: Importance.high,
-//     playSound: true);
-//
-// final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-// FlutterLocalNotificationsPlugin();
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async{
   await Firebase.initializeApp();
@@ -27,40 +19,6 @@ void main() async {
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   await GetStorage.init();
-  //
-  // await flutterLocalNotificationsPlugin
-  //     .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
-  //     ?.createNotificationChannel(channel);
-  //
-  // await FirebaseMessaging.instance
-  //     .setForegroundNotificationPresentationOptions(
-  //     alert: true,
-  //     badge: true,
-  //     sound: true
-  // );
-  // FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-  //   print('Anew Message was published');
-  //   RemoteNotification? notification = message.notification;
-  //   AndroidNotification? android = message.notification?.android;
-  // });
-  // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-  //   RemoteNotification? notification = message.notification;
-  //   AndroidNotification? android = message.notification?.android;
-  //   if(notification !=null && android != null ){
-  //     flutterLocalNotificationsPlugin.show(
-  //         notification.hashCode,
-  //         notification.title,
-  //         notification.body,
-  //         NotificationDetails(
-  //           android: AndroidNotificationDetails(
-  //               channel.id,
-  //               channel.name,
-  //               playSound: true,
-  //               channelDescription: channel.description,
-  //               color: BrainColors.primary,
-  //               icon: '@mipmap/launcher_icon'),));
-  //   }
-  // });
   runApp(const MyApp());
 }
 
