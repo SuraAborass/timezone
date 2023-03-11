@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../Constants/colors.dart';
 import 'package:get/get.dart';
-import '../screens/public/my_bag.dart';
+import 'package:timezone/Constants/routes.dart';
 
-
+import '../../Constants/colors.dart';
 
 PreferredSizeWidget myAppBar(BuildContext context) {
   return AppBar(
@@ -20,7 +19,8 @@ PreferredSizeWidget myAppBar(BuildContext context) {
             color: AppColors.yellow,
           ));
     }),
-    title: Image.asset('assets/images/logo-gold.png',
+    title: Image.asset(
+      'assets/images/logo-gold.png',
       height: 22,
       width: 119,
       alignment: Alignment.topLeft,
@@ -28,7 +28,7 @@ PreferredSizeWidget myAppBar(BuildContext context) {
     centerTitle: true,
     actions: [
       IconButton(
-          onPressed: () => Get.to(const MyBag()),
+          onPressed: () => Get.toNamed(AppRoutes.myBag),
           icon: const Icon(
             Icons.shopping_cart,
             size: 30,

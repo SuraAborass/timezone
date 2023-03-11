@@ -1,45 +1,43 @@
 import 'package:get/get.dart';
 import 'package:timezone/Constants/routes.dart';
+import 'package:timezone/PresentationLayer/screens/public/my_bag.dart';
+
 import '../BusinessLayer/bindings/home_bindings.dart';
 import '../BusinessLayer/bindings/init_bindings.dart';
 import '../PresentationLayer/screens/auth/login_screen.dart';
-import '../PresentationLayer/screens/public/ProductsByBrandId_screen.dart';
-import '../PresentationLayer/screens/public/ProductsByCategoryId_screen.dart';
+import '../PresentationLayer/screens/public/brand_screen.dart';
+import '../PresentationLayer/screens/public/category_screen.dart';
 import '../PresentationLayer/screens/public/home_screen.dart';
 import '../PresentationLayer/screens/public/notification_screen.dart';
-import '../PresentationLayer/screens/public/product_screen.dart';
 import '../PresentationLayer/screens/public/splash_screen.dart';
 
 List<GetPage<dynamic>> router = [
   GetPage(
     name: AppRoutes.splashScreen,
-    page: () =>  SplashScreen(),
+    page: () => SplashScreen(),
   ),
-
   GetPage(
       name: AppRoutes.loginPage,
-      page: () =>  LoginScreen(),
-      binding: InitBinding()
-  ),
-
+      page: () => LoginScreen(),
+      binding: InitBinding()),
   GetPage(
       name: AppRoutes.homepage,
-      page: () =>  const MyHomePage(),
-      binding: HomeBinding()
+      page: () => const MyHomePage(),
+      binding: HomeBinding()),
+  GetPage(
+    name: AppRoutes.notifications,
+    page: () => Notifications(),
   ),
   GetPage(
-      name: AppRoutes.notifications,
-      page: () => Notifications(),
-      binding: HomeBinding()
+    name: AppRoutes.category,
+    page: () => ProductsByCategoryId(),
   ),
   GetPage(
-      name: AppRoutes.category,
-      page: () => ProductsByCategoryId(),
-      binding: HomeBinding()
+    name: AppRoutes.brand,
+    page: () => ProductsByBrandId(),
   ),
   GetPage(
-      name: AppRoutes.brand,
-      page: () => ProductsByBrandId(),
-      binding: HomeBinding()
+    name: AppRoutes.myBag,
+    page: () => MyBag(),
   ),
 ];

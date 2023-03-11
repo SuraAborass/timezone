@@ -4,20 +4,23 @@ import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 
 class TZTextForm extends StatelessWidget {
-  const TZTextForm(
+  TZTextForm(
       {super.key,
       required this.hint,
       required this.obsecure,
-      required this.controller});
+      required this.controller,
+      this.type = TextInputType.text});
   final TextEditingController controller;
 
   final String hint;
   final bool obsecure;
+  final TextInputType type;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       style: mediumNormal,
       controller: controller,
+      keyboardType: type,
       decoration: InputDecoration(
         filled: true,
         fillColor: AppColors.lightblack,

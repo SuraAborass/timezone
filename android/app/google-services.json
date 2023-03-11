@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "348986652345",
+    "project_id": "timezonetz-5fc82",
+    "storage_bucket": "timezonetz-5fc82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348986652345:android:2e3f1df9d1720e55684d68",
+        "android_client_info": {
+          "package_name": "com.example.timezone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348986652345-q56qn0hf83hk1e6k8ln54866rlgsi7qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy0ilfjkAkTXZm014OeTLPnxEI07BG0Kc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348986652345-q56qn0hf83hk1e6k8ln54866rlgsi7qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

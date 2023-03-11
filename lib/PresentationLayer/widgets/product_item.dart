@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
 
-import '../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 import '../../DataAccessLayer/Models/product.dart';
 import '../screens/public/product_screen.dart';
 
-class ProductByCategoryItem extends StatelessWidget {
-  ProductByCategoryItem({Key? key, required this.product}) : super(key: key);
+class ProductItem extends StatelessWidget {
+  ProductItem({Key? key, required this.product, required this.cartController})
+      : super(key: key);
   final Product product;
-  final ProductsByCategoryController productController = Get.find();
+
+  final CartController cartController;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +21,7 @@ class ProductByCategoryItem extends StatelessWidget {
           color: AppColors.lightblack,
           borderRadius: BorderRadius.all(Radius.circular(10.0))),
       height: 100,
-      width: Get.width,
+      width: 100,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -35,7 +37,7 @@ class ProductByCategoryItem extends StatelessWidget {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: NetworkImage(product.images[0]),
-                          fit: BoxFit.cover),
+                          fit: BoxFit.contain),
                       color: AppColors.white,
                       borderRadius:
                           const BorderRadius.all(Radius.circular(10.0))),
@@ -81,20 +83,16 @@ class ProductByCategoryItem extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 1,
-            child: Column(
-              children: const [
-                SizedBox(
-                  height: 60,
-                ),
-                Icon(
-                  Icons.add_shopping_cart,
-                  color: AppColors.white,
-                  size: 30,
-                ),
-              ],
-            ),
-          )
+              flex: 1,
+              child: IconButton(
+                  onPressed: () async {
+                    await cartController.addToCart(product);
+                  },
+                  icon: const Icon(
+                    Icons.add_shopping_cart,
+                    color: AppColors.white,
+                    size: 30,
+                  )))
         ],
       ),
     );

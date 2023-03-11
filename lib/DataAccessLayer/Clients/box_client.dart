@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:get_storage/get_storage.dart';
+import 'package:timezone/DataAccessLayer/Models/cart_product.dart';
 
 import '../Models/user.dart';
 
@@ -25,5 +28,24 @@ class BoxClient {
   Future<void> removeUserData() async {
     await box.remove('authed');
     await box.remove('userdata');
+  }
+
+  Future<List<CartProdcut>> getCartItems() async {
+    var cartItems = await box.read('cart_items');
+    if (cartItems != null) {
+      final data =
+          json.decode(jsonEncode(cartItems)).cast<Map<String, dynamic>>();
+      return data
+          .map<CartProdcut>((json) => CartProdcut.fromMap(json))
+          .toList();
+    }
+
+    return [];
+  }
+
+  Future<void> AddToCart(List<CartProdcut> cartproducts) async {
+    await box.remove('cart_items');
+    var map = cartproducts.map((e) => e.toMap());
+    await box.write('cart_items', map.toList());
   }
 }

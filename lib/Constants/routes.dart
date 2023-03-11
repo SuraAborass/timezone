@@ -8,5 +8,6 @@ class AppRoutes{
   static const myBag = "/homepage/myBag";
   static const category = "/homepage/category";
   static const brand = "/homepage/brand";
+  static const featuredProduct = "/homepage/featuredProduct";
   //static const product = "/homepage/ProductScreen";
 }

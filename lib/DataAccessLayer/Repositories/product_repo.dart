@@ -1,7 +1,7 @@
 import 'dart:convert';
+
 import '../Clients/product_client.dart';
 import '../Models/product.dart';
-
 
 class ProductRepo {
   ProductClient client = ProductClient();
@@ -9,9 +9,16 @@ class ProductRepo {
     var response = await client.getProduct();
     if (response != "") {
       final data = json.decode(response).cast<Map<String, dynamic>>();
-      return data.map<Product>((json) => Product.fromMap(json))
-          .toList();
+      return data.map<Product>((json) => Product.fromMap(json)).toList();
+    }
+    return [];
+  }
 
+  Future<List<Product>> productsByIds(ids) async {
+    var response = await client.getProductsByIds(ids);
+    if (response != "") {
+      final data = json.decode(response).cast<Map<String, dynamic>>();
+      return data.map<Product>((json) => Product.fromMap(json)).toList();
     }
     return [];
   }

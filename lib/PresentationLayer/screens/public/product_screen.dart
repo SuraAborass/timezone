@@ -56,9 +56,10 @@ class ProductScreen extends StatelessWidget {
                   tag: product.id.toString() + product.name,
                   child: Container(
                     decoration: BoxDecoration(
+                        color: Colors.white,
                         image: DecorationImage(
                             image: NetworkImage(product.images[0]),
-                            fit: BoxFit.cover),
+                            fit: BoxFit.contain),
                         borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20))),
@@ -223,7 +224,7 @@ class ProductScreen extends StatelessWidget {
                         ),
                         Expanded(
                             child: Text(
-                          product.reference_number,
+                          product.name,
                           style: title8.copyWith(
                               fontSize: 15, fontWeight: FontWeight.normal),
                         ))
