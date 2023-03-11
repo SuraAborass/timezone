@@ -173,32 +173,33 @@ class ProductScreen extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              Container(
-                height: 50,
-                width: deviceSize.width,
-                color: AppColors.lightgrey,
-                child: Row(
-                  children: [
-                    Container(
-                      height: 50,
-                      width: 15,
-                      color: AppColors.yellow,
-                    ),
-                    Expanded(
-                        child: Row(
-                      children: [
-                        const Text("   Brand :  ",
-                            style: title, textAlign: TextAlign.start),
-                        Text(
-                          product.brand,
-                          style: title8.copyWith(
-                              fontSize: 15, fontWeight: FontWeight.normal),
-                        )
-                      ],
-                    ))
-                  ],
+              if (product.brand != "")
+                Container(
+                  height: 50,
+                  width: deviceSize.width,
+                  color: AppColors.lightgrey,
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 15,
+                        color: AppColors.yellow,
+                      ),
+                      Expanded(
+                          child: Row(
+                        children: [
+                          const Text("   Brand :  ",
+                              style: title, textAlign: TextAlign.start),
+                          Text(
+                            product.brand,
+                            style: title8.copyWith(
+                                fontSize: 15, fontWeight: FontWeight.normal),
+                          )
+                        ],
+                      ))
+                    ],
+                  ),
                 ),
-              ),
               const SizedBox(
                 height: 15,
               ),
