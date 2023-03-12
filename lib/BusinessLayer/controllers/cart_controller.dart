@@ -8,6 +8,8 @@ import 'package:timezone/DataAccessLayer/Models/product.dart';
 import 'package:timezone/DataAccessLayer/Repositories/product_repo.dart';
 import 'package:timezone/PresentationLayer/widgets/TZTextForm.dart';
 
+import '../../PresentationLayer/widgets/snackbars.dart';
+
 class CartController extends GetxController {
   ProductRepo productRepo = ProductRepo();
   BoxClient boxClient = BoxClient();
@@ -70,6 +72,7 @@ class CartController extends GetxController {
     adding.value = false;
     await syncCarts();
     update();
+    SnackBars.showSuccess("Added Successfull");
   }
 
   void showEditDialog(index, oldvalue) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../BusinessLayer/controllers/favourite_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../widgets/appbar.dart';
@@ -9,12 +10,11 @@ import '../../widgets/page_title.dart';
 import 'button_navigation.dart';
 
 class Favorites extends StatelessWidget {
-   Favorites({Key? key}) : super(key: key);
+  Favorites({Key? key}) : super(key: key);
   final FavouriteController favouriteController = Get.find();
 
   @override
   Widget build(BuildContext context) {
-
     return Directionality(
       textDirection: Get.locale!.languageCode == "ar"
           ? TextDirection.rtl
@@ -30,29 +30,39 @@ class Favorites extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(padding: const EdgeInsets.all(8.0),
-                child:Column(
-                  children:
-                      [
-                         Padding(
-                           padding: const EdgeInsets.all(8.0),
-                           child: pageTitle("Favorites".tr),
-                         ),
-                        Padding(padding: const EdgeInsets.only(top: 10, bottom: 10,),
-                          child: SizedBox(
-                            height: Get.height - 300,
-                            child: ListView.builder(
-                              itemCount: favouriteController.userFavourites.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return FavoriteItem(
-                                  favourite: favouriteController.userFavourites[index],
-                                );
-                              },
-                            ),
-                          ),
+                Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: pageTitle("Favorites".tr),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 10,
+                          bottom: 10,
                         ),
-                  ])
-                ),
+                        child: GetBuilder(
+                            init: favouriteController,
+                            builder: (context) {
+                              return SizedBox(
+                                height: Get.height - 300,
+                                child: ListView.builder(
+                                  itemCount: favouriteController
+                                      .favoritesProducts.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return FavoriteItem(
+                                      favourite: favouriteController
+                                          .favoritesProducts[index],
+                                      favouriteController: favouriteController,
+                                    );
+                                  },
+                                ),
+                              );
+                            }),
+                      ),
+                    ])),
               ],
             ),
           ),

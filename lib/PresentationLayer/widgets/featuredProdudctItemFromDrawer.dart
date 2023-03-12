@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezone/Constants/routes.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 import '../../DataAccessLayer/Models/product.dart';
@@ -25,7 +26,7 @@ final Product featuredProduct;
           Expanded(
             flex: 2,
             child: InkWell(
-              onTap: ()=> Get.to(ProductScreen(product: featuredProduct,)),
+              onTap: ()=> Get.toNamed(AppRoutes.productScreen,arguments: [featuredProduct]),
               child: Hero(tag: "product",
                 child: Container(
                   decoration: BoxDecoration(

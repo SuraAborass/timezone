@@ -1,33 +1,33 @@
-import 'dart:convert';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'package:timezone/DataAccessLayer/Models/product.dart';
 
-
 class Favourite {
-  final int id;
-  final Product product;
-
+  final int productId;
+  Product? product;
   Favourite({
-    required this.id,
-    required this.product,
+    required this.productId,
   });
 
+  Favourite copyWith({
+    int? id,
+    int? productId,
+    Product? product,
+  }) {
+    return Favourite(
+      productId: productId ?? this.productId,
+    );
+  }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'id' : id,
-      'product': product,
+      'productId': productId,
     };
   }
 
   factory Favourite.fromMap(Map<String, dynamic> map) {
     return Favourite(
-        id: map['id'] as int,
-        product: Product.fromMap(map['product']),
+      productId: map['productId'] as int,
     );
   }
-
-
-  String toJson() => json.encode(toMap());
-  factory Favourite.fromJson(String source) =>
-      Favourite.fromMap(json.decode(source) as Map<String, dynamic>);
 }

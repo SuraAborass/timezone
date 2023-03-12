@@ -14,7 +14,15 @@ class ProductClient {
       return "";
     }
   }
-
+ Future<dynamic> getFeatured() async {
+    var response = await http.get(Uri.parse(baseLink + "featureProducts"));
+    print(response.body);
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      return "";
+    }
+  }
   Future<dynamic> getProductsByIds(ids) async {
     var response = await http.post(Uri.parse(baseLink + productsByIdLink),
         body: jsonEncode(<String, dynamic>{"ids": ids}),

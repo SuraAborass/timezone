@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
 
 import '../../../BusinessLayer/controllers/favourite_controller.dart';
 import '../../../Constants/colors.dart';
@@ -7,10 +8,10 @@ import '../../../Constants/font_styles.dart';
 import '../../../DataAccessLayer/Models/product.dart';
 
 class ProductScreen extends StatelessWidget {
-  ProductScreen({Key? key, required this.product}) : super(key: key);
-  final Product product;
+  ProductScreen({Key? key}) : super(key: key);
+  final Product product = Get.arguments[0];
   final FavouriteController favouriteController = Get.find();
-
+  final CartController cartController = Get.find();
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -22,15 +23,21 @@ class ProductScreen extends StatelessWidget {
         backgroundColor: AppColors.black,
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: MaterialButton(
-            onPressed: () {},
-            height: 56,
-            minWidth: deviceSize.width,
-            color: AppColors.yellow,
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(20.0))),
-            child: const Text('Add to cart', style: titleCopy),
-          ),
+          child: GetBuilder(
+              init: cartController,
+              builder: (context) {
+                return MaterialButton(
+                  onPressed: () async {
+                    cartController.addToCart(product);
+                  },
+                  height: 56,
+                  minWidth: deviceSize.width,
+                  color: AppColors.yellow,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: const Text('Add to cart', style: titleCopy),
+                );
+              }),
         ),
         body: CustomScrollView(
           slivers: [
@@ -41,9 +48,7 @@ class ProductScreen extends StatelessWidget {
               backgroundColor: AppColors.black,
               actions: [
                 IconButton(
-                    onPressed: () {
-                      favouriteController.addToFavouriteList(product);
-                    },
+                    onPressed: () {},
                     icon: const Icon(
                       Icons.shopping_cart,
                       size: 30,
@@ -72,7 +77,36 @@ class ProductScreen extends StatelessWidget {
                           colors: [Colors.black45, Colors.transparent],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter)),
-                )
+                ),
+                Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                colors: [Colors.black45, Colors.transparent],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter)))),
+                GetBuilder(
+                    init: favouriteController,
+                    builder: (context) {
+                      return Positioned(
+                          bottom: 15,
+                          right: 15,
+                          child: IconButton(
+                            onPressed: () {
+                              favouriteController.toggleFavorite(product);
+                            },
+                            icon: Icon(
+                              favouriteController.checkFavorite(product)
+                                  ? Icons.favorite_outline
+                                  : Icons.favorite,
+                              color: AppColors.yellow,
+                              size: 40,
+                            ),
+                          ));
+                    }),
               ])),
             ),
             SliverList(
@@ -141,13 +175,6 @@ class ProductScreen extends StatelessWidget {
                         color: AppColors.yellow,
                       ),
                       Spacer(),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.favorite_outline,
-                          color: AppColors.white,
-                        ),
-                      )
                     ],
                   )),
               Padding(

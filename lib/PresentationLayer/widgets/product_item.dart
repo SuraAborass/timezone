@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
+import 'package:timezone/Constants/routes.dart';
 
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 import '../../DataAccessLayer/Models/product.dart';
-import '../screens/public/product_screen.dart';
 
 class ProductItem extends StatelessWidget {
   ProductItem({Key? key, required this.product, required this.cartController})
@@ -28,9 +28,7 @@ class ProductItem extends StatelessWidget {
           Expanded(
             flex: 2,
             child: InkWell(
-              onTap: () => Get.to(ProductScreen(
-                product: product,
-              )),
+              onTap: () => Get.toNamed(AppRoutes.productScreen,arguments: [product]),
               child: Hero(
                 tag: product.id.toString() + product.name,
                 child: Container(

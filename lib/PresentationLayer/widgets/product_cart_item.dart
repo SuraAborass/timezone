@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
+import 'package:timezone/Constants/routes.dart';
 
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
@@ -34,9 +35,7 @@ class ProductCartItem extends StatelessWidget {
           Expanded(
             flex: 2,
             child: InkWell(
-              onTap: () => Get.to(ProductScreen(
-                product: product,
-              )),
+              onTap: () => Get.toNamed(AppRoutes.productScreen,arguments: [product]),
               child: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(

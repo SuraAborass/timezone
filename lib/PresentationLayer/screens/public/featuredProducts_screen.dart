@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../BusinessLayer/controllers/featured_product_controller.dart';
+
+import '../../../BusinessLayer/controllers/products_controller.dart';
 import '../../../Constants/colors.dart';
-import '../../widgets/Shimmers/featured_products_shimmer.dart';
 import '../../widgets/Shimmers/productsByBrandId_shimmer.dart';
-import '../../widgets/Shimmers/productsByCategoryId_shimmer.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/featuredProdudctItemFromDrawer.dart';
 import '../../widgets/page_title.dart';
-import '../../widgets/product_by_Brand_id_item.dart';
-import '../../widgets/product_item.dart';
 import 'button_navigation.dart';
 
 class FeaturedProducts extends StatelessWidget {
-   FeaturedProducts({Key? key,}) : super(key: key);
-final FeaturedProductsController featuredProductsController = Get.find();
+  FeaturedProducts({
+    Key? key,
+  }) : super(key: key);
+  final ProductsController productsController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -36,29 +35,33 @@ final FeaturedProductsController featuredProductsController = Get.find();
                     child: pageTitle("Featured Products"),
                   ),
                   GetBuilder(
-                      init: featuredProductsController,
+                      init: productsController,
                       builder: (context) {
-                        return featuredProductsController.loading.value == true
-                            ?SizedBox(
-                          height: Get.height-250,
-                              child: ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          itemCount: 8,
-                          itemBuilder: (BuildContext context, int index) {
-                              return ProductsByBrandIdItemShimmer();
-                          },
-                        ),
-                            )
-                            :SizedBox(
-                          height: Get.height-250,
-                              child: ListView.builder(
-                          itemCount: featuredProductsController.featuredProducts.length,
-                          itemBuilder: (BuildContext context, int index) {
-                              return featuredProductItem(
-                                  featuredProduct: featuredProductsController.featuredProducts[index]);
-                          }
-                        ),
-                            );
+                        return productsController.loading.value == true
+                            ? SizedBox(
+                                height: Get.height - 250,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: 8,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return ProductsByBrandIdItemShimmer();
+                                  },
+                                ),
+                              )
+                            : SizedBox(
+                                height: Get.height - 250,
+                                child: ListView.builder(
+                                    itemCount: productsController
+                                        .featuredProducts.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return featuredProductItem(
+                                          featuredProduct:
+                                              productsController
+                                                  .featuredProducts[index]);
+                                    }),
+                              );
                       }),
                 ],
               ),

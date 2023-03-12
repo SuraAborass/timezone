@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezone/Constants/routes.dart';
 import '../../BusinessLayer/controllers/ProductsByBrandId_controller.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
@@ -27,8 +28,8 @@ class ProductByBrandIdItem extends StatelessWidget {
           Expanded(
             flex: 2,
             child: InkWell(
-              onTap: ()=> Get.to(ProductScreen(product: product,)),
-              child: Hero(tag: "product",
+              onTap: ()=> Get.toNamed(AppRoutes.productScreen,arguments: [product]),
+              child: Hero(tag: product.id.toString() + product.name,
                 child: Container(
                   decoration: BoxDecoration(
                       image: DecorationImage(image: NetworkImage(product.images[0]),

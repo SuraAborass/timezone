@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get_storage/get_storage.dart';
 import 'package:timezone/DataAccessLayer/Models/cart_product.dart';
+import 'package:timezone/DataAccessLayer/Models/favourite.dart';
 
 import '../Models/user.dart';
 
@@ -47,5 +48,22 @@ class BoxClient {
     await box.remove('cart_items');
     var map = cartproducts.map((e) => e.toMap());
     await box.write('cart_items', map.toList());
+  }
+
+  Future<List<Favourite>> getFavorites() async {
+    var favoriteItems = await box.read('favorites');
+    if (favoriteItems != null) {
+      final data =
+          json.decode(jsonEncode(favoriteItems)).cast<Map<String, dynamic>>();
+      return data.map<Favourite>((json) => Favourite.fromMap(json)).toList();
+    }
+
+    return [];
+  }
+
+  Future<void> AddToFavorite(List<Favourite> cartproducts) async {
+    await box.remove('favorites');
+    var map = cartproducts.map((e) => e.toMap());
+    await box.write('favorites', map.toList());
   }
 }

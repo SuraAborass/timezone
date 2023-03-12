@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:timezone/Constants/routes.dart';
 import 'package:timezone/PresentationLayer/screens/public/my_bag.dart';
+import 'package:timezone/PresentationLayer/screens/public/product_screen.dart';
 
 import '../BusinessLayer/bindings/home_bindings.dart';
 import '../BusinessLayer/bindings/init_bindings.dart';
@@ -40,4 +41,10 @@ List<GetPage<dynamic>> router = [
     name: AppRoutes.myBag,
     page: () => MyBag(),
   ),
+GetPage(
+    name: AppRoutes.productScreen,
+    page: () => ProductScreen(),
+  ),
+
+
 ];

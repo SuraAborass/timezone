@@ -1,4 +1,4 @@
-class AppRoutes{
+class AppRoutes {
   static const splashScreen = "/";
   static const homepage = "/homepage";
   static const loginPage = "/login";
@@ -9,5 +9,6 @@ class AppRoutes{
   static const category = "/homepage/category";
   static const brand = "/homepage/brand";
   static const featuredProduct = "/homepage/featuredProduct";
-  //static const product = "/homepage/ProductScreen";
+
+  static const productScreen = "/homepage/ProductScreen";
 }
