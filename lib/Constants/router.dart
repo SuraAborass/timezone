@@ -6,6 +6,7 @@ import 'package:timezone/PresentationLayer/screens/public/product_screen.dart';
 import '../BusinessLayer/bindings/home_bindings.dart';
 import '../BusinessLayer/bindings/init_bindings.dart';
 import '../PresentationLayer/screens/auth/login_screen.dart';
+import '../PresentationLayer/screens/auth/signup_screen.dart';
 import '../PresentationLayer/screens/public/brand_screen.dart';
 import '../PresentationLayer/screens/public/category_screen.dart';
 import '../PresentationLayer/screens/public/home_screen.dart';
@@ -20,6 +21,10 @@ List<GetPage<dynamic>> router = [
   GetPage(
       name: AppRoutes.loginPage,
       page: () => LoginScreen(),
+      binding: InitBinding()),
+  GetPage(
+      name: AppRoutes.register,
+      page: () => Register(),
       binding: InitBinding()),
   GetPage(
       name: AppRoutes.homepage,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/PresentationLayer/widgets/TZTextForm.dart';
-
 import '../../../BusinessLayer/controllers/profile _controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
@@ -74,7 +73,7 @@ class Profile extends StatelessWidget {
                 TZTextForm(
                     hint: 'Enter Your Address'.tr,
                     obsecure: false,
-                    controller: _profileController.adressController),
+                    controller: _profileController.addressController),
                 const SizedBox(
                   height: 30,
                 ),

@@ -13,7 +13,7 @@ class SplashController extends GetxController {
       ;
     } else {
       Future.delayed(const Duration(seconds: 3))
-          .then((value) => Get.toNamed(AppRoutes.loginPage));
+          .then((value) => Get.toNamed(AppRoutes.register));
     }
     super.onReady();
   }

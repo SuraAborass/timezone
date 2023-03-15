@@ -2,11 +2,11 @@
 
 import 'package:timezone/DataAccessLayer/Models/product.dart';
 
-class CartProdcut {
+class CartProduct {
   int productId;
   num qty;
   Product? product;
-  CartProdcut({
+  CartProduct({
     required this.productId,
     required this.qty,
   });
@@ -18,8 +18,8 @@ class CartProdcut {
     };
   }
 
-  factory CartProdcut.fromMap(Map<String, dynamic> map) {
-    return CartProdcut(
+  factory CartProduct.fromMap(Map<String, dynamic> map) {
+    return CartProduct(
       productId: map['productId'] as int,
       qty: map['qty'] as num,
     );

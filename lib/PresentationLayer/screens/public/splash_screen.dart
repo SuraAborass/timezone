@@ -8,10 +8,7 @@ import '../../../Constants/colors.dart';
 class SplashScreen extends StatelessWidget {
   SplashScreen({super.key});
 final SplashController splashController = Get.put(SplashController());
-  /*final timer = Timer(
-      const Duration(seconds: 3),
-          ()=> Get.to(const LoginScreen())
-  );*/
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

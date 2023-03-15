@@ -12,7 +12,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final deviceSize = MediaQuery.of(context).size;
     return Directionality(
       textDirection: Get.locale!.languageCode == "ar"
           ? TextDirection.rtl
@@ -117,7 +116,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     MaterialButton(
                       height: 56,
-                      minWidth: deviceSize.width,
+                      minWidth: Get.width,
                       color: AppColors.yellow,
                       shape: const RoundedRectangleBorder(
                           borderRadius:
@@ -142,7 +141,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     MaterialButton(
                       height: 56,
-                      minWidth: deviceSize.width,
+                      minWidth: Get.width,
                       color: AppColors.white,
                       shape: const RoundedRectangleBorder(
                           borderRadius:
@@ -169,7 +168,7 @@ class LoginScreen extends StatelessWidget {
                         Text('Don\'t Have an Account?'.tr, style: title1),
                         InkWell(
                           onTap: () {
-                            Get.to(const Register());
+                            Get.to(Register());
                           },
                           child: Text(' Create One'.tr, style: title2),
                         ),
