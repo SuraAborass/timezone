@@ -40,7 +40,7 @@ final RegisterController registerController = Get.put(RegisterController());
                   ),
                   const SizedBox(height: 50),
                   TextFormField(
-                    style: title1.apply(color: Colors.white),
+                    style: mediumNormal,
                     controller: registerController.nameController,
                     decoration: InputDecoration(
                       filled: true,
@@ -62,7 +62,7 @@ final RegisterController registerController = Get.put(RegisterController());
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
-                    style: title1.apply(color: Colors.white),
+                    style: mediumNormal,
                     controller: registerController.emailController,
                     decoration: InputDecoration(
                       filled: true,
@@ -85,8 +85,13 @@ final RegisterController registerController = Get.put(RegisterController());
                   const SizedBox(height: 20),
                   Obx(() {
                   return TextFormField(
-                    style: title1.apply(color: Colors.white),
+                    style: mediumNormal,
                     controller: registerController.passwordController,
+                    validator: (val){
+                      if(val!.isEmpty)
+                        return 'Password is required';
+                      return null;
+                    },
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: AppColors.lightblack,
@@ -116,8 +121,15 @@ final RegisterController registerController = Get.put(RegisterController());
                   const SizedBox(height: 20),
                   Obx(() {
                   return TextFormField(
-                    style: title1.apply(color: Colors.white),
-                    controller: registerController.passwordController,
+                    style: mediumNormal ,
+                    controller: registerController.confirmPasswordController,
+                    validator: (value){
+                      if(value!.isEmpty)
+                        return 'Please retype your password';
+                      if(value != registerController.passwordController.text)
+                        return 'Not Match';
+                      return null;
+                    },
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: AppColors.lightblack ,

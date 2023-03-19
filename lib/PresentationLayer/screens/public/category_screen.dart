@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
 import 'package:timezone/Constants/font_styles.dart';
-
 import '../../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../../Constants/colors.dart';
-import '../../widgets/Shimmers/productsByCategoryId_shimmer.dart';
+import '../../widgets/Shimmers/products_shimmer.dart';
 import '../../widgets/product_item.dart';
 import 'button_navigation.dart';
 
@@ -97,7 +96,7 @@ class ProductsByCategoryId extends StatelessWidget {
                           delegate: SliverChildBuilderDelegate(
                           childCount: 5,
                           (context, index) {
-                            return ProductsByCategoryIdShimmer();
+                            return ProductsShimmer();
                           },
                         ))
                       : SliverList(

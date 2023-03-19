@@ -9,6 +9,8 @@ class RegisterController extends GetxController{
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
   var passwordVisible = false.obs;
   var sending = false.obs;
   final UserController userController = Get.find();

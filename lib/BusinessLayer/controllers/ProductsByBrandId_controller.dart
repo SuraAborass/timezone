@@ -10,7 +10,8 @@ class ProductsByBrandIdController extends GetxController{
   ProductsByBrandRepo repo = ProductsByBrandRepo();
   Product? product;
   List<Product> products = [];
-  final Brand brand;
+
+  Brand brand;
   ProductsByBrandIdController(this.brand);
   var loading = false.obs;
 

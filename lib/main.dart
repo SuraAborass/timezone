@@ -7,11 +7,15 @@ import 'BusinessLayer/bindings/init_bindings.dart';
 import 'Constants/languages.dart';
 import 'Constants/router.dart';
 
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async{
+  await Firebase.initializeApp();
+  print('message shows up : ${message.messageId}');
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  /* FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler); */
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   await GetStorage.init();
   runApp(const MyApp());
 }
@@ -24,9 +28,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      translations: Languages(),
-      locale: Get.deviceLocale,
-      fallbackLocale: const Locale.fromSubtags(languageCode: "ar"),
+      // translations: Languages(),
+      // locale: Get.deviceLocale,
+      // fallbackLocale: const Locale.fromSubtags(languageCode: "ar"),
       initialBinding: InitBinding(),
       getPages: router,
     );

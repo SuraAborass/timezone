@@ -11,8 +11,8 @@ class ProductItem extends StatelessWidget {
   ProductItem({Key? key, required this.product, required this.cartController})
       : super(key: key);
   final Product product;
-
   final CartController cartController;
+
   @override
   Widget build(BuildContext context) {
     return Container(

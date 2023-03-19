@@ -4,8 +4,8 @@ import 'package:timezone/PresentationLayer/widgets/Shimmers/shimmer.dart';
 import '../../../Constants/colors.dart';
 
 
-class ProductsByBrandIdItemShimmer extends StatelessWidget {
-  const ProductsByBrandIdItemShimmer({Key? key}) : super(key: key);
+class ProductsShimmer extends StatelessWidget {
+  const ProductsShimmer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
