@@ -3,7 +3,7 @@ import 'dart:convert';
 
 class Data {
   final String type;
-  final String additional;
+  final dynamic additional;
 
 
   Data({
@@ -21,7 +21,7 @@ class Data {
   factory Data.fromMap(Map<String, dynamic> map) {
     return Data(
         type: map['type'] as String,
-        additional: map['additional'] as String
+        additional: map['additional']
         );
   }
 

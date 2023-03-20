@@ -7,6 +7,7 @@ import '../../DataAccessLayer/Models/notification.dart';
 class NotificationItem extends StatelessWidget {
   const NotificationItem({Key? key,required this.notification}) : super(key: key);
   final UserNotification notification;
+
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -27,7 +28,7 @@ class NotificationItem extends StatelessWidget {
                 decoration: const BoxDecoration(color: AppColors.lightblack,
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   image: DecorationImage(image:
-                           AssetImage('assets/images/Image 6.png'),fit: BoxFit.cover),),
+                           AssetImage('assets/images/notification-icon-png-9.png'),fit: BoxFit.cover),),
               ),
             ),
              Expanded(
@@ -39,7 +40,7 @@ class NotificationItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                     children:[
                      Text(notification.title,style: title6.copyWith(fontWeight: FontWeight.normal,fontSize: 18),),
-                     Text(notification.description, style: title6.copyWith(fontWeight: FontWeight.normal,fontSize: 18)),
+                     Text(notification.subtitle, style: title6.copyWith(fontWeight: FontWeight.normal,fontSize: 14)),
                       Text(notification.time, style: titleCopy7),
                   ]),
                 )),
