@@ -25,85 +25,99 @@ class CheckOutScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 pageTitle("Check Out"),
-              TextFormField(
-                style: mediumNormal,
-                decoration: InputDecoration(
-                  labelText: "Name",
-                  labelStyle: mediumNormal,
-                  filled: true,
-                  fillColor: AppColors.lightblack,
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        width: 2, color: AppColors.lightgrey),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: AppColors.grey2)),
-                ),
-                maxLines: 1,
-              ),
-                const SizedBox(height: 20,),
-                TextFormField(
-                  style: mediumNormal,
-                  decoration: InputDecoration(
-                    labelText: "E-mail",
-                    labelStyle: mediumNormal,
-                    filled: true,
-                    fillColor: AppColors.lightblack,
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                          width: 2, color: AppColors.lightgrey),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  children: [
+                    TextFormField(
+                      style: mediumNormal,
+                      decoration: InputDecoration(
+                        labelText: "Name",
+                        labelStyle: mediumNormal,
+                        filled: true,
+                        fillColor: AppColors.lightblack,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              width: 2, color: AppColors.lightgrey),
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(color: AppColors.grey2)),
+                      ),
+                      maxLines: 1,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: AppColors.grey2)),
-                  ),
-                  maxLines: 1,
-                ),
-                const SizedBox(height: 20,),
-                TextFormField(
-                  style: mediumNormal,
-                  decoration: InputDecoration(
-                    labelText: "Address",
-                    labelStyle: mediumNormal,
-                    filled: true,
-                    fillColor: AppColors.lightblack,
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                          width: 2, color: AppColors.lightgrey),
+                    const SizedBox(height: 20,),
+                    TextFormField(
+                      style: mediumNormal,
+                      decoration: InputDecoration(
+                        labelText: "E-mail",
+                        labelStyle: mediumNormal,
+                        filled: true,
+                        fillColor: AppColors.lightblack,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              width: 2, color: AppColors.lightgrey),
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(color: AppColors.grey2)),
+                      ),
+                      maxLines: 1,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: AppColors.grey2)),
-                  ),
-                  maxLines: 1,
-                ),
-                const SizedBox(height: 20,),
-                TextFormField(
-                  style: mediumNormal,
-                  decoration: InputDecoration(
-                    labelText: "Mobile Number",
-                    labelStyle: mediumNormal,
-                    filled: true,
-                    fillColor: AppColors.lightblack,
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                          width: 2, color: AppColors.lightgrey),
+                    const SizedBox(height: 20,),
+                    TextFormField(
+                      style: mediumNormal,
+                      decoration: InputDecoration(
+                        labelText: "Address",
+                        labelStyle: mediumNormal,
+                        filled: true,
+                        fillColor: AppColors.lightblack,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              width: 2, color: AppColors.lightgrey),
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(color: AppColors.grey2)),
+                      ),
+                      maxLines: 1,
                     ),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: AppColors.grey2)),
-                  ),
-                  maxLines: 1,
+                    const SizedBox(height: 20,),
+                    TextFormField(
+                      style: mediumNormal,
+                      decoration: InputDecoration(
+                        labelText: "Mobile Number",
+                        labelStyle: mediumNormal,
+                        filled: true,
+                        fillColor: AppColors.lightblack,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                              width: 2, color: AppColors.lightgrey),
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(color: AppColors.grey2)),
+                      ),
+                      maxLines: 1,
+                    ),
+                    const SizedBox(height: 60,),
+                    MaterialButton(
+                      onPressed: (){},
+                      height: 56,
+                      minWidth: Get.width,
+                      color: AppColors.yellow,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius:
+                          BorderRadius.all(Radius.circular(20.0))),
+                      child: Text('Continue', style: titleCopy),
+                    )
+                  ],
                 ),
-                const SizedBox(height: 60,),
-                MaterialButton(
-                  onPressed: (){},
-                  height: 56,
-                  minWidth: Get.width,
-                  color: AppColors.yellow,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius:
-                      BorderRadius.all(Radius.circular(20.0))),
-                  child: Text('Continue', style: titleCopy),
-                )
-
+              )
               ],
             ),
           ),
