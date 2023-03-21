@@ -9,6 +9,7 @@ import '../PresentationLayer/screens/auth/login_screen.dart';
 import '../PresentationLayer/screens/auth/signup_screen.dart';
 import '../PresentationLayer/screens/public/brand_screen.dart';
 import '../PresentationLayer/screens/public/category_screen.dart';
+import '../PresentationLayer/screens/public/checkout_screen.dart';
 import '../PresentationLayer/screens/public/home_screen.dart';
 import '../PresentationLayer/screens/public/notification_screen.dart';
 import '../PresentationLayer/screens/public/splash_screen.dart';
@@ -50,6 +51,9 @@ GetPage(
     name: AppRoutes.productScreen,
     page: () => ProductScreen(),
   ),
-
+  GetPage(
+    name: AppRoutes.checkout,
+    page: () => CheckOutScreen(),
+  ),
 
 ];

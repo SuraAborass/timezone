@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
+import 'package:timezone/Constants/routes.dart';
 import 'package:timezone/PresentationLayer/widgets/product_cart_item.dart';
 
 import '../../../Constants/colors.dart';
@@ -87,7 +88,7 @@ class MyBag extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: MaterialButton(
-                        onPressed: () {},
+                        onPressed: ()=> Get.toNamed(AppRoutes.checkout),
                         height: 56,
                         minWidth: deviceSize.width,
                         color: AppColors.yellow,
