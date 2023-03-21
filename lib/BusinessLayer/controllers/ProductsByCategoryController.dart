@@ -10,7 +10,7 @@ class ProductsByCategoryController extends GetxController {
   ProductsByCategoryRepo repo = ProductsByCategoryRepo();
   Product? product;
   List<Product> products = [];
-  final Category category;
+  Category category;
   ProductsByCategoryController(this.category);
   var loading = false.obs;
 

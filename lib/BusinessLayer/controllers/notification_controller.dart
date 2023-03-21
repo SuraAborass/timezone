@@ -1,10 +1,11 @@
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/user_controller.dart';
+import 'package:timezone/main.dart';
+
 import '../../DataAccessLayer/Models/notification.dart';
 import '../../DataAccessLayer/Repositories/notification_repo.dart';
 
-
-class BackNotificationController extends GetxController{
+class BackNotificationController extends GetxController {
   final UserController userController = Get.find();
   late List<UserNotification> userNotifications = [];
   var backNotificationRepo = NotificationRepo();
@@ -17,10 +18,13 @@ class BackNotificationController extends GetxController{
   }
 
   Future<void> getBackNotifications() async {
-    isLoading.value = true;
-    userNotifications = await backNotificationRepo.getNotifications(userController.user!.id);
-    print(userNotifications);
-    update();
-    isLoading.value = false;
+    if (MyApp.AppUser != null) {
+      isLoading.value = true;
+      userNotifications =
+          await backNotificationRepo.getNotifications(MyApp.AppUser!.id);
+      print(userNotifications);
+      update();
+      isLoading.value = false;
+    }
   }
 }

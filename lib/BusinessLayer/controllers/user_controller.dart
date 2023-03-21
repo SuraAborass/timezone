@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import '../../Constants/routes.dart';
 import '../../DataAccessLayer/Clients/box_client.dart';
 import '../../DataAccessLayer/Models/user.dart';
+import '../../main.dart';
 
 class UserController extends GetxController {
   final BoxClient boxClient = BoxClient();
@@ -31,6 +32,7 @@ class UserController extends GetxController {
 
   Future<void> logout() async {
     await boxClient.removeUserData();
+    MyApp.AppUser = null;
     Get.toNamed(AppRoutes.loginPage);
   }
 }

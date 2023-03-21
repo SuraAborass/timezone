@@ -24,13 +24,16 @@ class FeaturedProductItem extends StatelessWidget {
                 Get.toNamed(AppRoutes.productScreen,
                     arguments: [featuredProduct]);
               },
-              child: Container(
-                width: 130,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(featuredProduct.images[0]),
-                      fit: BoxFit.cover),
-                  borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+              child: Hero(
+                tag: featuredProduct.id.toString() + featuredProduct.name,
+                child: Container(
+                  width: 130,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(featuredProduct.images[0]),
+                        fit: BoxFit.cover),
+                    borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                  ),
                 ),
               ),
             ),

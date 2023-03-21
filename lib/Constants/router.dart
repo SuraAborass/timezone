@@ -14,12 +14,13 @@ import '../PresentationLayer/screens/public/splash_screen.dart';
 
 List<GetPage<dynamic>> router = [
   GetPage(
-    name: AppRoutes.splashScreen,
-    page: () => SplashScreen(),
-  ),
+      name: AppRoutes.splashScreen,
+      page: () => SplashScreen(),
+      transition: Transition.leftToRightWithFade),
   GetPage(
       name: AppRoutes.loginPage,
       page: () => LoginScreen(),
+      transition: Transition.zoom,
       binding: InitBinding()),
   GetPage(
       name: AppRoutes.homepage,
@@ -27,6 +28,7 @@ List<GetPage<dynamic>> router = [
       binding: HomeBinding()),
   GetPage(
     name: AppRoutes.notifications,
+    transition: Transition.fadeIn,
     page: () => Notifications(),
   ),
   GetPage(
@@ -41,10 +43,8 @@ List<GetPage<dynamic>> router = [
     name: AppRoutes.myBag,
     page: () => MyBag(),
   ),
-GetPage(
+  GetPage(
     name: AppRoutes.productScreen,
     page: () => ProductScreen(),
   ),
-
-
 ];

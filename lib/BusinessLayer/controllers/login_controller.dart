@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/user_controller.dart';
+import 'package:timezone/main.dart';
+
 import '../../DataAccessLayer/Models/user.dart';
 import '../../DataAccessLayer/Repositories/user_repo.dart';
 import '../../PresentationLayer/widgets/snackbars.dart';
-
 
 class LoginController extends GetxController {
   var emailTextController = TextEditingController();
@@ -24,10 +25,11 @@ class LoginController extends GetxController {
     User? user = await repo.login(
         emailTextController.value.text, passwordTextController.value.text);
     if (user != null) {
+      MyApp.AppUser = user;
       await userController.saveAuthState(user);
-      SnackBars.showSuccess("Welcome....");
+      SnackBars.showSuccess("Welcome  $user.name");
     } else {
-      SnackBars.showError("يرجى إدخال بياناتك بشكل صحيح");
+      SnackBars.showError("Your Credintials Dont Match Our Recored");
     }
     sending.value = false;
   }

@@ -81,7 +81,7 @@ class CartController extends GetxController {
       padding: EdgeInsets.all(20),
       height: 200,
       decoration: BoxDecoration(
-          color: AppColors.black1,
+          color: AppColors.lightblack,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(40), topRight: Radius.circular(40))),
       child: Center(
