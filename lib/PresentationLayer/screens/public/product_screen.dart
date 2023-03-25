@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
-import 'package:timezone/Constants/routes.dart';
-
 import '../../../BusinessLayer/controllers/favourite_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
+import '../../../Constants/routes.dart';
 import '../../../DataAccessLayer/Models/product.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -15,9 +14,6 @@ class ProductScreen extends StatelessWidget {
   final CartController cartController = Get.find();
   @override
   Widget build(BuildContext context) {
-    final deviceSize = MediaQuery.of(context).size;
-    //bool IsFavourite;
-
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -32,7 +28,7 @@ class ProductScreen extends StatelessWidget {
                     cartController.addToCart(product);
                   },
                   height: 56,
-                  minWidth: deviceSize.width,
+                  minWidth: Get.width,
                   color: AppColors.yellow,
                   shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20.0))),
@@ -207,7 +203,7 @@ class ProductScreen extends StatelessWidget {
               if (product.brand != "")
                 Container(
                   height: 50,
-                  width: deviceSize.width,
+                  width: Get.width,
                   color: AppColors.lightgrey,
                   child: Row(
                     children: [
@@ -236,7 +232,7 @@ class ProductScreen extends StatelessWidget {
               ),
               Container(
                 height: 70,
-                width: deviceSize.width,
+                width: Get.width,
                 color: AppColors.lightgrey,
                 child: Row(
                   children: [
@@ -268,7 +264,7 @@ class ProductScreen extends StatelessWidget {
               ),
               Container(
                 height: 50,
-                width: deviceSize.width,
+                width: Get.width,
                 color: AppColors.lightgrey,
                 child: Row(
                   children: [
@@ -299,7 +295,7 @@ class ProductScreen extends StatelessWidget {
               ),
               Container(
                 height: 50,
-                width: deviceSize.width,
+                width: Get.width,
                 color: AppColors.lightgrey,
                 child: Row(
                   children: [
@@ -330,7 +326,7 @@ class ProductScreen extends StatelessWidget {
               ),
               Container(
                 height: 50,
-                width: deviceSize.width,
+                width: Get.width,
                 color: AppColors.lightgrey,
                 child: Row(
                   children: [
@@ -361,7 +357,7 @@ class ProductScreen extends StatelessWidget {
               ),
               Container(
                 height: 50,
-                width: deviceSize.width,
+                width: Get.width,
                 color: AppColors.lightgrey,
                 child: Row(
                   children: [

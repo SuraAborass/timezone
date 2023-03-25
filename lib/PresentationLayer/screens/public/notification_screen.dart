@@ -36,15 +36,20 @@ class Notifications extends StatelessWidget {
               child: RefreshIndicator(
                 onRefresh: () async{
                   backNotificationController.getBackNotifications();
-                },
+                  },
                 child: SizedBox(
                   height: Get.height - 250,
                   child: ListView.builder(
                     itemCount: backNotificationController.userNotifications.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return NotificationItem(
-                        notification:
-                        backNotificationController.userNotifications[index],
+                      return InkWell(
+                        onTap:(){
+                          backNotificationController.gotoPayload(backNotificationController.userNotifications[index]);
+                        },
+                        child: NotificationItem(
+                          notification:
+                          backNotificationController.userNotifications[index],
+                        ),
                       );
                     },
                   ),

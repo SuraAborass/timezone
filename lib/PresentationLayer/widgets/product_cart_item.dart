@@ -6,7 +6,6 @@ import 'package:timezone/Constants/routes.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 import '../../DataAccessLayer/Models/product.dart';
-import '../screens/public/product_screen.dart';
 
 class ProductCartItem extends StatelessWidget {
   ProductCartItem(
@@ -35,7 +34,8 @@ class ProductCartItem extends StatelessWidget {
           Expanded(
             flex: 2,
             child: InkWell(
-              onTap: () => Get.toNamed(AppRoutes.productScreen,arguments: [product]),
+              onTap: () =>
+                  Get.toNamed(AppRoutes.productScreen, arguments: [product]),
               child: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(

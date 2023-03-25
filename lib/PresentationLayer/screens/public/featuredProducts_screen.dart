@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../BusinessLayer/controllers/products_controller.dart';
 import '../../../Constants/colors.dart';
-import '../../widgets/Shimmers/productsByBrandId_shimmer.dart';
+import '../../widgets/Shimmers/products_shimmer.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/featuredProdudctItemFromDrawer.dart';
@@ -45,7 +44,7 @@ class FeaturedProducts extends StatelessWidget {
                                   itemCount: 8,
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                    return ProductsByBrandIdItemShimmer();
+                                    return ProductsShimmer();
                                   },
                                 ),
                               )

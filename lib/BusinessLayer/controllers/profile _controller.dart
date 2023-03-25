@@ -12,7 +12,7 @@ class ProfileController extends GetxController {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController adressController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
   final UserController userController = Get.find();
   UserRepo userRepo = UserRepo();

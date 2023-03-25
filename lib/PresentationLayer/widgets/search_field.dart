@@ -11,7 +11,7 @@ class SearchField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
       child: TextFormField(
-        style: mediumNormal.apply(color: Colors.white),
+        style: mediumNormal,
         onTap: () {},
         textDirection: TextDirection.rtl,
         textAlign: TextAlign.center,

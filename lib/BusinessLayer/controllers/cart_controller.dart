@@ -13,7 +13,7 @@ import '../../PresentationLayer/widgets/snackbars.dart';
 class CartController extends GetxController {
   ProductRepo productRepo = ProductRepo();
   BoxClient boxClient = BoxClient();
-  List<CartProdcut> cartProducts = [];
+  List<CartProduct> cartProducts = [];
   List<Product> products = [];
 
   var adding = false.obs;
@@ -63,16 +63,16 @@ class CartController extends GetxController {
   }
 
   Future<void> addToCart(Product product) async {
-    var cartProdcut = CartProdcut(productId: product.id, qty: 1);
+    var cartProduct = CartProduct(productId: product.id, qty: 1);
     adding.value = true;
     products.add(product);
-    cartProdcut.product = product;
-    cartProducts.add(cartProdcut);
+    cartProduct.product = product;
+    cartProducts.add(cartProduct);
     await boxClient.AddToCart(cartProducts);
     adding.value = false;
     await syncCarts();
     update();
-    SnackBars.showSuccess("Added Successfull");
+    SnackBars.showSuccess("Added Successfully");
   }
 
   void showEditDialog(index, oldvalue) {

@@ -49,18 +49,18 @@ class Product {
 
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
-      id: map['id'] as int,
-      name: map['name'] as String ,
+      id: map['id'] ?? 0,
+      name: map['name'] ?? "" ,
       price: map['price'].toString(),
       offer: map['offer'].toString(),
       reference_number: map['reference_number'] !=null? map['reference_number'].toString() : "",
-      movement : map['movement'] !=null?map['movement'] as String :"",
-      case_material : map['case_material'] !=null? map['case_material'] as String : "",
-      case_size : map['case_size'] !=null? map['case_size'] as String :"",
-      description:  map['description'] as String,
-      brand:  map['brand'] as String  ,
+      movement : map['movement'] !=null?map['movement']  :"",
+      case_material : map['case_material'] !=null? map['case_material']  : "",
+      case_size : map['case_size'] !=null? map['case_size']:"",
+      description:  map['description'] ?? "",
+      brand:  map['brand']?? "" ,
       images: getImages(map['images']) ,
-      category:map['category']!=null? map['category'] as String : "",
+      category:map['category']!=null? map['category']  : "",
     );
   }
 

@@ -81,7 +81,7 @@ const titleCopy8 = TextStyle(
 );
 
 const titleBold = TextStyle(
-  color: AppColors.white,
+  color: AppColors.grey3,
   fontWeight: FontWeight.bold,
   fontSize: 20,
 );
