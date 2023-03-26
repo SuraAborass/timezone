@@ -36,4 +36,14 @@ class ProductClient {
       return null;
     }
   }
+
+  Future<dynamic> getSearchProduct(word) async {
+    var response = await http.get(Uri.parse(baseLink + "search/${word}"));
+    print(response.body);
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      return "";
+    }
+  }
 }

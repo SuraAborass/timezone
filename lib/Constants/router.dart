@@ -12,6 +12,7 @@ import '../PresentationLayer/screens/public/category_screen.dart';
 import '../PresentationLayer/screens/public/checkout_screen.dart';
 import '../PresentationLayer/screens/public/home_screen.dart';
 import '../PresentationLayer/screens/public/notification_screen.dart';
+import '../PresentationLayer/screens/public/search_screen.dart';
 import '../PresentationLayer/screens/public/splash_screen.dart';
 
 List<GetPage<dynamic>> router = [
@@ -54,6 +55,11 @@ GetPage(
   GetPage(
     name: AppRoutes.checkout,
     page: () => CheckOutScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.searchScreen,
+    transition: Transition.leftToRightWithFade,
+    page: () => SearchScreen(),
   ),
 
 ];
