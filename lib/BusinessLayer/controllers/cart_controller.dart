@@ -15,19 +15,16 @@ class CartController extends GetxController {
   BoxClient boxClient = BoxClient();
   List<CartProduct> cartProducts = [];
   List<Product> products = [];
-
   var adding = false.obs;
-
   TextEditingController newQtyController = TextEditingController();
-
   num totalValue = 0;
   num discount = 0;
   num netValue = 0;
+
   @override
   void onInit() async {
     await getCarts();
     await syncCartsOnline();
-
     super.onInit();
   }
 

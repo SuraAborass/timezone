@@ -11,4 +11,5 @@ class AppRoutes {
   static const brand = "/homepage/brand";
   static const featuredProduct = "/homepage/featuredProduct";
   static const productScreen = "/homepage/ProductScreen";
+  static const searchScreen = "/homepage/searchScreen";
 }

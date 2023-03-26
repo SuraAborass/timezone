@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../BusinessLayer/controllers/products_controller.dart';
+import '../../../BusinessLayer/controllers/featured_products_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../widgets/Shimmers/products_shimmer.dart';
 import '../../widgets/appbar.dart';
@@ -13,7 +13,7 @@ class FeaturedProducts extends StatelessWidget {
   FeaturedProducts({
     Key? key,
   }) : super(key: key);
-  final ProductsController productsController = Get.find();
+  final FeaturedProductsController productsController = Get.find();
 
   @override
   Widget build(BuildContext context) {
