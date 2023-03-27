@@ -17,10 +17,10 @@ class SearchController extends GetxController{
   void search(value) {
       print(" Search Results: " + value);
       searchProducts = products
-          .where((e) =>
-      e.name.contains(value.toString()) ||
-          e.category.contains(value.toString()) ||
-          e.brand.contains(value.toString()))
+          .where((element) =>
+      element.name.contains(value.toString()) ||
+          element.category.contains(value.toString()) ||
+          element.brand.contains(value.toString()))
           .toList();
       print("products : " + searchProducts.length.toString());
       update();
