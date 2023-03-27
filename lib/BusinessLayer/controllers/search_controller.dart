@@ -15,16 +15,14 @@ class SearchController extends GetxController{
     super.onInit();
   }
   void search(value) {
-    print(" Search Results: " + value);
-    searchProducts = products
-        .where((e) =>
-    e.name.contains(value.toString()) ||
-        e.category.contains(value.toString()) ||
-        e.brand.contains(value.toString()))
-        .toList();
-    print("products : " + searchProducts.length.toString());
-    update();
+      print(" Search Results: " + value);
+      searchProducts = products
+          .where((e) =>
+      e.name.contains(value.toString()) ||
+          e.category.contains(value.toString()) ||
+          e.brand.contains(value.toString()))
+          .toList();
+      print("products : " + searchProducts.length.toString());
+      update();
   }
-
-
 }
