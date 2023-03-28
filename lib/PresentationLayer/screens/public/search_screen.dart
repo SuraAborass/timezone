@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/Constants/font_styles.dart';
+
 import '../../../BusinessLayer/controllers/search_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../widgets/appbar.dart';
@@ -10,7 +11,7 @@ import '../../widgets/search_result.dart';
 import 'button_navigation.dart';
 
 class SearchScreen extends StatelessWidget {
-   SearchScreen({Key? key}) : super(key: key);
+  SearchScreen({Key? key}) : super(key: key);
   final SearchController searchController = Get.put(SearchController());
 
   @override
@@ -21,7 +22,7 @@ class SearchScreen extends StatelessWidget {
           : TextDirection.ltr,
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        bottomNavigationBar: const NavBar() ,
+        bottomNavigationBar: const NavBar(),
         backgroundColor: AppColors.black,
         drawer: MyDrawer(),
         appBar: myAppBar(context),
@@ -36,31 +37,35 @@ class SearchScreen extends StatelessWidget {
                     child: TextFormField(
                       autofocus: true,
                       autocorrect: true,
-                     style: title1.apply(color: AppColors.white),
+                      style: title1.apply(color: AppColors.white),
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(vertical: 5),),
+                        contentPadding: const EdgeInsets.symmetric(vertical: 5),
+                      ),
                       controller: searchController.searchText,
                       onChanged: (value) {
                         searchController.search(value);
                       },
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: pageTitle("Search Result"),
-                  ),
-                  SingleChildScrollView(
+                  if (searchController.searchProducts.length > 0)
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: pageTitle("Search Result"),
+                    ),
+                  Flexible(
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: SizedBox(
                         width: double.infinity,
                         height: Get.height - 310,
                         child: ListView.builder(
+                            shrinkWrap: true,
                             itemCount: searchController.searchProducts.length,
-                            itemBuilder: ( _ , int index) {
+                            itemBuilder: (_, int index) {
                               return SearchResult(
-                                  product: searchController.searchProducts[index]);
+                                  product:
+                                      searchController.searchProducts[index]);
                             }),
                       ),
                     ),

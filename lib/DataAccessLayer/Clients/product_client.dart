@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../../Constants/links.dart';
 
 class ProductClient {
-  Future<dynamic> getProduct() async {
+  Future<dynamic> getProducts() async {
     var response = await http.get(Uri.parse(baseLink + productsLink));
     print(response.body);
     if (response.statusCode == 200) {
@@ -14,7 +14,8 @@ class ProductClient {
       return "";
     }
   }
- Future<dynamic> getFeatured() async {
+
+  Future<dynamic> getFeatured() async {
     var response = await http.get(Uri.parse(baseLink + "featureProducts"));
     print(response.body);
     if (response.statusCode == 200) {
@@ -23,6 +24,7 @@ class ProductClient {
       return "";
     }
   }
+
   Future<dynamic> getProductsByIds(ids) async {
     var response = await http.post(Uri.parse(baseLink + productsByIdLink),
         body: jsonEncode(<String, dynamic>{"ids": ids}),

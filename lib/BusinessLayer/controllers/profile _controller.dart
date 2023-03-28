@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:timezone/BusinessLayer/controllers/user_controller.dart';
 
 import '../../Constants/routes.dart';
@@ -12,7 +15,11 @@ class ProfileController extends GetxController {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController mobileNumber = TextEditingController();
   TextEditingController addressController = TextEditingController();
+  final UserController _userController = Get.find();
+  File? pickedFile;
+  ImagePicker imagePicker = ImagePicker();
 
   final UserController userController = Get.find();
   UserRepo userRepo = UserRepo();
@@ -38,11 +45,11 @@ class ProfileController extends GetxController {
     print("start Updating ");
     loading.value = true;
     User? user = await userRepo.updateInfo(
-      userController.user!.id,
-      nameController.value.text,
-      emailController.value.text,
-      passwordController.value.text,
-    );
+        userController.user!.id,
+        nameController.value.text,
+        emailController.value.text,
+        passwordController.value.text,
+        mobileNumber.value.text);
 
     if (user != null) {
       print(user.toMap());
@@ -53,5 +60,11 @@ class ProfileController extends GetxController {
       SnackBars.showError("There Was an Error ");
     }
     loading.value = false;
+  }
+
+  Future<void> takePhoto(ImageSource source) async {
+    final pickedImage =
+        await imagePicker.pickImage(source: source, imageQuality: 100);
+    //pickedFile = File();
   }
 }

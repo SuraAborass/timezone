@@ -31,4 +31,13 @@ Future<List<Product>> myFeaturedProducts() async {
     }
     return [];
   }
+
+   Future<List<Product>> getProducts() async {
+    var response = await client.getProducts();
+    if (response != "") {
+      final data = json.decode(response).cast<Map<String, dynamic>>();
+      return data.map<Product>((json) => Product.fromMap(json)).toList();
+    }
+    return [];
+  }
 }
