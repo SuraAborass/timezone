@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/user_controller.dart';
 import 'package:timezone/Constants/routes.dart';
 import 'package:timezone/main.dart';
-
 import '../../BusinessLayer/controllers/language_controller.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
@@ -39,13 +38,6 @@ class MyDrawer extends StatelessWidget {
                   : null,
             ),
           ),
-          // const DrawerHeader(
-          //   decoration: BoxDecoration(
-          //     color: AppColors.grey,
-          //   ),
-          //   child:  Text("Sura Aborass",style: title5,),
-          // ),
-
           if (MyApp.AppUser == null)
             ListTile(
               leading: const Icon(
@@ -99,33 +91,33 @@ class MyDrawer extends StatelessWidget {
               title: Text('Featured Products'.tr,
                   style: title.copyWith(fontSize: 14)),
               onTap: () => Get.to(FeaturedProducts())),
-          ListTile(
-            leading: const Icon(Icons.language, color: AppColors.white),
-            title: Text('Language'.tr, style: title.copyWith(fontSize: 14)),
-            onTap: () {
-              Get.defaultDialog(
-                  title: 'Choose Language'.tr,
-                  titleStyle: title.copyWith(color: AppColors.black),
-                  content: Column(
-                    children: [
-                      ListTile(
-                        title: Text("Arabic".tr),
-                        onTap: () {
-                          _languageController.saveLocale("ar");
-                          Get.back();
-                        },
-                      ),
-                      ListTile(
-                        title: Text("English".tr),
-                        onTap: () {
-                          _languageController.saveLocale("en");
-                          Get.back();
-                        },
-                      )
-                    ],
-                  ));
-            },
-          ),
+          // ListTile(
+          //   leading: const Icon(Icons.language, color: AppColors.white),
+          //   title: Text('Language'.tr, style: title.copyWith(fontSize: 14)),
+          //   onTap: () {
+          //     Get.defaultDialog(
+          //         title: 'Choose Language'.tr,
+          //         titleStyle: title.copyWith(color: AppColors.black),
+          //         content: Column(
+          //           children: [
+          //             ListTile(
+          //               title: Text("Arabic".tr),
+          //               onTap: () {
+          //                 _languageController.saveLocale("ar");
+          //                 Get.back();
+          //               },
+          //             ),
+          //             ListTile(
+          //               title: Text("English".tr),
+          //               onTap: () {
+          //                 _languageController.saveLocale("en");
+          //                 Get.back();
+          //               },
+          //             )
+          //           ],
+          //         ));
+          //   },
+          // ),
           ListTile(
             leading: const Icon(
               Icons.roundabout_left,
@@ -135,6 +127,7 @@ class MyDrawer extends StatelessWidget {
               "About Us".tr,
               style: title.copyWith(fontSize: 14),
             ),
+            onTap: ()=> Get.toNamed(AppRoutes.aboutUs),
           ),
           if (MyApp.AppUser != null)
             ListTile(

@@ -7,6 +7,7 @@ import '../BusinessLayer/bindings/home_bindings.dart';
 import '../BusinessLayer/bindings/init_bindings.dart';
 import '../PresentationLayer/screens/auth/login_screen.dart';
 import '../PresentationLayer/screens/auth/signup_screen.dart';
+import '../PresentationLayer/screens/public/aboutUs_screen.dart';
 import '../PresentationLayer/screens/public/brand_screen.dart';
 import '../PresentationLayer/screens/public/category_screen.dart';
 import '../PresentationLayer/screens/public/checkout_screen.dart';
@@ -62,6 +63,10 @@ List<GetPage<dynamic>> router = [
     name: AppRoutes.searchScreen,
     transition: Transition.leftToRightWithFade,
     page: () => SearchScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.aboutUs,
+    page: () => AboutUs(),
   ),
 
 ];

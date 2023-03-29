@@ -8,7 +8,7 @@ import '../../../Constants/font_styles.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/page_title.dart';
-import '../../widgets/profile_image_and_name.dart';
+import 'dart:io';
 
 class Profile extends StatelessWidget {
   Profile({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: Get.locale!.languageCode == "ar"
+      textDirection: Get.locale!.languageCode == "en"
           ? TextDirection.rtl
           : TextDirection.ltr,
       child: Scaffold(
@@ -35,24 +35,33 @@ class Profile extends StatelessWidget {
                 ),
                 Center(
                   child: ListTile(
-                    title: CircleAvatar(
-                      backgroundColor: AppColors.yellow,
-                      radius: 55,
-                      child: InkWell(
-                        onTap: (){
-                       showModalBottomSheet(context: context,
-                           builder: (context)=> bottomSheet(context));
-                        },
-                        child: CircleAvatar(
-                          radius: 50,
-                          backgroundImage:
-                          AssetImage(""),
-                        ),
+                    title: Center(
+                      child: Stack(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: AppColors.yellow,
+                            radius: 65,
+                            child: Obx(()=> CircleAvatar(
+                              radius: 60,
+                              backgroundImage: _profileController.isProfilePicPathSet.value == true
+                                  ? FileImage(File(_profileController.profilePicPath.value)) as ImageProvider
+                              : NetworkImage("")
+                            )),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            child: IconButton(onPressed: (){
+                              showModalBottomSheet(context: context,
+                                  builder: (context)=> bottomSheet(context));
+                            },
+                                icon: Icon(Icons.add_a_photo_sharp,size: 30,color: AppColors.white,)),
+                          )
+                        ]
                       ),
                     ),
                     subtitle: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("user name".tr,
+                      child: Text("user name",
                         style: mediumNormal.apply(color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
@@ -75,7 +84,7 @@ class Profile extends StatelessWidget {
                 TZTextForm(
                     hint: 'Your phone number'.tr,
                     obsecure: false,
-                    controller: _profileController.mobileNumber),
+                    controller: _profileController.mobileNumberController),
                 const SizedBox(height: 20),
                 TZTextForm(
                     hint: 'Enter Your Password'.tr,
@@ -124,7 +133,7 @@ class Profile extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Text("Profile photo",style: mediumBold ,textAlign: TextAlign.center,),
+            child: Text("Choose profile photo",style: mediumBold ,textAlign: TextAlign.center,),
           ),
           Row(mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,

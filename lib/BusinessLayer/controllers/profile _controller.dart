@@ -15,9 +15,12 @@ class ProfileController extends GetxController {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController mobileNumber = TextEditingController();
+  TextEditingController mobileNumberController = TextEditingController();
   TextEditingController addressController = TextEditingController();
-  final UserController _userController = Get.find();
+  TextEditingController avatarController = TextEditingController();
+
+  var isProfilePicPathSet = false.obs;
+  var profilePicPath = "".obs;
   File? pickedFile;
   ImagePicker imagePicker = ImagePicker();
 
@@ -29,6 +32,9 @@ class ProfileController extends GetxController {
     if (MyApp.AppUser != null) {
       emailController.text = MyApp.AppUser!.email;
       nameController.text = MyApp.AppUser!.name;
+      mobileNumberController.text = MyApp.AppUser!.mobile_number;
+      addressController.text = MyApp.AppUser!.address;
+      avatarController.text = MyApp.AppUser!.avatar;
     }
     super.onInit();
   }
@@ -49,8 +55,9 @@ class ProfileController extends GetxController {
         nameController.value.text,
         emailController.value.text,
         passwordController.value.text,
-        mobileNumber.value.text);
-
+        mobileNumberController.value.text,
+        addressController.value.text,
+        avatarController.value.text);
     if (user != null) {
       print(user.toMap());
       await userController.saveAuthState(user);
@@ -65,6 +72,15 @@ class ProfileController extends GetxController {
   Future<void> takePhoto(ImageSource source) async {
     final pickedImage =
         await imagePicker.pickImage(source: source, imageQuality: 100);
-    //pickedFile = File();
+    if(pickedImage!=null){
+      pickedFile = File(pickedImage!.path);
+    }
+    setProfileImagePath(pickedFile!.path);
+    Get.back();
+  }
+
+  void setProfileImagePath(String path){
+    profilePicPath.value = path;
+    isProfilePicPathSet.value = true;
   }
 }
