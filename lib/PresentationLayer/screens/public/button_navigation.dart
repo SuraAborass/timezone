@@ -27,10 +27,10 @@ class NavBar extends StatelessWidget {
             Get.toNamed(AppRoutes.myBag);
             break;
           case 3:
-            Get.to(Favorites());
+            Get.toNamed(AppRoutes.favorites);
             break;
           case 4:
-            Get.to(Profile());
+            Get.toNamed(AppRoutes.profileScreen);
             break;
           default:
         }

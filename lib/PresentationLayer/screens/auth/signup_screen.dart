@@ -12,7 +12,7 @@ final RegisterController registerController = Get.put(RegisterController());
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: Get.locale!.languageCode == "ar"
+      textDirection: Get.locale!.languageCode == "en"
           ? TextDirection.rtl
           : TextDirection.ltr,
       child: GetBuilder(
@@ -83,15 +83,14 @@ final RegisterController registerController = Get.put(RegisterController());
                     maxLines: 1,
                   ),
                   const SizedBox(height: 20),
-                  Obx(() {
-                  return TextFormField(
+                   TextFormField(
                     style: mediumNormal,
                     controller: registerController.passwordController,
-                    validator: (val){
-                      if(val!.isEmpty)
-                        return 'Password is required';
-                      return null;
-                    },
+                    // validator: (val){
+                    //   if(val!.isEmpty)
+                    //     return 'Password is required';
+                    //   return null;
+                    // },
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: AppColors.lightblack,
@@ -117,23 +116,22 @@ final RegisterController registerController = Get.put(RegisterController());
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: !registerController.passwordVisible.value,
                     maxLines: 1,
-                  );}),
+                  ),
                   const SizedBox(height: 20),
-                  Obx(() {
-                  return TextFormField(
+                   TextFormField(
                     style: mediumNormal ,
                     controller: registerController.confirmPasswordController,
-                    validator: (value){
-                      if(value!.isEmpty)
-                        return 'Please retype your password';
-                      if(value != registerController.passwordController.text)
-                        return 'Not Match';
-                      return null;
-                    },
+                    // validator: (value){
+                    //   if(value!.isEmpty)
+                    //     return 'Please retype your password';
+                    //   if(value != registerController.passwordController.text)
+                    //     return 'Not Match';
+                    //   return null;
+                    // },
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: AppColors.lightblack ,
-                      hintText: 'Confirm Your Password'.tr,
+                      hintText: 'Retype Your Password'.tr,
                       hintStyle: title1,
                       suffixIcon: IconButton(
                         icon: Icon(!registerController.passwordVisible.value
@@ -154,7 +152,6 @@ final RegisterController registerController = Get.put(RegisterController());
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: !registerController.passwordVisible.value,
                     maxLines: 1,
-                  );}
                   ),
                   const SizedBox(height: 30,),
                   MaterialButton(height: 56,

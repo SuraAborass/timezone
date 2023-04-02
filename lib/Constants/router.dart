@@ -11,8 +11,10 @@ import '../PresentationLayer/screens/public/aboutUs_screen.dart';
 import '../PresentationLayer/screens/public/brand_screen.dart';
 import '../PresentationLayer/screens/public/category_screen.dart';
 import '../PresentationLayer/screens/public/checkout_screen.dart';
+import '../PresentationLayer/screens/public/favorites_screen.dart';
 import '../PresentationLayer/screens/public/home_screen.dart';
 import '../PresentationLayer/screens/public/notification_screen.dart';
+import '../PresentationLayer/screens/public/profile_screen.dart';
 import '../PresentationLayer/screens/public/search_screen.dart';
 import '../PresentationLayer/screens/public/splash_screen.dart';
 
@@ -38,6 +40,14 @@ List<GetPage<dynamic>> router = [
     name: AppRoutes.notifications,
     transition: Transition.fadeIn,
     page: () => Notifications(),
+  ),
+  GetPage(
+    name: AppRoutes.favorites,
+    page: () => Favorites(),
+  ),
+  GetPage(
+    name: AppRoutes.profileScreen,
+    page: () => Profile(),
   ),
   GetPage(
     name: AppRoutes.category,

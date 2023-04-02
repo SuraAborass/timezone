@@ -15,133 +15,136 @@ class MyBag extends StatelessWidget {
   final CartController cartController = Get.find();
   @override
   Widget build(BuildContext context) {
-    final deviceSize = MediaQuery.of(context).size;
-
-    return Scaffold(
-      backgroundColor: AppColors.black,
-      appBar: myAppBar(context),
-      drawer: MyDrawer(),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GetBuilder(
-            init: cartController,
-            builder: (context) {
-              return Container(
-                height: 180,
-                color: AppColors.black,
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Expanded(
-                        flex: 2,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Total :".tr,
-                                  style: titleCopy7.copyWith(fontSize: 15),
-                                ),
-                                Text(cartController.totalValue.toString(),
-                                    style: title8.copyWith(fontSize: 15))
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            if (cartController.discount != 0)
+    return Directionality(
+      textDirection: Get.locale!.languageCode == "en"
+          ? TextDirection.rtl
+          : TextDirection.ltr,
+      child: Scaffold(
+        backgroundColor: AppColors.black,
+        appBar: myAppBar(context),
+        drawer: MyDrawer(),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GetBuilder(
+              init: cartController,
+              builder: (context) {
+                return Container(
+                  height: 180,
+                  color: AppColors.black,
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      Expanded(
+                          flex: 2,
+                          child: Column(
+                            children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Discount :    ".tr,
+                                    "Total :".tr,
                                     style: titleCopy7.copyWith(fontSize: 15),
                                   ),
-                                  Text(cartController.discount.toString(),
-                                      style: title7.copyWith(
-                                          fontSize: 15, color: Colors.red))
+                                  Text(cartController.totalValue.toString(),
+                                      style: title8.copyWith(fontSize: 15))
                                 ],
                               ),
-                            if (cartController.discount != 0)
                               const SizedBox(
                                 height: 10,
                               ),
-                            if (cartController.discount != 0)
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Net Value :    ".tr,
-                                    style: titleCopy7.copyWith(fontSize: 15),
-                                  ),
-                                  Text(cartController.netValue.toString(),
-                                      style: title8.copyWith(
-                                        fontSize: 15,
-                                      ))
-                                ],
-                              ),
-                          ],
-                        )),
-                    Expanded(
-                      flex: 1,
-                      child: MaterialButton(
-                        onPressed: ()=> Get.toNamed(AppRoutes.checkout),
-                        height: 56,
-                        minWidth: deviceSize.width,
-                        color: AppColors.yellow,
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0))),
-                        child: Text('Check Out'.tr, style: titleCopy),
+                              if (cartController.discount != 0)
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Discount :    ".tr,
+                                      style: titleCopy7.copyWith(fontSize: 15),
+                                    ),
+                                    Text(cartController.discount.toString(),
+                                        style: title7.copyWith(
+                                            fontSize: 15, color: Colors.red))
+                                  ],
+                                ),
+                              if (cartController.discount != 0)
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                              if (cartController.discount != 0)
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Net Value :    ".tr,
+                                      style: titleCopy7.copyWith(fontSize: 15),
+                                    ),
+                                    Text(cartController.netValue.toString(),
+                                        style: title8.copyWith(
+                                          fontSize: 15,
+                                        ))
+                                  ],
+                                ),
+                            ],
+                          )),
+                      Expanded(
+                        flex: 1,
+                        child: MaterialButton(
+                          onPressed: ()=> Get.toNamed(AppRoutes.checkout),
+                          height: 56,
+                          minWidth: Get.width,
+                          color: AppColors.yellow,
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0))),
+                          child: Text('Check Out'.tr, style: titleCopy),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                );
+              }),
+        ),
+        body: GetBuilder(
+            init: cartController,
+            builder: (context) {
+              return SizedBox(
+                height: Get.height,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      pageTitle("My Bag".tr),
+                      Flexible(
+                        child: RefreshIndicator(
+                          onRefresh: () async {
+                            await cartController.syncCarts();
+                          },
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: cartController.cartProducts.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return cartController.cartProducts[index].product !=
+                                      null
+                                  ? ProductCartItem(
+                                      product: cartController
+                                          .cartProducts[index].product!,
+                                      qty: cartController.cartProducts[index].qty,
+                                      cartController: cartController,
+                                      index: index,
+                                    )
+                                  : SizedBox();
+                            },
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               );
             }),
       ),
-      body: GetBuilder(
-          init: cartController,
-          builder: (context) {
-            return SizedBox(
-              height: Get.height,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    pageTitle("My Bag".tr),
-                    Flexible(
-                      child: RefreshIndicator(
-                        onRefresh: () async {
-                          await cartController.syncCarts();
-                        },
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: cartController.cartProducts.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return cartController.cartProducts[index].product !=
-                                    null
-                                ? ProductCartItem(
-                                    product: cartController
-                                        .cartProducts[index].product!,
-                                    qty: cartController.cartProducts[index].qty,
-                                    cartController: cartController,
-                                    index: index,
-                                  )
-                                : SizedBox();
-                          },
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            );
-          }),
     );
   }
 }

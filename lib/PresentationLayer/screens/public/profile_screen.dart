@@ -5,6 +5,7 @@ import 'package:timezone/PresentationLayer/widgets/TZTextForm.dart';
 import '../../../BusinessLayer/controllers/profile _controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
+import '../../../DataAccessLayer/Models/user.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/page_title.dart';
@@ -12,6 +13,7 @@ import 'dart:io';
 
 class Profile extends StatelessWidget {
   Profile({Key? key}) : super(key: key);
+   //User? user;
   final ProfileController _profileController = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
@@ -41,12 +43,12 @@ class Profile extends StatelessWidget {
                           CircleAvatar(
                             backgroundColor: AppColors.yellow,
                             radius: 65,
-                            child: Obx(()=> CircleAvatar(
+                            child: CircleAvatar(
                               radius: 60,
                               backgroundImage: _profileController.isProfilePicPathSet.value == true
                                   ? FileImage(File(_profileController.profilePicPath.value)) as ImageProvider
                               : NetworkImage("")
-                            )),
+                            ),
                           ),
                           Positioned(
                             bottom: 0,
@@ -61,7 +63,8 @@ class Profile extends StatelessWidget {
                     ),
                     subtitle: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("user name",
+                      child: Text("User Name",
+                        //user!.name,
                         style: mediumNormal.apply(color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
@@ -74,27 +77,27 @@ class Profile extends StatelessWidget {
                 TZTextForm(
                     hint: 'Your name here'.tr,
                     obsecure: false,
-                    controller: _profileController.nameController),
+                    controller: _profileController.updateNameController),
                 const SizedBox(height: 20),
                 TZTextForm(
                     hint: 'example@gmail.com'.tr,
                     obsecure: false,
-                    controller: _profileController.emailController),
+                    controller: _profileController.updateEmailController),
                 const SizedBox(height: 20),
                 TZTextForm(
                     hint: 'Your phone number'.tr,
                     obsecure: false,
-                    controller: _profileController.mobileNumberController),
+                    controller: _profileController.updateMobileNumberController),
                 const SizedBox(height: 20),
                 TZTextForm(
-                    hint: 'Enter Your Password'.tr,
+                    hint: 'Change Your Password'.tr,
                     obsecure: true,
-                    controller: _profileController.passwordController),
+                    controller: _profileController.updatePasswordController),
                 const SizedBox(height: 20),
-                TZTextForm(
-                    hint: 'Enter Your Address'.tr,
-                    obsecure: false,
-                    controller: _profileController.addressController),
+                // TZTextForm(
+                //     hint: 'Enter Your Address'.tr,
+                //     obsecure: false,
+                //     controller: _profileController.updateAddressController),
                 const SizedBox(
                   height: 30,
                 ),

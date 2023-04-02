@@ -18,7 +18,7 @@ final TopCategoriesController topCategoriesController = Get.find();
   Widget build(BuildContext context) {
     print(topCategoriesController.categories);
     return Directionality(
-        textDirection: Get.locale!.languageCode == "ar"
+        textDirection: Get.locale!.languageCode == "en"
             ? TextDirection.rtl
             : TextDirection.ltr,
         child: Scaffold(
