@@ -14,8 +14,8 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: Get.locale!.languageCode == "en"
-          ? TextDirection.rtl
-          : TextDirection.ltr,
+          ? TextDirection.ltr
+          : TextDirection.rtl,
       child: GetBuilder(
           init: loginController,
           builder: (context) {

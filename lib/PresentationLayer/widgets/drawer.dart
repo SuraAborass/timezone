@@ -61,10 +61,22 @@ class MyDrawer extends StatelessWidget {
               color: AppColors.white,
             ),
             title: Text(
-              "Profile".tr,
+              "My Profile".tr,
               style: title.copyWith(fontSize: 14),
             ),
-            onTap: () => Get.to(Profile()),
+            onTap: () => Get.toNamed(AppRoutes.profileScreen),
+          ),
+          if (MyApp.AppUser != null)
+          ListTile(
+            leading: const Icon(
+              Icons.menu,
+              color: AppColors.white,
+            ),
+            title: Text(
+              "Orders".tr,
+              style: title.copyWith(fontSize: 14),
+            ),
+            onTap: () => Get.toNamed(AppRoutes.ordersScreen),
           ),
           ListTile(
             leading: const Icon(
@@ -91,33 +103,33 @@ class MyDrawer extends StatelessWidget {
               title: Text('Featured Products'.tr,
                   style: title.copyWith(fontSize: 14)),
               onTap: () => Get.to(FeaturedProducts())),
-          // ListTile(
-          //   leading: const Icon(Icons.language, color: AppColors.white),
-          //   title: Text('Language'.tr, style: title.copyWith(fontSize: 14)),
-          //   onTap: () {
-          //     Get.defaultDialog(
-          //         title: 'Choose Language'.tr,
-          //         titleStyle: title.copyWith(color: AppColors.black),
-          //         content: Column(
-          //           children: [
-          //             ListTile(
-          //               title: Text("Arabic".tr),
-          //               onTap: () {
-          //                 _languageController.saveLocale("ar");
-          //                 Get.back();
-          //               },
-          //             ),
-          //             ListTile(
-          //               title: Text("English".tr),
-          //               onTap: () {
-          //                 _languageController.saveLocale("en");
-          //                 Get.back();
-          //               },
-          //             )
-          //           ],
-          //         ));
-          //   },
-          // ),
+          ListTile(
+            leading: const Icon(Icons.language, color: AppColors.white),
+            title: Text('Language'.tr, style: title.copyWith(fontSize: 14)),
+            onTap: () {
+              Get.defaultDialog(
+                  title: 'Choose Language'.tr,
+                  titleStyle: title.copyWith(color: AppColors.black),
+                  content: Column(
+                    children: [
+                      ListTile(
+                        title: Text("Arabic".tr),
+                        onTap: () {
+                          _languageController.saveLocale("ar");
+                          Get.back();
+                        },
+                      ),
+                      ListTile(
+                        title: Text("English".tr),
+                        onTap: () {
+                          _languageController.saveLocale("en");
+                          Get.back();
+                        },
+                      )
+                    ],
+                  ));
+            },
+          ),
           ListTile(
             leading: const Icon(
               Icons.roundabout_left,

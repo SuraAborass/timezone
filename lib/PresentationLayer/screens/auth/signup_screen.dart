@@ -13,8 +13,8 @@ final RegisterController registerController = Get.put(RegisterController());
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: Get.locale!.languageCode == "en"
-          ? TextDirection.rtl
-          : TextDirection.ltr,
+          ? TextDirection.ltr
+          : TextDirection.rtl,
       child: GetBuilder(
         init: registerController,
         builder: (context) {
@@ -40,6 +40,13 @@ final RegisterController registerController = Get.put(RegisterController());
                   ),
                   const SizedBox(height: 50),
                   TextFormField(
+                    validator: (value){
+                      if(value!.length > 100){
+                        return "name can't bee more than 100 characters";}
+                      if(value!.length < 2){
+                        return "name can't bee less than 2 characters";}
+                      return null;
+                    },
                     style: mediumNormal,
                     controller: registerController.nameController,
                     decoration: InputDecoration(

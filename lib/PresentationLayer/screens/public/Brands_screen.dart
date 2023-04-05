@@ -7,7 +7,7 @@ import '../../widgets/appbar.dart';
 import '../../widgets/brandItemFromDrawer.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/page_title.dart';
-import 'button_navigation.dart';
+import '../../widgets/button_navigation.dart';
 
 
 class BrandScreen extends StatelessWidget {

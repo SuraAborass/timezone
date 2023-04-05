@@ -5,7 +5,7 @@ import '../../../Constants/font_styles.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/page_title.dart';
-import 'button_navigation.dart';
+import '../../widgets/button_navigation.dart';
 
 class CheckOutScreen extends StatelessWidget {
   const CheckOutScreen({Key? key}) : super(key: key);

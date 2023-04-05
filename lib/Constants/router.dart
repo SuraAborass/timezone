@@ -5,6 +5,7 @@ import 'package:timezone/PresentationLayer/screens/public/product_screen.dart';
 
 import '../BusinessLayer/bindings/home_bindings.dart';
 import '../BusinessLayer/bindings/init_bindings.dart';
+import '../PresentationLayer/screens/Private/orders_screen.dart';
 import '../PresentationLayer/screens/auth/login_screen.dart';
 import '../PresentationLayer/screens/auth/signup_screen.dart';
 import '../PresentationLayer/screens/public/aboutUs_screen.dart';
@@ -74,9 +75,18 @@ List<GetPage<dynamic>> router = [
     transition: Transition.leftToRightWithFade,
     page: () => SearchScreen(),
   ),
+
   GetPage(
     name: AppRoutes.aboutUs,
     page: () => AboutUs(),
   ),
-
+  GetPage(
+    name: AppRoutes.ordersScreen,
+    page: () => OrdersScreen(),
+      transition: Transition.leftToRightWithFade
+  ),
+  // GetPage(
+  //     name: AppRoutes.orderScreen,
+  //     page: () => OrderScreen(),
+  //     transition: Transition.zoom),
 ];

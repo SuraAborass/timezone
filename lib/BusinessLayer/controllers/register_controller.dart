@@ -31,7 +31,7 @@ class RegisterController extends GetxController{
       await userController.saveAuthState(user);
       SnackBars.showSuccess("Welcome....");
     } else {
-      SnackBars.showError("There was an error");
+      SnackBars.showError("fill required fields");
     }
     sending.value = false;
   }

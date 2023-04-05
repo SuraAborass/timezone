@@ -6,7 +6,7 @@ import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
 import '../../widgets/Shimmers/products_shimmer.dart';
 import '../../widgets/product_item.dart';
-import 'button_navigation.dart';
+import '../../widgets/button_navigation.dart';
 
 class ProductsByBrandId extends StatelessWidget {
   ProductsByBrandId({Key? key}) : super(key: key);

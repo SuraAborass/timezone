@@ -12,7 +12,7 @@ class Languages extends Translations {
       "Forget Password ?" : "نسيت كلمة المرور؟",
       "Login" : "تسجيل الدخول",
       "  Continue With Google" : "متابعة باستخدام حساب غوغل ",
-      "Don`t Have an Account?" :  "ليس لديك حساب؟",
+      "Don\'t Have an Account?" :  "ليس لديك حساب؟",
       " Create One" : "أنشىء حسابك من هنا",
 
       /////sign up screen
@@ -24,13 +24,19 @@ class Languages extends Translations {
       " Login" : "تسجيل الدخول ",
 
       /////home screen
-      "Collections" : "التصنيفات",
+      "Top Categories" : "التصنيفات",
+      "Top Brands" : "العلامات التجارية",
       "Featured Products" : "الأكثر مبيعاً",
       "Favorites" : "المفضلة",
+
+      /////button navigation
       "Notifications" : "الإشعارات",
       "Home" : "الصفحة الرئيسية",
       "My Bag" : "السلة",
       "Profile" : "الملف الشخصي",
+
+      /////notification screen
+      "No Notifications" : "لاتوجد إشعارات!",
 
       /////profile screen
       "My Profile" : "ملفي الشخصي",
@@ -44,13 +50,13 @@ class Languages extends Translations {
       "Check Out" : "سحب",
 
       /////drawer
-      "Dark Theme" : "الوضع الغامق",
-      "Light Theme" : "الوضع الفاتح",
+     "Orders" : "الطلبات",
       "Language" : "اللغة",
       "Choose Language" : "اختر لغة",
       "Arabic" : "العربية",
       "English" : "الانكليزية",
       "About Us" : "حول",
+      "logout" : "تسجيل خروج"
 
     },
 

@@ -5,7 +5,6 @@ import 'package:timezone/PresentationLayer/widgets/TZTextForm.dart';
 import '../../../BusinessLayer/controllers/profile _controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
-import '../../../DataAccessLayer/Models/user.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/page_title.dart';
