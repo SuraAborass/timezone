@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:timezone/PresentationLayer/screens/public/profile_screen.dart';
+import 'package:timezone/PresentationLayer/screens/Private/profile_screen.dart';
 
 import '../../Constants/colors.dart';
 import '../../Constants/routes.dart';

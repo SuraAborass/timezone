@@ -7,7 +7,7 @@ import '../../Constants/links.dart';
 class OrderClient {
   Future<dynamic> getOrdersById(userId) async {
     var response = await http.get(Uri.parse("$baseLink/user/$userId/orders"));
-
+    print(response.body);
     if (response.statusCode == 200) {
       return response.body;
     } else {
@@ -31,12 +31,12 @@ class OrderClient {
     }
   }
 
-  Future<dynamic> postOrder(info, userId, cartitems) async {
+  Future<dynamic> postOrder(info, userId, cartItems) async {
     var response = await http.post(Uri.parse("$baseLink$postorderLink"),
         body: jsonEncode(<String, dynamic>{
           "info": info,
           "user_id": userId,
-          "cart": cartitems,
+          "cart": cartItems,
         }),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

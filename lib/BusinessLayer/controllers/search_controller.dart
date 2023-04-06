@@ -9,6 +9,7 @@ class SearchController extends GetxController {
   List<Product> products = [];
   List<Product> searchProducts = [];
   TextEditingController searchText = TextEditingController();
+  var loading = false.obs;
 
   @override
   void onInit() {

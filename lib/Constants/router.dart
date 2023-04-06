@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:timezone/Constants/routes.dart';
-import 'package:timezone/PresentationLayer/screens/public/my_bag.dart';
+import 'package:timezone/PresentationLayer/screens/Private/my_bag.dart';
 import 'package:timezone/PresentationLayer/screens/public/product_screen.dart';
 
 import '../BusinessLayer/bindings/home_bindings.dart';
@@ -11,11 +11,11 @@ import '../PresentationLayer/screens/auth/signup_screen.dart';
 import '../PresentationLayer/screens/public/aboutUs_screen.dart';
 import '../PresentationLayer/screens/public/brand_screen.dart';
 import '../PresentationLayer/screens/public/category_screen.dart';
-import '../PresentationLayer/screens/public/checkout_screen.dart';
+import '../PresentationLayer/screens/Private/checkout_screen.dart';
 import '../PresentationLayer/screens/public/favorites_screen.dart';
 import '../PresentationLayer/screens/public/home_screen.dart';
 import '../PresentationLayer/screens/public/notification_screen.dart';
-import '../PresentationLayer/screens/public/profile_screen.dart';
+import '../PresentationLayer/screens/Private/profile_screen.dart';
 import '../PresentationLayer/screens/public/search_screen.dart';
 import '../PresentationLayer/screens/public/splash_screen.dart';
 

@@ -39,16 +39,18 @@ class Notifications extends StatelessWidget {
                   backNotificationController.getBackNotifications();},
                 child: backNotificationController.userNotifications.isEmpty
                 ? SizedBox(
-                height: Get.height / 2,
-                child: ListView(
-                  shrinkWrap: true,
-                  children: [
-                    Text(
-                      "No Notifications".tr,
-                      style: titleBold.copyWith(fontSize: 16),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+                height: Get.height - 250,
+                child: Center(
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
+                      Text(
+                        "No Notifications".tr,
+                        style: titleBold.copyWith(fontSize: 16),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
                 ),
               )
                 :SizedBox(

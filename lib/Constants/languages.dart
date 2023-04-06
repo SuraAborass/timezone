@@ -47,7 +47,7 @@ class Languages extends Translations {
       "Discount :" : "الحسم",
       "Total :" : "السعر",
       "Net Value" : "صافي القيمة",
-      "Check Out" : "سحب",
+      "Check Out" : "إرسال الطلب",
 
       /////drawer
      "Orders" : "الطلبات",

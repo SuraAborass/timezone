@@ -1,72 +1,58 @@
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:timezone/BusinessLayer/controllers/user_controller.dart';
-
 import '../../Constants/routes.dart';
+import '../../DataAccessLayer/Clients/box_client.dart';
 import '../../DataAccessLayer/Models/user.dart';
 import '../../DataAccessLayer/Repositories/user_repo.dart';
 import '../../PresentationLayer/widgets/snackbars.dart';
 import '../../main.dart';
 
 class ProfileController extends GetxController {
-  TextEditingController updateNameController = TextEditingController();
-  TextEditingController updatePasswordController = TextEditingController();
-  TextEditingController updateEmailController = TextEditingController();
-  TextEditingController updateMobileNumberController = TextEditingController();
-  // TextEditingController updateAddressController = TextEditingController();
-  // TextEditingController updateAvatarController = TextEditingController();
-
+  UserRepo userRepo = UserRepo();
+  BoxClient boxClient = BoxClient();
+  TextEditingController updateNameController =
+  TextEditingController(text: MyApp.AppUser!.name);
+  TextEditingController updateEmailController =
+  TextEditingController(text: MyApp.AppUser!.email);
+  TextEditingController updatePasswordController =
+  TextEditingController(text: '********');
+  TextEditingController updateAddressController =
+  TextEditingController(text: MyApp.AppUser!.address);
+  TextEditingController updateMobileController =
+  TextEditingController(text: MyApp.AppUser!.mobile_number);
+  var loading = false.obs;
   var isProfilePicPathSet = false.obs;
   var profilePicPath = "".obs;
   File? pickedFile;
   ImagePicker imagePicker = ImagePicker();
 
-  final UserController userController = Get.find();
-  UserRepo userRepo = UserRepo();
-  var loading = false.obs;
-  @override
-  void onInit() {
-    if (MyApp.AppUser != null) {
-      updateEmailController.text = MyApp.AppUser!.email;
-      updateNameController.text = MyApp.AppUser!.name;
-      updateMobileNumberController.text = MyApp.AppUser!.mobile_number;
-    }
-    super.onInit();
-  }
-
-  Future<void> logout() async {
-    userController.box.remove('user');
-    userController.box.remove('authed');
-    userController.user = null;
-    userController.update();
-    Get.toNamed(AppRoutes.loginPage);
-  }
-
   Future<void> updateInfo() async {
-    print("start Updating ");
-    loading.value = true;
     User? user;
-      user = await userRepo.updateInfo(
-        userController.user!.id,
-        updateNameController.value.text,
-        updateEmailController.value.text,
-        updatePasswordController.value.text,
-        updateMobileNumberController.value.text,
-      );
-    if (user != null) {
-      print(user.toMap());
-      await userController.saveAuthState(user);
-      MyApp.AppUser = user;
-      SnackBars.showSuccess("Successfully Saved ");
-      update();
+    String name = updateNameController.value.text;
+    String email = updateEmailController.value.text;
+    String password = updatePasswordController.value.text;
+    String address = updateAddressController.value.text;
+    String mobileNumber = updateMobileController.value.text;
+    if (email.isNotEmpty) {
+      if (name.isNotEmpty) {
+        user = await userRepo.updateInfo(
+            MyApp.AppUser!.id, name, email, password, address, mobileNumber);
+      } else {
+        user = await userRepo.updateInfo(MyApp.AppUser!.id, MyApp.AppUser!.name,
+            email, password, address, mobileNumber);
+      }
+      if (user != null) {
+        MyApp.AppUser = user;
+        await boxClient.setAuthedUser(user);
+        SnackBars.showSuccess('your information updated successfully'.tr);
+        update();
+      }
+    } else {
+      SnackBars.showWarning('please fill required field to continue'.tr);
     }
-  else {
-      SnackBars.showError("There Was an Error ");
-    }
-    loading.value = false;
   }
 
   Future<void> takePhoto(ImageSource source) async {
