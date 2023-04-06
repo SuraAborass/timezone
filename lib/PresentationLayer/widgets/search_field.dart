@@ -18,6 +18,7 @@ class SearchField extends StatelessWidget {
         },
         textDirection: TextDirection.rtl,
         textAlign: TextAlign.center,
+        autofocus: false,
         decoration: InputDecoration(
             hintTextDirection: TextDirection.rtl,
             fillColor: AppColors.lightblack,

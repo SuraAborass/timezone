@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
+
 import '../../../BusinessLayer/controllers/favourite_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
@@ -148,7 +149,7 @@ class ProductScreen extends StatelessWidget {
                   style: title8.copyWith(fontSize: 18),
                 ),
               ),
-              Padding(
+              /* Padding(
                   padding:
                       const EdgeInsets.only(top: 8.0, right: 20.0, left: 20.0),
                   child: Row(
@@ -175,8 +176,8 @@ class ProductScreen extends StatelessWidget {
                       ),
                       Spacer(),
                     ],
-                  )),
-              Padding(
+                  )), */
+              /* Padding(
                 padding: const EdgeInsets.only(
                     top: 8.0, bottom: 20.0, right: 20.0, left: 20.0),
                 child: Column(
@@ -196,7 +197,7 @@ class ProductScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
+              ), */
               const SizedBox(
                 height: 15,
               ),
