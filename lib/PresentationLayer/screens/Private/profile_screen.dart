@@ -5,6 +5,7 @@ import 'package:timezone/PresentationLayer/widgets/TZTextForm.dart';
 import '../../../BusinessLayer/controllers/profile _controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
+import '../../../DataAccessLayer/Models/user.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/page_title.dart';
@@ -12,7 +13,7 @@ import 'dart:io';
 
 class Profile extends StatelessWidget {
   Profile({Key? key}) : super(key: key);
-   //User? user;
+   User? user;
   final ProfileController _profileController = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
@@ -47,6 +48,15 @@ class Profile extends StatelessWidget {
                               backgroundImage: _profileController.isProfilePicPathSet.value == true
                                   ? FileImage(File(_profileController.profilePicPath.value)) as ImageProvider
                               : NetworkImage("")
+                              // backgroundColor: AppColors.lightblack,
+                              // child: ClipOval(
+                              //   child: user!.avatar != 'users/default.png'
+                              //       ? Image.network(user!.avatar)
+                              //       : Image.asset(
+                              //     'assets/images/Mask Group 7.png',
+                              //     fit: BoxFit.cover,
+                              //   ),
+                              // ),
                             ),
                           ),
                           Positioned(
@@ -86,17 +96,17 @@ class Profile extends StatelessWidget {
                 TZTextForm(
                     hint: 'Your phone number'.tr,
                     obsecure: false,
-                    controller: _profileController.updateMobileNumberController),
+                    controller: _profileController.updateMobileController),
                 const SizedBox(height: 20),
                 TZTextForm(
                     hint: 'Change Your Password'.tr,
                     obsecure: true,
                     controller: _profileController.updatePasswordController),
                 const SizedBox(height: 20),
-                // TZTextForm(
-                //     hint: 'Enter Your Address'.tr,
-                //     obsecure: false,
-                //     controller: _profileController.updateAddressController),
+                TZTextForm(
+                    hint: 'Enter Your Address'.tr,
+                    obsecure: false,
+                    controller: _profileController.updateAddressController),
                 const SizedBox(
                   height: 30,
                 ),

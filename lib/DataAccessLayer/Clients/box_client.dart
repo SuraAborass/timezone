@@ -57,6 +57,9 @@ class BoxClient {
     var map = cartProducts.map((e) => e.toMap());
     await box.write('cart_items', map.toList());
   }
+  Future<void> removeAllCarts() async {
+    await box.remove('tz_cart_items');
+  }
 
   Future<List<Favourite>> getFavorites() async {
     var favoriteItems = await box.read('favorites');

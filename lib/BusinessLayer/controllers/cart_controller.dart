@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/Constants/colors.dart';
@@ -7,23 +9,42 @@ import 'package:timezone/DataAccessLayer/Models/cart_product.dart';
 import 'package:timezone/DataAccessLayer/Models/product.dart';
 import 'package:timezone/DataAccessLayer/Repositories/product_repo.dart';
 import 'package:timezone/PresentationLayer/widgets/TZTextForm.dart';
+import '../../DataAccessLayer/Clients/order_client.dart';
 import '../../PresentationLayer/widgets/snackbars.dart';
+import '../../main.dart';
+
+enum PaymentMethod { cashPay, onlinePay }
 
 class CartController extends GetxController {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController noteController = TextEditingController();
+  TextEditingController cardNumberController = TextEditingController();
+
+  var paymentMethod = PaymentMethod.cashPay.obs;
+
   ProductRepo productRepo = ProductRepo();
   BoxClient boxClient = BoxClient();
   List<CartProduct> cartProducts = [];
   List<Product> products = [];
   var adding = false.obs;
+  var sendingOrder = false.obs;
   TextEditingController newQtyController = TextEditingController();
   num totalValue = 0;
   num discount = 0;
   num netValue = 0;
+  OrderClient orderClient = OrderClient();
 
   @override
   void onInit() async {
     await getCarts();
     await syncCartsOnline();
+    if (MyApp.AppUser != null) {
+      nameController.value = TextEditingValue(text: MyApp.AppUser!.name);
+      emailController.value = TextEditingValue(text: MyApp.AppUser!.email);
+    }
     super.onInit();
   }
 
@@ -68,7 +89,13 @@ class CartController extends GetxController {
     adding.value = false;
     await syncCarts();
     update();
-    SnackBars.showSuccess("Added Successfully");
+    SnackBars.showSuccess("Added Successfully".tr);
+  }
+  Future<void> removeAll() async {
+    await boxClient.removeAllCarts();
+    cartProducts.clear();
+    calc();
+    update();
   }
 
   void showEditDialog(index, oldValue) {
@@ -124,6 +151,10 @@ class CartController extends GetxController {
     calc();
     update();
   }
+  void changePaymentType(PaymentMethod method) {
+    paymentMethod.value = method;
+    update();
+  }
 
   void calc() {
     totalValue = 0;
@@ -140,5 +171,52 @@ class CartController extends GetxController {
       netValue = totalValue - discount;
       update();
     }
+  }
+
+  Future<void> submitOrder() async {
+    sendingOrder.value = true;
+    String info = "";
+    List<Map<String, dynamic>> cartItems = [];
+
+    if (cartProducts.isEmpty) {
+      SnackBars.showWarning('You can\'t create an empty order'.tr);
+    } else if (nameController.value.toString().isEmpty ||
+        emailController.value.toString().isEmpty ||
+        addressController.value.toString().isEmpty ||
+        phoneController.value.toString().isEmpty) {
+      SnackBars.showWarning('please fill required fields to continue'.tr);
+    } else {
+      if (paymentMethod == PaymentMethod.onlinePay &&
+          cardNumberController.value.text.isEmpty) {
+      } else {
+        info = jsonEncode(<String, dynamic>{
+          "payment_type": paymentMethod == PaymentMethod.cashPay ? 0 : 1,
+          "name": nameController.value.text,
+          "email": emailController.value.text,
+          "address": addressController.value.text,
+          "mobile_number": phoneController.value.text,
+          "note": noteController.value.text,
+          "customerRef": cardNumberController.value.text
+        });
+        for (var element in cartProducts) {
+          cartItems.add(element.toApiMap());
+        }
+        boxClient.saveUserMail(emailController.value.text);
+      }
+
+      var response = await orderClient.postOrder(jsonDecode(info),
+          MyApp.AppUser != null ? MyApp.AppUser!.id : null, cartItems);
+
+      if (response == null) {
+        SnackBars.showError('there was an error, please check your internet connection'.tr);
+      } else if (response == 'Invalid') {
+        SnackBars.showWarning('please check your card number'.tr);
+      } else {
+        SnackBars.showSuccess('order send successfully'.tr);
+        await removeAll();
+      }
+    }
+
+    sendingOrder.value = false;
   }
 }
