@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/user_controller.dart';
 import 'package:timezone/Constants/routes.dart';
 import 'package:timezone/main.dart';
-
 import '../../BusinessLayer/controllers/language_controller.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
@@ -39,13 +38,6 @@ class MyDrawer extends StatelessWidget {
                   : null,
             ),
           ),
-          // const DrawerHeader(
-          //   decoration: BoxDecoration(
-          //     color: AppColors.grey,
-          //   ),
-          //   child:  Text("Sura Aborass",style: title5,),
-          // ),
-
           if (MyApp.AppUser == null)
             ListTile(
               leading: const Icon(
@@ -69,10 +61,22 @@ class MyDrawer extends StatelessWidget {
               color: AppColors.white,
             ),
             title: Text(
-              "Profile".tr,
+              "My Profile".tr,
               style: title.copyWith(fontSize: 14),
             ),
-            onTap: () => Get.to(Profile()),
+            onTap: () => Get.toNamed(AppRoutes.profileScreen),
+          ),
+          if (MyApp.AppUser != null)
+          ListTile(
+            leading: const Icon(
+              Icons.menu,
+              color: AppColors.white,
+            ),
+            title: Text(
+              "Orders".tr,
+              style: title.copyWith(fontSize: 14),
+            ),
+            onTap: () => Get.toNamed(AppRoutes.ordersScreen),
           ),
           ListTile(
             leading: const Icon(
@@ -135,6 +139,7 @@ class MyDrawer extends StatelessWidget {
               "About Us".tr,
               style: title.copyWith(fontSize: 14),
             ),
+            onTap: ()=> Get.toNamed(AppRoutes.aboutUs),
           ),
           if (MyApp.AppUser != null)
             ListTile(

@@ -29,7 +29,7 @@ class LoginController extends GetxController {
       await userController.saveAuthState(user);
       SnackBars.showSuccess("Welcome  $user.name");
     } else {
-      SnackBars.showError("Your Credintials Dont Match Our Recored");
+      SnackBars.showError("Your Credentials Don't Match Our Record");
     }
     sending.value = false;
   }

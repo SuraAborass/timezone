@@ -8,7 +8,7 @@ import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/page_title.dart';
 import '../../widgets/search_result.dart';
-import 'button_navigation.dart';
+import '../../widgets/button_navigation.dart';
 
 class SearchScreen extends StatelessWidget {
   SearchScreen({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: Get.locale!.languageCode == "ar"
+      textDirection: Get.locale!.languageCode == "en"
           ? TextDirection.rtl
           : TextDirection.ltr,
       child: Scaffold(

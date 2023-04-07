@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/PresentationLayer/screens/public/profile_screen.dart';
 
-import '../../../Constants/colors.dart';
-import '../../../Constants/routes.dart';
-import '../../../main.dart';
-import 'favorites_screen.dart';
+import '../../Constants/colors.dart';
+import '../../Constants/routes.dart';
+import '../../main.dart';
+import '../screens/public/favorites_screen.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -27,10 +27,10 @@ class NavBar extends StatelessWidget {
             Get.toNamed(AppRoutes.myBag);
             break;
           case 3:
-            Get.to(Favorites());
+            Get.toNamed(AppRoutes.favorites);
             break;
           case 4:
-            Get.to(Profile());
+            Get.toNamed(AppRoutes.profileScreen);
             break;
           default:
         }

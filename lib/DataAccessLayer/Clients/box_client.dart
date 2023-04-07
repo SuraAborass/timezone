@@ -31,6 +31,15 @@ class BoxClient {
     await box.remove('userdata');
   }
 
+  Future<void> saveUserMail(email) async {
+    await box.remove('tz_user_mail');
+    await box.write('tz_user_mail', email);
+  }
+
+  Future<String> getSavedMail() async {
+    return await box.read('tz_user_mail');
+  }
+
   Future<List<CartProduct>> getCartItems() async {
     var cartItems = await box.read('cart_items');
     if (cartItems != null) {
@@ -40,7 +49,6 @@ class BoxClient {
           .map<CartProduct>((json) => CartProduct.fromMap(json))
           .toList();
     }
-
     return [];
   }
 

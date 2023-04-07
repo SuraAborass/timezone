@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:timezone/DataAccessLayer/Models/user.dart';
-
 import 'BusinessLayer/bindings/init_bindings.dart';
+import 'Constants/languages.dart';
 import 'Constants/router.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      // translations: Languages(),
-      // locale: Get.deviceLocale,
-      // fallbackLocale: const Locale.fromSubtags(languageCode: "ar"),
+      translations: Languages(),
+      locale: Get.deviceLocale,
+      fallbackLocale: const Locale.fromSubtags(languageCode: "en"),
       initialBinding: InitBinding(),
       getPages: router,
     );

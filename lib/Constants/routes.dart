@@ -12,4 +12,8 @@ class AppRoutes {
   static const featuredProduct = "/homepage/featuredProduct";
   static const productScreen = "/homepage/ProductScreen";
   static const searchScreen = "/homepage/searchScreen";
+  static const aboutUs = "/homepage/aboutUs";
+  static const profileScreen = "/homepage/profileScreen";
+  static const ordersScreen = "/homepage/ordersScreen";
+  static const orderScreen = "/homepage/ordersScreen/order";
 }

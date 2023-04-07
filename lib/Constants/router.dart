@@ -5,13 +5,17 @@ import 'package:timezone/PresentationLayer/screens/public/product_screen.dart';
 
 import '../BusinessLayer/bindings/home_bindings.dart';
 import '../BusinessLayer/bindings/init_bindings.dart';
+import '../PresentationLayer/screens/Private/orders_screen.dart';
 import '../PresentationLayer/screens/auth/login_screen.dart';
 import '../PresentationLayer/screens/auth/signup_screen.dart';
+import '../PresentationLayer/screens/public/aboutUs_screen.dart';
 import '../PresentationLayer/screens/public/brand_screen.dart';
 import '../PresentationLayer/screens/public/category_screen.dart';
 import '../PresentationLayer/screens/public/checkout_screen.dart';
+import '../PresentationLayer/screens/public/favorites_screen.dart';
 import '../PresentationLayer/screens/public/home_screen.dart';
 import '../PresentationLayer/screens/public/notification_screen.dart';
+import '../PresentationLayer/screens/public/profile_screen.dart';
 import '../PresentationLayer/screens/public/search_screen.dart';
 import '../PresentationLayer/screens/public/splash_screen.dart';
 
@@ -39,6 +43,14 @@ List<GetPage<dynamic>> router = [
     page: () => Notifications(),
   ),
   GetPage(
+    name: AppRoutes.favorites,
+    page: () => Favorites(),
+  ),
+  GetPage(
+    name: AppRoutes.profileScreen,
+    page: () => Profile(),
+  ),
+  GetPage(
     name: AppRoutes.category,
     page: () => ProductsByCategoryId(),
   ),
@@ -64,4 +76,17 @@ List<GetPage<dynamic>> router = [
     page: () => SearchScreen(),
   ),
 
+  GetPage(
+    name: AppRoutes.aboutUs,
+    page: () => AboutUs(),
+  ),
+  GetPage(
+    name: AppRoutes.ordersScreen,
+    page: () => OrdersScreen(),
+      transition: Transition.leftToRightWithFade
+  ),
+  // GetPage(
+  //     name: AppRoutes.orderScreen,
+  //     page: () => OrderScreen(),
+  //     transition: Transition.zoom),
 ];

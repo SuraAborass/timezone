@@ -7,7 +7,6 @@ import 'package:timezone/DataAccessLayer/Models/cart_product.dart';
 import 'package:timezone/DataAccessLayer/Models/product.dart';
 import 'package:timezone/DataAccessLayer/Repositories/product_repo.dart';
 import 'package:timezone/PresentationLayer/widgets/TZTextForm.dart';
-
 import '../../PresentationLayer/widgets/snackbars.dart';
 
 class CartController extends GetxController {
@@ -48,9 +47,9 @@ class CartController extends GetxController {
     products = await productRepo.productsByIds(ids);
     if (products.isNotEmpty) {
       print(products);
-      for (var cartitem in cartProducts) {
-        cartitem.product =
-            products.where((element) => element.id == cartitem.productId).first;
+      for (var cartItem in cartProducts) {
+        cartItem.product =
+            products.where((element) => element.id == cartItem.productId).first;
       }
       cartProducts.map((e) => e.product =
           products.where((element) => element.id == e.productId).first);
@@ -72,8 +71,8 @@ class CartController extends GetxController {
     SnackBars.showSuccess("Added Successfully");
   }
 
-  void showEditDialog(index, oldvalue) {
-    newQtyController.value = TextEditingValue(text: oldvalue.toString());
+  void showEditDialog(index, oldValue) {
+    newQtyController.value = TextEditingValue(text: oldValue.toString());
     Get.bottomSheet(Container(
       padding: EdgeInsets.all(20),
       height: 200,

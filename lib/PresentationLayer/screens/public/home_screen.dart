@@ -8,16 +8,16 @@ import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/featured_products.dart';
 import '../../widgets/search_field.dart';
-import 'button_navigation.dart';
+import '../../widgets/button_navigation.dart';
 
 class MyHomePage extends StatelessWidget {
   const  MyHomePage({Key? key,}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: Get.locale!.languageCode == "ar"
-          ? TextDirection.rtl
-          : TextDirection.ltr,
+      textDirection: Get.locale!.languageCode == "en"
+          ? TextDirection.ltr
+          : TextDirection.rtl,
       child: Scaffold(
         backgroundColor: AppColors.black,
         appBar: myAppBar(context),

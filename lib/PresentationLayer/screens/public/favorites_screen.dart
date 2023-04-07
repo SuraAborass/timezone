@@ -7,7 +7,7 @@ import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/favorite_item.dart';
 import '../../widgets/page_title.dart';
-import 'button_navigation.dart';
+import '../../widgets/button_navigation.dart';
 
 class Favorites extends StatelessWidget {
   Favorites({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class Favorites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: Get.locale!.languageCode == "ar"
+      textDirection: Get.locale!.languageCode == "en"
           ? TextDirection.rtl
           : TextDirection.ltr,
       child: Scaffold(

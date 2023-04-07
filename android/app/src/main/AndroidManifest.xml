@@ -1,5 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.timezone">
+
+    <uses-permission android:name="andriod.permission.CAMERA"/>
+    <uses-permission android:name="andriod.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="andriod.permission.READ_EXTERNAL_STORAGE"/>
+
    <application
         android:label="timezone"
         android:name="${applicationName}"

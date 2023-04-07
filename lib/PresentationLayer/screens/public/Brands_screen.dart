@@ -7,7 +7,7 @@ import '../../widgets/appbar.dart';
 import '../../widgets/brandItemFromDrawer.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/page_title.dart';
-import 'button_navigation.dart';
+import '../../widgets/button_navigation.dart';
 
 
 class BrandScreen extends StatelessWidget {
@@ -17,7 +17,7 @@ final TopBrandsController topBrandsController = Get.find();
   @override
   Widget build(BuildContext context) {
     return  Directionality(
-        textDirection: Get.locale!.languageCode == "ar"
+        textDirection: Get.locale!.languageCode == "en"
             ? TextDirection.rtl
             : TextDirection.ltr,
         child: Scaffold(

@@ -2,15 +2,17 @@ import 'dart:convert';
 
 class User {
   final int id;
-  final String mobileNumber;
+  final String mobile_number;
   final String name;
   final String email;
+  final String address;
   final String avatar;
   final String token;
   User({
     required this.id,
-    required this.mobileNumber,
+    required this.mobile_number,
     required this.name,
+    required this.address,
     required this.email,
     required this.avatar,
     required this.token,
@@ -19,9 +21,10 @@ class User {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
-      'mobile_number': mobileNumber,
+      'mobile_number': mobile_number,
       'name': name,
       'email': email,
+      'address' : address,
       'avatar': avatar,
       'token': token
     };
@@ -30,9 +33,10 @@ class User {
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
       id: map['user']['id']?.toInt() ?? 0,
-      mobileNumber: map['user']['mobile_number'] ?? '',
+      mobile_number: map['user']['mobile_number'] ?? '',
       name: map['user']['name'] ?? '',
       email: map['user']['email'] ?? '',
+      address: map['user']['address'] ?? '',
       avatar: map['user']['avatar'] ?? '',
       token: map['token'] ?? '',
     );
@@ -40,9 +44,10 @@ class User {
   factory User.fromBoxMap(Map<String, dynamic> map) {
     return User(
       id: map['id']?.toInt() ?? 0,
-      mobileNumber: map['mobile_number'] ?? '',
+      mobile_number: map['mobile_number'] ?? '',
       name: map['name'] ?? '',
       email: map['email'] ?? '',
+      address: map['address'] ?? '',
       avatar: map['avatar'] ?? '',
       token: map['token'] ?? '',
     );
