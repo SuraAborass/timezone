@@ -13,24 +13,31 @@ Widget orderItem(Order order) {
       Get.toNamed(AppRoutes.ordersScreen, arguments: [order]);
     },
     child: Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.symmetric(vertical: 10),
-      decoration:
-      const BoxDecoration(color: AppColors.black,
-      borderRadius: BorderRadius.all(Radius.circular(10))),
+      decoration: const BoxDecoration(
+          color: AppColors.black1,
+          borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            flex: 1,
-            child: CircleAvatar(
-              backgroundColor: AppColors.lightblack,
-              child: Text(
-                order.id.toString(),
-                style: title.copyWith(fontSize: 18),
-              ),
-            ),
+              flex: 1,
+              child: Container(
+                height: 70,
+                decoration: BoxDecoration(
+                    color: AppColors.yellow,
+                    borderRadius: BorderRadius.circular(5)),
+                child: Center(
+                  child: Text("#" + order.id.toString(),
+                      textAlign: TextAlign.center,
+                      style:
+                          title.copyWith(fontSize: 18, color: AppColors.black)),
+                ),
+              )),
+          SizedBox(
+            width: 20,
           ),
           Expanded(
               flex: 4,
@@ -40,26 +47,28 @@ Widget orderItem(Order order) {
                 children: [
                   RichText(
                     text: TextSpan(children: [
-                       TextSpan(
+                      TextSpan(
                         text: "حالة الطلب : ",
-                        style: title.copyWith(fontSize: 14),
+                        style: bodyBold,
                       ),
                       TextSpan(
                         text: OrderState.fromId(order.status),
-                        style: title.copyWith(fontWeight: FontWeight.normal),
+                        style: bodyNormal,
                       )
                     ]),
                   ),
-                 const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   RichText(
                     text: TextSpan(children: [
-                       TextSpan(
+                      TextSpan(
                         text: "قيمة الطلب : ",
-                        style: title.copyWith(fontSize: 14),
+                        style: bodyBold,
                       ),
                       TextSpan(
                         text: order.totalPrice.toString(),
-                        style: title.copyWith(fontWeight: FontWeight.normal),
+                        style: bodyNormal,
                       )
                     ]),
                   ),

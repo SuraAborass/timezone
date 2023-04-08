@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
 import 'package:timezone/Constants/font_styles.dart';
+
 import '../../../BusinessLayer/controllers/ProductsByCategoryController.dart';
 import '../../../Constants/colors.dart';
 import '../../widgets/Shimmers/products_shimmer.dart';
-import '../../widgets/product_item.dart';
 import '../../widgets/button_navigation.dart';
+import '../../widgets/product_item.dart';
 
 class ProductsByCategoryId extends StatelessWidget {
   ProductsByCategoryId({
@@ -66,7 +67,7 @@ class ProductsByCategoryId extends StatelessWidget {
                             gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                colors: [Colors.black, Colors.transparent])),
+                                colors: [Colors.black45, Colors.transparent])),
                       ),
                       Positioned(
                         bottom: 0,
@@ -77,7 +78,10 @@ class ProductsByCategoryId extends StatelessWidget {
                               gradient: LinearGradient(
                                   begin: Alignment.bottomCenter,
                                   end: Alignment.topCenter,
-                                  colors: [Colors.black, Colors.transparent])),
+                                  colors: [
+                                Colors.black45,
+                                Colors.transparent
+                              ])),
                         ),
                       ),
                       Positioned(
@@ -108,7 +112,9 @@ class ProductsByCategoryId extends StatelessWidget {
                             childCount: productController.products.length,
                             (context, index) {
                               return ProductItem(
-                                  product: productController.products[index],cartController: cartController,);
+                                product: productController.products[index],
+                                cartController: cartController,
+                              );
                             },
                           ));
                   })

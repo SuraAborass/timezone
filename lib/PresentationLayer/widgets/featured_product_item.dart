@@ -28,11 +28,18 @@ class FeaturedProductItem extends StatelessWidget {
                 tag: featuredProduct.id.toString() + featuredProduct.name,
                 child: Container(
                   width: 130,
+                  padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage(featuredProduct.images[0]),
-                        fit: BoxFit.cover),
+                    color: Colors.white,
                     borderRadius: const BorderRadius.all(Radius.circular(20.0)),
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      image: DecorationImage(
+                          image: NetworkImage(featuredProduct.images[0]),
+                          fit: BoxFit.cover),
+                    ),
                   ),
                 ),
               ),

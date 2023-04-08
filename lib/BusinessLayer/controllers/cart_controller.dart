@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/Constants/colors.dart';
 import 'package:timezone/Constants/font_styles.dart';
+import 'package:timezone/Constants/routes.dart';
 import 'package:timezone/DataAccessLayer/Clients/box_client.dart';
 import 'package:timezone/DataAccessLayer/Models/cart_product.dart';
 import 'package:timezone/DataAccessLayer/Models/product.dart';
 import 'package:timezone/DataAccessLayer/Repositories/product_repo.dart';
 import 'package:timezone/PresentationLayer/widgets/TZTextForm.dart';
+
 import '../../DataAccessLayer/Clients/order_client.dart';
 import '../../PresentationLayer/widgets/snackbars.dart';
 import '../../main.dart';
@@ -91,9 +93,11 @@ class CartController extends GetxController {
     update();
     SnackBars.showSuccess("Added Successfully".tr);
   }
+
   Future<void> removeAll() async {
     await boxClient.removeAllCarts();
     cartProducts.clear();
+
     calc();
     update();
   }
@@ -151,6 +155,7 @@ class CartController extends GetxController {
     calc();
     update();
   }
+
   void changePaymentType(PaymentMethod method) {
     paymentMethod.value = method;
     update();
@@ -177,17 +182,18 @@ class CartController extends GetxController {
     sendingOrder.value = true;
     String info = "";
     List<Map<String, dynamic>> cartItems = [];
-
+    print("phoneController " + phoneController.value.toString());
     if (cartProducts.isEmpty) {
       SnackBars.showWarning('You can\'t create an empty order'.tr);
-    } else if (nameController.value.toString().isEmpty ||
-        emailController.value.toString().isEmpty ||
-        addressController.value.toString().isEmpty ||
-        phoneController.value.toString().isEmpty) {
+    } else if (nameController.value.text.toString().isEmpty ||
+        emailController.value.text.toString().isEmpty ||
+        addressController.value.text.toString().isEmpty ||
+        phoneController.value.text.toString().isEmpty) {
       SnackBars.showWarning('please fill required fields to continue'.tr);
     } else {
       if (paymentMethod == PaymentMethod.onlinePay &&
           cardNumberController.value.text.isEmpty) {
+        SnackBars.showWarning('please fill required fields to continue'.tr);
       } else {
         info = jsonEncode(<String, dynamic>{
           "payment_type": paymentMethod == PaymentMethod.cashPay ? 0 : 1,
@@ -208,12 +214,14 @@ class CartController extends GetxController {
           MyApp.AppUser != null ? MyApp.AppUser!.id : null, cartItems);
 
       if (response == null) {
-        SnackBars.showError('there was an error, please check your internet connection'.tr);
+        SnackBars.showError(
+            'there was an error, please check your internet connection'.tr);
       } else if (response == 'Invalid') {
         SnackBars.showWarning('please check your card number'.tr);
       } else {
         SnackBars.showSuccess('order send successfully'.tr);
         await removeAll();
+        Get.toNamed(AppRoutes.ordersScreen);
       }
     }
 

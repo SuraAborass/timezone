@@ -27,9 +27,9 @@ class LoginController extends GetxController {
     if (user != null) {
       MyApp.AppUser = user;
       await userController.saveAuthState(user);
-      SnackBars.showSuccess("Welcome  $user.name");
+      SnackBars.showSuccess("welcome".tr + MyApp.AppUser!.name);
     } else {
-      SnackBars.showError("Your Credentials Don't Match Our Record");
+      SnackBars.showError("your_credintials".tr);
     }
     sending.value = false;
   }

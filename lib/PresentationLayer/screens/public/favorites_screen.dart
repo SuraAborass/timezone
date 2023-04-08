@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 import '../../../BusinessLayer/controllers/favourite_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../widgets/appbar.dart';
+import '../../widgets/button_navigation.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/favorite_item.dart';
 import '../../widgets/page_title.dart';
-import '../../widgets/button_navigation.dart';
 
 class Favorites extends StatelessWidget {
   Favorites({Key? key}) : super(key: key);
@@ -17,8 +17,8 @@ class Favorites extends StatelessWidget {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: Get.locale!.languageCode == "en"
-          ? TextDirection.rtl
-          : TextDirection.ltr,
+          ? TextDirection.ltr
+          : TextDirection.rtl,
       child: Scaffold(
         backgroundColor: AppColors.black,
         appBar: myAppBar(context),

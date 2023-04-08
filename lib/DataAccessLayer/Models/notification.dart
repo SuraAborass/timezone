@@ -1,4 +1,6 @@
+import 'package:timezone/DataAccessLayer/Models/product.dart';
 
+import 'order.dart';
 
 class UserNotification {
   final int id;
@@ -7,7 +9,8 @@ class UserNotification {
   final dynamic data;
   final String type;
   final String time;
-
+  Order? order;
+  Product? product;
 
   UserNotification({
     required this.id,
@@ -18,19 +21,13 @@ class UserNotification {
     required this.time,
   });
 
-
-
   factory UserNotification.fromMap(Map<String, dynamic> map) {
     return UserNotification(
-      id: map['id'] as int,
-      title: map['title'] as String,
+        id: map['id'] as int,
+        title: map['title'] as String,
         subtitle: map['subtitle'] as String,
-      data: map['data'],
+        data: map['data'],
         type: map['type'],
-      time:  map['time'] as String
-    );
+        time: map['time'] as String);
   }
-
-
-
 }

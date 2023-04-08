@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../BusinessLayer/controllers/featured_products_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../widgets/Shimmers/products_shimmer.dart';
 import '../../widgets/appbar.dart';
+import '../../widgets/button_navigation.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/featuredProdudctItemFromDrawer.dart';
 import '../../widgets/page_title.dart';
-import '../../widgets/button_navigation.dart';
 
 class FeaturedProducts extends StatelessWidget {
   FeaturedProducts({
@@ -19,8 +20,8 @@ class FeaturedProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Directionality(
         textDirection: Get.locale!.languageCode == "en"
-            ? TextDirection.rtl
-            : TextDirection.ltr,
+            ? TextDirection.ltr
+            : TextDirection.rtl,
         child: Scaffold(
             backgroundColor: AppColors.black,
             drawer: MyDrawer(),
@@ -31,7 +32,7 @@ class FeaturedProducts extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: pageTitle("Featured Products"),
+                    child: pageTitle("featured"),
                   ),
                   GetBuilder(
                       init: productsController,
@@ -56,9 +57,8 @@ class FeaturedProducts extends StatelessWidget {
                                     itemBuilder:
                                         (BuildContext context, int index) {
                                       return featuredProductItem(
-                                          featuredProduct:
-                                              productsController
-                                                  .featuredProducts[index]);
+                                          featuredProduct: productsController
+                                              .featuredProducts[index]);
                                     }),
                               );
                       }),

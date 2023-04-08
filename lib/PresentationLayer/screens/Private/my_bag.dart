@@ -37,60 +37,74 @@ class MyBag extends StatelessWidget {
                         height: 15,
                       ),
                       Expanded(
-                          flex: 2,
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 12),
                           child: Column(
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Total :".tr,
-                                    style: titleCopy7.copyWith(fontSize: 15),
+                                    'total'.tr,
+                                    style: mediumBold.copyWith(
+                                      color: AppColors.white,
+                                    ),
                                   ),
-                                  Text(cartController.totalValue.toString(),
-                                      style: title8.copyWith(fontSize: 15))
+                                  const SizedBox(width: 35),
+                                  Text(
+                                    cartController.totalValue.toString(),
+                                    style: mediumNormal.copyWith(
+                                      color: AppColors.white,
+                                    ),
+                                  ),
                                 ],
                               ),
-                              const SizedBox(
+                              SizedBox(
                                 height: 10,
                               ),
-                              if (cartController.discount != 0)
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Discount :    ".tr,
-                                      style: titleCopy7.copyWith(fontSize: 15),
+                              Row(
+                                children: [
+                                  Text(
+                                    'discount'.tr,
+                                    style: mediumBold.copyWith(
+                                      color: Colors.redAccent,
                                     ),
-                                    Text(cartController.discount.toString(),
-                                        style: title7.copyWith(
-                                            fontSize: 15, color: Colors.red))
-                                  ],
-                                ),
-                              if (cartController.discount != 0)
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                              if (cartController.discount != 0)
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Net Value :    ".tr,
-                                      style: titleCopy7.copyWith(fontSize: 15),
+                                  ),
+                                  const SizedBox(width: 35),
+                                  Text(
+                                    cartController.discount.toString(),
+                                    style: mediumNormal.copyWith(
+                                      color: Colors.redAccent,
+                                      decoration: TextDecoration.lineThrough,
                                     ),
-                                    Text(cartController.netValue.toString(),
-                                        style: title8.copyWith(
-                                          fontSize: 15,
-                                        ))
-                                  ],
-                                ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'net'.tr,
+                                    style: mediumBold,
+                                  ),
+                                  const SizedBox(width: 30),
+                                  Text(
+                                    cartController.netValue.toString(),
+                                    style: mediumNormal,
+                                  ),
+                                ],
+                              ),
                             ],
-                          )),
+                          ),
+                        ),
+                      ),
                       Expanded(
                         flex: 1,
                         child: MaterialButton(
-                          onPressed: ()=> Get.toNamed(AppRoutes.checkout),
+                          onPressed: () => Get.toNamed(AppRoutes.checkout),
                           height: 56,
                           minWidth: Get.width,
                           color: AppColors.yellow,
@@ -125,12 +139,14 @@ class MyBag extends StatelessWidget {
                             shrinkWrap: true,
                             itemCount: cartController.cartProducts.length,
                             itemBuilder: (BuildContext context, int index) {
-                              return cartController.cartProducts[index].product !=
+                              return cartController
+                                          .cartProducts[index].product !=
                                       null
                                   ? ProductCartItem(
                                       product: cartController
                                           .cartProducts[index].product!,
-                                      qty: cartController.cartProducts[index].qty,
+                                      qty: cartController
+                                          .cartProducts[index].qty,
                                       cartController: cartController,
                                       index: index,
                                     )

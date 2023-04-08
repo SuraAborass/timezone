@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:timezone/DataAccessLayer/Models/user.dart';
+
 import 'BusinessLayer/bindings/init_bindings.dart';
 import 'Constants/languages.dart';
 import 'Constants/router.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       locale: Get.deviceLocale,
       fallbackLocale: const Locale.fromSubtags(languageCode: "en"),
       initialBinding: InitBinding(),
+      theme: ThemeData(fontFamily: "Hacen"),
       getPages: router,
     );
   }

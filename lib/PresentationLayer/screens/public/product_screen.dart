@@ -18,8 +18,8 @@ class ProductScreen extends StatelessWidget {
     return SafeArea(
       child: Directionality(
         textDirection: Get.locale!.languageCode == "en"
-            ? TextDirection.rtl
-            : TextDirection.ltr,
+            ? TextDirection.ltr
+            : TextDirection.rtl,
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           backgroundColor: AppColors.black,
@@ -75,7 +75,7 @@ class ProductScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 100,
+                    height: 200,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                             colors: [Colors.black45, Colors.transparent],
@@ -86,7 +86,7 @@ class ProductScreen extends StatelessWidget {
                       bottom: 0,
                       right: 0,
                       child: Container(
-                          height: 100,
+                          height: 200,
                           decoration: BoxDecoration(
                               gradient: LinearGradient(
                                   colors: [Colors.black45, Colors.transparent],
@@ -152,55 +152,6 @@ class ProductScreen extends StatelessWidget {
                   child: Text(
                     product.name,
                     style: title8.copyWith(fontSize: 18),
-                  ),
-                ),
-                Padding(
-                    padding: const EdgeInsets.only(
-                        top: 8.0, right: 20.0, left: 20.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: AppColors.yellow,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: AppColors.yellow,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: AppColors.yellow,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: AppColors.yellow,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: AppColors.yellow,
-                        ),
-                        Spacer(),
-                      ],
-                    )),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8.0, bottom: 20.0, right: 20.0, left: 20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              " Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
-                              style: title.copyWith(
-                                  fontWeight: FontWeight.normal, fontSize: 16),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
                   ),
                 ),
                 const SizedBox(

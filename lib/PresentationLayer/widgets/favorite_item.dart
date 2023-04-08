@@ -37,7 +37,7 @@ class FavoriteItem extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: NetworkImage(favourite.product!.images[0]),
-                        fit: BoxFit.cover),
+                        fit: BoxFit.contain),
                     color: AppColors.white,
                     borderRadius:
                         const BorderRadius.all(Radius.circular(10.0))),

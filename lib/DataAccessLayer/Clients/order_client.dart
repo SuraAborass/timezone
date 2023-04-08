@@ -1,12 +1,13 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 import '../../Constants/links.dart';
 
-
 class OrderClient {
   Future<dynamic> getOrdersById(userId) async {
-    var response = await http.get(Uri.parse("$baseLink/user/$userId/orders"));
+    var response = await http
+        .get(Uri.parse("$baseLink" + "user/" + userId.toString() + "/orders"));
     print(response.body);
     if (response.statusCode == 200) {
       return response.body;
@@ -41,7 +42,7 @@ class OrderClient {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         });
-
+    print(response.body);
     if (response.statusCode == 201) {
       return response.body;
     } else {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 
@@ -8,34 +9,43 @@ class TZTextForm extends StatelessWidget {
       required this.hint,
       required this.obsecure,
       required this.controller,
-      this.type = TextInputType.text});
+      this.type = TextInputType.text,
+      this.label = ""});
   final TextEditingController controller;
-
+  final String label;
   final String hint;
   final bool obsecure;
   final TextInputType type;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      style: mediumNormal,
-      controller: controller,
-      keyboardType: type,
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: AppColors.lightblack,
-        border: const OutlineInputBorder(),
-        hintText: hint,
-        hintStyle: mediumNormal.apply(color: Colors.grey),
-        enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 2, color: AppColors.grey2),
-          borderRadius: BorderRadius.circular(20.0),
+    return Column(
+      children: [
+        TextFormField(
+          style: mediumNormal,
+          controller: controller,
+          keyboardType: type,
+          decoration: InputDecoration(
+            label: Text(
+              label,
+              style: mediumNormal,
+            ),
+            filled: true,
+            fillColor: AppColors.lightblack,
+            border: const OutlineInputBorder(),
+            hintText: hint,
+            hintStyle: mediumNormal.apply(color: Colors.grey),
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(width: 2, color: AppColors.grey2),
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: const BorderSide(color: AppColors.grey2)),
+          ),
+          maxLines: 1,
+          obscureText: obsecure,
         ),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: const BorderSide(color: AppColors.grey2)),
-      ),
-      maxLines: 1,
-      obscureText: obsecure,
+      ],
     );
   }
 }

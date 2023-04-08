@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../BusinessLayer/controllers/ProductsByBrandId_controller.dart';
 import '../../../BusinessLayer/controllers/cart_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
 import '../../widgets/Shimmers/products_shimmer.dart';
-import '../../widgets/product_item.dart';
 import '../../widgets/button_navigation.dart';
+import '../../widgets/product_item.dart';
 
 class ProductsByBrandId extends StatelessWidget {
   ProductsByBrandId({Key? key}) : super(key: key);
@@ -44,7 +45,7 @@ class ProductsByBrandId extends StatelessWidget {
                   children: [
                     Hero(
                       tag: productController.brand.id.toString() +
-                            productController.brand.name,
+                          productController.brand.name,
                       child: Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
@@ -63,18 +64,18 @@ class ProductsByBrandId extends StatelessWidget {
                           gradient: LinearGradient(
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
-                              colors: [Colors.black, Colors.transparent])),
+                              colors: [Colors.black45, Colors.transparent])),
                     ),
                     Positioned(
                       bottom: 0,
                       child: Container(
-                        height: 50,
+                        height: 75,
                         width: Get.width,
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
                                 begin: Alignment.bottomCenter,
                                 end: Alignment.topCenter,
-                                colors: [Colors.black, Colors.transparent])),
+                                colors: [Colors.black45, Colors.transparent])),
                       ),
                     ),
                     Positioned(
@@ -87,26 +88,29 @@ class ProductsByBrandId extends StatelessWidget {
                         ))
                   ],
                 ),
-              ), ),
+              ),
+            ),
             GetBuilder(
                 init: productController,
                 builder: (_) {
                   return productController.loading.value == true
                       ? SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        childCount: 5,
-                            (context, index) {
-                          return ProductsShimmer();
-                        },
-                      ))
+                          delegate: SliverChildBuilderDelegate(
+                          childCount: 5,
+                          (context, index) {
+                            return ProductsShimmer();
+                          },
+                        ))
                       : SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        childCount: productController.products.length,
-                            (context, index) {
-                          return ProductItem(
-                            product: productController.products[index],cartController: cartController,);
-                        },
-                      ));
+                          delegate: SliverChildBuilderDelegate(
+                          childCount: productController.products.length,
+                          (context, index) {
+                            return ProductItem(
+                              product: productController.products[index],
+                              cartController: cartController,
+                            );
+                          },
+                        ));
                 })
           ],
         ),

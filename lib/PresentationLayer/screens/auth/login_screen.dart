@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/PresentationLayer/screens/auth/signup_screen.dart';
+import 'package:timezone/PresentationLayer/widgets/Public/loading_item.dart';
 
 import '../../../BusinessLayer/controllers/login_controller.dart';
 import '../../../Constants/colors.dart';
@@ -47,7 +48,7 @@ class LoginScreen extends StatelessWidget {
                         fillColor: AppColors.lightblack,
                         border: const OutlineInputBorder(),
                         hintText: 'Enter Your Email'.tr,
-                        hintStyle: title1,
+                        hintStyle: title1.apply(fontWeightDelta: -1),
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
                               width: 2, color: AppColors.lightgrey),
@@ -124,10 +125,10 @@ class LoginScreen extends StatelessWidget {
                       child: Obx(() {
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             if (loginController.sending.value)
-                              const CircularProgressIndicator(),
+                              loadingItem(false),
                             Text('Login'.tr, style: title)
                           ],
                         );

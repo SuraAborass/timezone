@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:timezone/PresentationLayer/screens/Private/profile_screen.dart';
 
 import '../../Constants/colors.dart';
 import '../../Constants/routes.dart';
 import '../../main.dart';
-import '../screens/public/favorites_screen.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -57,7 +55,7 @@ class NavBar extends StatelessWidget {
         BottomNavigationBarItem(
           backgroundColor: AppColors.lightblack,
           icon: const Icon(Icons.favorite),
-          label: "Favourites".tr,
+          label: "Favorites".tr,
         ),
         BottomNavigationBarItem(
           backgroundColor: AppColors.lightblack,

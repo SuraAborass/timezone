@@ -28,7 +28,7 @@ class SearchField extends StatelessWidget {
                 onPressed: () {
                   Get.toNamed(AppRoutes.searchScreen);
                 }),
-            hintText: "Search For a Product , Category ,Brand",
+            hintText: "searchtitle".tr,
             hintStyle: title1,
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),

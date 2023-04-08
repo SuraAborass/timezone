@@ -1,9 +1,10 @@
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:timezone/BusinessLayer/controllers/user_controller.dart';
-import '../../Constants/routes.dart';
+import 'package:timezone/DataAccessLayer/Clients/user_client.dart';
+
 import '../../DataAccessLayer/Clients/box_client.dart';
 import '../../DataAccessLayer/Models/user.dart';
 import '../../DataAccessLayer/Repositories/user_repo.dart';
@@ -12,17 +13,17 @@ import '../../main.dart';
 
 class ProfileController extends GetxController {
   UserRepo userRepo = UserRepo();
+  UserClient userClient = UserClient();
   BoxClient boxClient = BoxClient();
   TextEditingController updateNameController =
-  TextEditingController(text: MyApp.AppUser!.name);
+      TextEditingController(text: MyApp.AppUser!.name);
   TextEditingController updateEmailController =
-  TextEditingController(text: MyApp.AppUser!.email);
-  TextEditingController updatePasswordController =
-  TextEditingController(text: '********');
+      TextEditingController(text: MyApp.AppUser!.email);
+  TextEditingController updatePasswordController = TextEditingController();
   TextEditingController updateAddressController =
-  TextEditingController(text: MyApp.AppUser!.address);
+      TextEditingController(text: MyApp.AppUser!.address);
   TextEditingController updateMobileController =
-  TextEditingController(text: MyApp.AppUser!.mobile_number);
+      TextEditingController(text: MyApp.AppUser!.mobile_number);
   var loading = false.obs;
   var isProfilePicPathSet = false.obs;
   var profilePicPath = "".obs;
@@ -30,6 +31,7 @@ class ProfileController extends GetxController {
   ImagePicker imagePicker = ImagePicker();
 
   Future<void> updateInfo() async {
+    loading.value = true;
     User? user;
     String name = updateNameController.value.text;
     String email = updateEmailController.value.text;
@@ -51,22 +53,41 @@ class ProfileController extends GetxController {
         update();
       }
     } else {
-      SnackBars.showWarning('please fill required field to continue'.tr);
+      SnackBars.showWarning('wentwrong'.tr);
     }
+    loading.value = false;
   }
 
   Future<void> takePhoto(ImageSource source) async {
     final pickedImage =
         await imagePicker.pickImage(source: source, imageQuality: 100);
-    if(pickedImage!=null){
-      pickedFile = File(pickedImage!.path);
+    if (pickedImage != null) {
+      pickedFile = File(pickedImage.path);
     }
-    setProfileImagePath(pickedFile!.path);
+
     Get.back();
+    loading.value = true;
+    print("send to cleint");
+    var response =
+        await userClient.updateAvatar(MyApp.AppUser!.id, pickedImage!.path);
+    if (response != null) {
+      User user = User.fromMap(response);
+      boxClient.setAuthedUser(user);
+      MyApp.AppUser = user;
+      SnackBars.showSuccess('your information updated successfully'.tr);
+    } else {
+      SnackBars.showError('wentwrong'.tr);
+    }
+    print("end send to cleint");
+    setProfileImagePath(pickedFile!.path);
+    loading.value = false;
+    update();
   }
 
-  void setProfileImagePath(String path){
+  void setProfileImagePath(String path) {
+    print("setting image");
     profilePicPath.value = path;
     isProfilePicPathSet.value = true;
+    update();
   }
 }
