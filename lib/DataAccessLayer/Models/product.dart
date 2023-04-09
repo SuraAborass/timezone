@@ -14,6 +14,7 @@ class Product {
   final List<String> images;
   final String category;
   final String reference_number;
+  final String gender;
 
   Product({
     required this.id,
@@ -28,6 +29,7 @@ class Product {
     required this.images,
     required this.category,
     required this.reference_number,
+    required this.gender
   });
 
   Map<String, dynamic> toMap() {
@@ -44,6 +46,7 @@ class Product {
       'case_size' : case_size,
       'case_material' : case_material,
       'category' : category,
+      'gender' : gender
     };
   }
 
@@ -53,6 +56,7 @@ class Product {
       name: map['name'] ?? "" ,
       price: map['price'].toString(),
       offer: map['offer'].toString(),
+      gender: map['gender'].toString(),
       reference_number: map['reference_number'] !=null? map['reference_number'].toString() : "",
       movement : map['movement'] !=null?map['movement']  :"",
       case_material : map['case_material'] !=null? map['case_material']  : "",

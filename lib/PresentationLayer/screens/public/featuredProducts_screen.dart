@@ -32,7 +32,7 @@ class FeaturedProducts extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: pageTitle("featured"),
+                    child: pageTitle("Featured Products".tr),
                   ),
                   GetBuilder(
                       init: productsController,

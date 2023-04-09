@@ -115,12 +115,12 @@ class CartController extends GetxController {
         child: Column(
           children: [
             Text(
-              "Please Enter a New Quantity :",
+              "Please Enter a New Quantity".tr,
               style: title,
             ),
             Spacer(),
             TZTextForm(
-              hint: "Enter a New Quantity",
+              hint: "Enter a New Quantity".tr,
               obsecure: false,
               controller: newQtyController,
               type: TextInputType.number,
@@ -137,7 +137,7 @@ class CartController extends GetxController {
                   await editCartItemQty(index);
                   Get.back();
                 },
-                child: Text("Edit"))
+                child: Text("Edit".tr))
           ],
         ),
       ),

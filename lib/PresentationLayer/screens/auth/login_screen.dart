@@ -47,7 +47,7 @@ class LoginScreen extends StatelessWidget {
                         filled: true,
                         fillColor: AppColors.lightblack,
                         border: const OutlineInputBorder(),
-                        hintText: 'Enter Your Email'.tr,
+                        hintText: 'Enter your email'.tr,
                         hintStyle: title1.apply(fontWeightDelta: -1),
                         enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(
@@ -79,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                             },
                           ),
                           border: const OutlineInputBorder(),
-                          hintText: 'Enter Your Password'.tr,
+                          hintText: 'Enter your password'.tr,
                           hintStyle: title1,
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
@@ -106,7 +106,7 @@ class LoginScreen extends StatelessWidget {
                         InkWell(
                           onTap: () {},
                           child: Text(
-                            'Forget Password ?'.tr,
+                            'Forget password ?'.tr,
                             style: title1,
                           ),
                         ),
@@ -155,7 +155,7 @@ class LoginScreen extends StatelessWidget {
                             height: 20,
                             width: 20,
                           ),
-                          Text('  Continue With Google'.tr, style: title1),
+                          Text('  Continue with google'.tr, style: title1),
                         ],
                       ),
                       onPressed: () {},
@@ -166,12 +166,12 @@ class LoginScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Don\'t Have an Account?'.tr, style: title1),
+                        Text('Don\'t have an account?'.tr, style: title1),
                         InkWell(
                           onTap: () {
                             Get.to(Register());
                           },
-                          child: Text(' Create One'.tr, style: title2),
+                          child: Text(' Create one'.tr, style: title2),
                         ),
                       ],
                     ),

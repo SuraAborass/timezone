@@ -28,7 +28,7 @@ class AboutUs extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: pageTitle("About Us"),
+                    child: pageTitle("About Us".tr),
                   ),
                 ]
             ),

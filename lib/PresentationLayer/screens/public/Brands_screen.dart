@@ -30,7 +30,7 @@ class BrandScreen extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: pageTitle("Top Brands"),
+                    child: pageTitle("Top Brands".tr),
                   ),
                   GetBuilder(
                       init: topBrandsController,

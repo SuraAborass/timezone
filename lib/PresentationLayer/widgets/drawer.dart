@@ -9,7 +9,6 @@ import '../../Constants/font_styles.dart';
 import '../screens/public/Brands_screen.dart';
 import '../screens/public/TopCategories_screen.dart';
 import '../screens/public/featuredProducts_screen.dart';
-import '../screens/Private/profile_screen.dart';
 
 class MyDrawer extends StatelessWidget {
   MyDrawer({Key? key}) : super(key: key);

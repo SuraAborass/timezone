@@ -27,9 +27,9 @@ class LoginController extends GetxController {
     if (user != null) {
       MyApp.AppUser = user;
       await userController.saveAuthState(user);
-      SnackBars.showSuccess("welcome".tr + MyApp.AppUser!.name);
+      SnackBars.showSuccess("Welcome".tr + MyApp.AppUser!.name);
     } else {
-      SnackBars.showError("your_credintials".tr);
+      SnackBars.showError("your_credentials".tr);
     }
     sending.value = false;
   }

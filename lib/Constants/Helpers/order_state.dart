@@ -1,16 +1,18 @@
+import 'package:get/get.dart';
+
 class OrderState {
   static String fromId(int id) {
     switch (id) {
       case 0:
-        return "تم الإستلام";
+        return "Received".tr;
       case 1:
-        return "قيد التدقيق";
+        return "Under Audit".tr;
       case 2:
-        return "قيد التجهيز";
+        return "In preparation".tr;
       case 3:
-        return "قيد التوصيل";
+        return "In Delivery".tr;
       case 4:
-        return "تم التسليم";
+        return "Delivered".tr;
 
       default:
         return "";

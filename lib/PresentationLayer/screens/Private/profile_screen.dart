@@ -83,7 +83,6 @@ class Profile extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               MyApp.AppUser!.name,
-                              //user!.name,
                               style: mediumNormal.apply(color: Colors.white),
                               textAlign: TextAlign.center,
                             ),
@@ -95,21 +94,21 @@ class Profile extends StatelessWidget {
                       ),
                       TZTextForm(
                           label: "name".tr,
-                          hint: 'Your name here'.tr,
+                          hint: 'Enter your name'.tr,
                           obsecure: false,
                           type: TextInputType.name,
                           controller: _profileController.updateNameController),
                       const SizedBox(height: 20),
                       TZTextForm(
                           label: "email".tr,
-                          hint: 'example@gmail.com'.tr,
+                          hint: 'Enter your email'.tr,
                           type: TextInputType.emailAddress,
                           obsecure: false,
                           controller: _profileController.updateEmailController),
                       const SizedBox(height: 20),
                       TZTextForm(
                           label: "mobile".tr,
-                          hint: 'Your phone number'.tr,
+                          hint: 'Enter your phone number'.tr,
                           type: TextInputType.phone,
                           obsecure: false,
                           controller:
@@ -117,14 +116,14 @@ class Profile extends StatelessWidget {
                       const SizedBox(height: 20),
                       TZTextForm(
                           label: "password".tr,
-                          hint: 'Change Your Password'.tr,
+                          hint: 'Enter anew password'.tr,
                           obsecure: true,
                           controller:
                               _profileController.updatePasswordController),
                       const SizedBox(height: 20),
                       TZTextForm(
-                          label: "adress".tr,
-                          hint: 'Enter Your Address'.tr,
+                          label: "address".tr,
+                          hint: 'Enter your address'.tr,
                           type: TextInputType.streetAddress,
                           obsecure: false,
                           controller:

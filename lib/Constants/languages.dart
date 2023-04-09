@@ -7,26 +7,26 @@ class Languages extends Translations {
           /////LoginScreen
           "Welcome Back !": "أهلاً بك !",
           "Please Sign In To Your Account": "يمكنك تسجيل الدخول إلى حسابك الآن",
-          "Enter Your Email": "أدخل الايميل الخاص بك",
-          "Enter Your Password": "أدخل كلمة المرور الخاصة بك",
-          "Forget Password ?": "نسيت كلمة المرور؟",
+          "Enter your email": "أدخل بريدك الإلكتروني ",
+          "Enter your password": "أدخل كلمة المرور الخاصة بك",
+          "Forget password ?": "نسيت كلمة المرور؟",
           "Login": "تسجيل الدخول",
-          "  Continue With Google": "متابعة باستخدام حساب غوغل ",
-          "Don\'t Have an Account?": " ليس لديك حساب ؟",
-          " Create One": "أنشىء حسابك من هنا",
+          "  Continue with google": "متابعة باستخدام حساب غوغل ",
+          "Don\'t have an account?": " ليس لديك حساب ؟",
+          " Create one": "أنشىء حسابك من هنا",
 
           /////sign up screen
           "Create Account": "أنشئ حساباً",
           "To Get Full Access": "لتتمكن من استخدام التطبيق",
-          "Enter Your Name": "أدخل اسمك هنا",
-          "Confirm Your Password": "تأكيد كلمة المرور",
-          "Have an Account ?": "هل لديك حساب؟",
+          "Enter your name": "أدخل اسمك هنا",
+          "Retype your password": "تأكيد كلمة المرور",
+          "Have an account ?": "هل لديك حساب؟",
           " Login": "تسجيل الدخول ",
 
           /////home screen
           "Top Categories": "التصنيفات",
           "Top Brands": "العلامات التجارية",
-          "Featured Products": "الأكثر مبيعاً",
+          "Featured Products": "الأكثر طلباً",
           "Favorites": "المفضلة",
 
           /////button navigation
@@ -40,14 +40,19 @@ class Languages extends Translations {
 
           /////profile screen
           "My Profile": "ملفي الشخصي",
-          "Enter Your Address": "أدخل عنوانك هنا",
+          "Enter your phone number": "أدخل رقم هاتفك",
+          "password" : "كلمة المرور",
+          "Enter anew password" : "أدخل كلمة المرور الجديدة",
+          "address"  : "العنوان",
+          "Enter your address": "أدخل عنوانك الحالي",
           "Update Profile Info": "تحديث معلوماتك",
+          "your information updated successfully" : "تم تحديث معلوماتك",
+          "wentWrong" : "لقد حدث خطأ ما ، أعد المحاولة",
 
           /////my bag
-          "Discount :": "الحسم",
-          "Total :": "السعر",
-          "Net Value": "صافي القيمة",
-          "Check Out": "إرسال الطلب",
+          "Edit" : "تعديل",
+          "Please Enter a New Quantity" : "أدخل الكمية الجديدة",
+          "Enter a New Quantity" : "الكمية الجديدة",
 
           /////drawer
           "Orders": "الطلبات",
@@ -58,104 +63,175 @@ class Languages extends Translations {
           "About Us": "حول",
           "logout": "تسجيل الخروج",
 
-          ////Fixes
-          "searchtitle": "إبحث عن المنتجات , الماركات , التصنيفات",
-          "result": "نتائج البحث",
+           /////checkout screen
+          "checkOut": "إرسال الطلب",
+          "name": "الاسم",
+          "email": "البريد الإلكتروني",
+          "addressHint": "قم بإدخال عنوانك الحقيقي",
+          "numberHint" : "أدخل رقمك للتواصل",
+          "notes": "ملاحظات",
+          "Payment Method ": "طريقة الدفع  ",
+          "Cash Payment": "دفع مباشر ",
+          "Online Payment": "دفع إلكتروني ",
+          "Enter card number" : "أدخل رقم بطاقتك هنا",
           "total": "المجموع الكلي",
           "discount": "الحسم ",
           "net": "المبلغ الصافي",
-          "welcome": "مرحباً بك ",
-          "your_credintials": "يرجى التأكد من البيانات المدخلة ",
-          "Your phone number": "أدخل رقم الهاتف",
-          "checkOut": "إرسال الطلب",
-          "Payment Method ": "طريقة الدفع  ",
-          "Cash Payment": "دفع مباشر ",
-          "Online Payment": "دفع الكتروني ",
-          "name": "الإسم",
-          "email": "البريد الإلكتروني",
-          "adress": "العنوان",
-          "adresshint": "قم بإدخال عنوانك الحقيقي",
-          "mobile": "رقم للتواصل",
-          "notes": "ملاحظات",
-          "sendorder": "إرسال الطلب",
-          "featured": "الأكثر طلباً",
-          "topcategories": "Top Categories",
-          "password": "كلمة المرور",
-          "wentwrong": "لقد حدث خطأ ما ، أعد المحاولة"
+          "sendOrder": "إرسال الطلب",
+
+        /////orders screen
+          "order state: "  : "حالة الطلب :",
+          "order value: " : "قيمة الطلب :",
+          "Received" : "تم الاستلام",
+          "Under Audit"  : "قيد التدقيق",
+          "In preparation"  : "قيد التجهيز",
+          "In Delivery"  : "قيد التوصيل",
+          "Delivered"  : "تم التسليم",
+
+        ////product screen
+          "Add to cart" : "إضافة إلى السلة",
+          "Brand:"  :"العلامة التجارية",
+          "Reference N:" : "رقم الموديل",
+          "Gender:" : "الجنس",
+          'woman': 'نسائي',
+          'men': 'رجالي',
+          "Movement:"  : "الحركة",
+          "Case_size:" : "الحجم",
+          "Case_material:"  : "المادة",
+
+
+
+        /////snackBars
+         "Welcome" : "مرحباً بك" ,
+          "your_credentials" : "يرجى التأكد من البيانات المدخلة",
+          "please fill required fields to continue" : "املأ الحقول المطلوبة أولاً",
+          "there was an error, please check your internet connection" : "هناك خطأ ما, تحقق من اتصالك بالانترنت!",
+          "please check your card number" : "تحقق من رقم بطاقتك",
+          "order send successfully" : "تم إرسال الطلب بنجاح",
+          "You can\'t create an empty order" : "لا يمكنك إرسال طلب فارغ",
+          "Removed Successfully" : "تمت الإزالة بنجاح",
+          "Added Successfully" : "تمت الإضافة بنجاح",
+
+          ////search
+          "searchtitle": "إبحث عن المنتجات , الماركات , التصنيفات",
+          "result": "نتائج البحث",
+          "No Results" : "لا توجد نتائج"
+
+
         },
         'en_US': {
-          /////LoginScreen
           "Welcome Back !": "Welcome Back !",
           "Please Sign In To Your Account": "Please Sign In To Your Account",
-          "Enter Your Email": "Enter Your Email",
-          "Enter Your Password": "Enter Your Password",
-          "Forget Password ?": "Forget Password ?",
+          "Enter your email": "Enter your email",
+          "Enter your password": "Enter your password",
+          "Forget password ?": "Forget password ?",
           "Login": "Login",
-          "  Continue With Google": "  Continue With Google",
-          "Don`t Have an Account?": "Don`t Have an Account?",
-          " Create One": " Create One",
+          "  Continue with google": "  Continue with google",
+          "Don\'t have an account?": "Don\'t have an account?",
+          " Create one": " Create one",
 
           /////sign up screen
-          "Create Account": "Create Account",
+          "Create Account": "Create Accountً",
           "To Get Full Access": "To Get Full Access",
-          "Enter Your Name": "Enter Your Name",
-          "Confirm Your Password": "Confirm Your Password",
-          "Have an Account ?": "Have an Account ?",
-          " Login": " Login",
+          "Enter your name": "Enter your name",
+          "Retype your password": "Retype your password",
+          "Have an account ?": "Have an account ?",
+          " Login": "Login",
 
           /////home screen
-          "Collections": "Collections",
-          "Featured Products": "Featured Products",
+          "Top Categories": "Top Categories",
+          "Top Brands": "Top Brands",
+          "Featured Products": "Featured Productsً",
           "Favorites": "Favorites",
+
+          /////button navigation
           "Notifications": "Notifications",
           "Home": "Home",
           "My Bag": "My Bag",
           "Profile": "Profile",
 
+          /////notification screen
+          "No Notifications": "No Notifications",
+
           /////profile screen
           "My Profile": "My Profile",
-          "Enter Your Address": "Enter Your Address",
+          "Enter your phone number": "Enter your phone number",
+          "password" : "password",
+          "Enter anew password" : "Enter anew password",
+          "address"  : "address",
+          "Enter your address": "Enter your address",
           "Update Profile Info": "Update Profile Info",
+          "your information updated successfully" : "your information updated successfully",
+          "wentWrong" : "Something went wrong, please try again",
 
           /////my bag
-          "Discount :": "Discount :",
-          "Total :": "Total :",
-          "Net Value": "Net Value",
-          "Check Out": "Check Out",
+          "Edit" : "Edit",
+          "Please Enter a New Quantity" : "Please Enter a New Quantity",
+          "Enter a New Quantity" : "Enter a New Quantity",
 
           /////drawer
-          "Dark Theme": "Dark Theme",
-          "Light Theme": "Light Theme",
+          "Orders": "Orders",
           "Language": "Language",
           "Choose Language": "Choose Language",
           "Arabic": "Arabic",
           "English": "English",
           "About Us": "About Us",
+          "logout": "logout",
 
-          ///Fixes
-          "searchtitle": "Search For a Product , Category ,Brand",
-          "result": "Search Result",
-          "total": "Total Value",
-          "discount": "Discount ",
-          "net": "Net Value ",
-          "welcome": "Welcome ",
-          "your_credintials": "Your Credentials Don't Match Our Record",
-          "Your phone number": "Your phone number",
-          "checkOut": "checkout",
+          /////checkout screen
+          "checkOut": "checkOut",
+          "name": "name",
+          "email": "email",
+          "addressHint": "Enter your address",
+          "numberHint" : "أدخل رقمك للتواصل",
+          "notes": "notes",
           "Payment Method ": "Payment Method ",
           "Cash Payment": "Cash Payment",
-          "Online Payment": "E-Payment With Selcom",
-          "name": "Enter Your Name",
-          "email": "Enter Your Email",
-          "adress": "Adress",
-          "adresshint": "Enter Your Adress",
-          "mobile": "Mobile Number",
-          "notes": "Notes",
-          "sendorder": "Submit Order",
-          "featured": "Featured Products",
-          "topcategories": "التصنيفات",
-          "password": "Password",
-          "wentwrong": "Something went wrong, try again"
+          "Online Payment": "Online Payment",
+          "Enter card number" : "Enter card number",
+          "total": "Total",
+          "discount": "Discount ",
+          "net": "Net value",
+          "sendOrder": "send Order",
+
+          /////orders screen
+          "order state:"  : "order state:",
+          "order value:" : "order value:",
+          "Received" : "Received",
+          "Under Audit"  : "Under Audit",
+          "In preparation"  : "In preparation",
+          "In Delivery"  : "In Delivery",
+          "Delivered"  : "Delivered",
+
+          ////product screen
+          "Add to cart" : "Add to cart",
+          "Brand:"  :"Brand:",
+          "Reference N:" : "Reference N:",
+          "Gender:" : "Gender:``",
+          'woman': 'woman',
+          'men': 'men',
+          "Movement:"  : "Movement:",
+          "Case_size:" : "Case_size:",
+          "Case_material:"  : "Case_material:",
+
+
+
+          /////snackBars
+          "Welcome" : "Welcome" ,
+          "your_credentials" : "Please check the entered data",
+          "please fill required fields to continue" : "please fill required fields to continueً",
+          "there was an error, please check your internet connection" : "there was an error, please check your internet connection",
+          "please check your card number" : "please check your card number",
+          "order send successfully" : "order send successfully",
+          "You can\'t create an empty order" : "You can\'t create an empty order",
+          "Removed Successfully" : "Removed Successfully",
+          "Added Successfully" : "Added Successfully",
+
+          ////search
+          "searchtitle": "search for products, brands, categories",
+          "result": "search result",
+          "No Results" : "No Results"
+
         }
       };
 }

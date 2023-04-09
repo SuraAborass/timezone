@@ -111,7 +111,7 @@ class MyBag extends StatelessWidget {
                           shape: const RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20.0))),
-                          child: Text('Check Out'.tr, style: titleCopy),
+                          child: Text('checkOut'.tr, style: titleCopy),
                         ),
                       ),
                     ],

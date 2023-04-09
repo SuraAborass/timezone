@@ -48,7 +48,7 @@ Widget orderItem(Order order) {
                   RichText(
                     text: TextSpan(children: [
                       TextSpan(
-                        text: "حالة الطلب : ",
+                        text: "order state: ".tr,
                         style: bodyBold,
                       ),
                       TextSpan(
@@ -63,7 +63,7 @@ Widget orderItem(Order order) {
                   RichText(
                     text: TextSpan(children: [
                       TextSpan(
-                        text: "قيمة الطلب : ",
+                        text: "order value: ".tr,
                         style: bodyBold,
                       ),
                       TextSpan(

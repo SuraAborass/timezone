@@ -61,7 +61,7 @@ class FavouriteController extends GetxController {
       if (index != null) {
         favoritesProducts
             .removeWhere((element) => element.productId == product.id);
-        SnackBars.showSuccess("Removed Successfully");
+        SnackBars.showSuccess("Removed Successfully".tr);
       } else {
         var favorite = Favourite(productId: product.id);
         adding.value = true;
@@ -70,7 +70,7 @@ class FavouriteController extends GetxController {
         favoritesProducts.add(favorite);
         await boxClient.AddToFavorite(favoritesProducts);
         adding.value = false;
-        SnackBars.showSuccess("Added Successfully");
+        SnackBars.showSuccess("Added Successfully".tr);
       }
       print(favoritesProducts);
       await syncFavorites();

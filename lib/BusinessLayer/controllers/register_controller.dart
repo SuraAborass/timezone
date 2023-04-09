@@ -29,9 +29,9 @@ class RegisterController extends GetxController{
         passwordController.value.text);
     if (user != null) {
       await userController.saveAuthState(user);
-      SnackBars.showSuccess("Welcome....");
+      SnackBars.showSuccess("Welcome".tr);
     } else {
-      SnackBars.showError("fill required fields");
+      SnackBars.showError("please fill required fields to continue".tr);
     }
     sending.value = false;
   }

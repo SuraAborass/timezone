@@ -53,7 +53,7 @@ class ProfileController extends GetxController {
         update();
       }
     } else {
-      SnackBars.showWarning('wentwrong'.tr);
+      SnackBars.showWarning('wentWrong'.tr);
     }
     loading.value = false;
   }
@@ -67,7 +67,7 @@ class ProfileController extends GetxController {
 
     Get.back();
     loading.value = true;
-    print("send to cleint");
+    print("send to client");
     var response =
         await userClient.updateAvatar(MyApp.AppUser!.id, pickedImage!.path);
     if (response != null) {
@@ -76,9 +76,9 @@ class ProfileController extends GetxController {
       MyApp.AppUser = user;
       SnackBars.showSuccess('your information updated successfully'.tr);
     } else {
-      SnackBars.showError('wentwrong'.tr);
+      SnackBars.showError('wentWrong'.tr);
     }
-    print("end send to cleint");
+    print("end send to client");
     setProfileImagePath(pickedFile!.path);
     loading.value = false;
     update();

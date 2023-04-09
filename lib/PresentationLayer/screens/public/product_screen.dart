@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
-
 import '../../../BusinessLayer/controllers/favourite_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
@@ -37,7 +36,7 @@ class ProductScreen extends StatelessWidget {
                     color: AppColors.yellow,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                    child: const Text('Add to cart', style: titleCopy),
+                    child:  Text('Add to cart'.tr, style: titleCopy),
                   );
                 }),
           ),
@@ -172,8 +171,9 @@ class ProductScreen extends StatelessWidget {
                         Expanded(
                             child: Row(
                           children: [
-                            const Text("   Brand :  ",
+                             Text("Brand:".tr,
                                 style: title, textAlign: TextAlign.start),
+                            SizedBox(width:5,),
                             Text(
                               product.brand,
                               style: title8.copyWith(
@@ -201,16 +201,16 @@ class ProductScreen extends StatelessWidget {
                       Expanded(
                           child: Row(
                         children: [
-                          const Text(
-                            "   Reference N :  ",
+                           Text(
+                            "Reference N:".tr,
                             style: title,
                           ),
-                          Expanded(
-                              child: Text(
-                            product.name,
+                          SizedBox(width:5,),
+                          Text(
+                            product.reference_number,
                             style: title8.copyWith(
-                                fontSize: 15, fontWeight: FontWeight.normal),
-                          ))
+                            fontSize: 15, fontWeight: FontWeight.normal),
+                          )
                         ],
                       ))
                     ],
@@ -233,12 +233,13 @@ class ProductScreen extends StatelessWidget {
                       Expanded(
                           child: Row(
                         children: [
-                          const Text(
-                            "   Gender :  ",
+                           Text(
+                            "Gender:".tr,
                             style: title,
                           ),
+                          SizedBox(width:5,),
                           Text(
-                            "Women",
+                            product.gender,
                             style: title8.copyWith(
                                 fontSize: 15, fontWeight: FontWeight.normal),
                           )
@@ -264,10 +265,11 @@ class ProductScreen extends StatelessWidget {
                       Expanded(
                           child: Row(
                         children: [
-                          const Text(
-                            "   Movement :  ",
+                           Text(
+                            "Movement:".tr,
                             style: title,
                           ),
+                          SizedBox(width:5,),
                           Text(
                             product.movement,
                             style: title8.copyWith(
@@ -295,10 +297,11 @@ class ProductScreen extends StatelessWidget {
                       Expanded(
                           child: Row(
                         children: [
-                          const Text(
-                            "   Case-size :  ",
+                           Text(
+                            "Case_size:".tr,
                             style: title,
                           ),
+                          SizedBox(width:5,),
                           Text(
                             product.case_size,
                             style: title8.copyWith(
@@ -326,10 +329,11 @@ class ProductScreen extends StatelessWidget {
                       Expanded(
                           child: Row(
                         children: [
-                          const Text(
-                            "   Case-material :  ",
+                           Text(
+                            "Case_material:".tr,
                             style: title,
                           ),
+                          SizedBox(width:5,),
                           Text(
                             product.case_material,
                             style: title8.copyWith(

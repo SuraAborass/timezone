@@ -40,20 +40,13 @@ final RegisterController registerController = Get.put(RegisterController());
                   ),
                   const SizedBox(height: 50),
                   TextFormField(
-                    validator: (value){
-                      if(value!.length > 100){
-                        return "name can't bee more than 100 characters";}
-                      if(value!.length < 2){
-                        return "name can't bee less than 2 characters";}
-                      return null;
-                    },
                     style: mediumNormal,
                     controller: registerController.nameController,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: AppColors.lightblack,
                       border: const OutlineInputBorder(),
-                      hintText: 'Enter Your Name'.tr,
+                      hintText: 'Enter your name'.tr,
                       hintStyle: title1,
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
@@ -75,7 +68,7 @@ final RegisterController registerController = Get.put(RegisterController());
                       filled: true,
                       fillColor: AppColors.lightblack,
                       border: const OutlineInputBorder(),
-                      hintText: 'Enter Your Email'.tr,
+                      hintText: 'Enter your email'.tr,
                       hintStyle: title1,
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
@@ -93,11 +86,6 @@ final RegisterController registerController = Get.put(RegisterController());
                    TextFormField(
                     style: mediumNormal,
                     controller: registerController.passwordController,
-                    // validator: (val){
-                    //   if(val!.isEmpty)
-                    //     return 'Password is required';
-                    //   return null;
-                    // },
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: AppColors.lightblack,
@@ -109,7 +97,7 @@ final RegisterController registerController = Get.put(RegisterController());
                         onPressed: () {registerController.togglePasswordVisible();},
                       ),
                       border: const OutlineInputBorder(),
-                      hintText: 'Enter Your Password'.tr,
+                      hintText: 'Enter your password'.tr,
                       hintStyle: title1,
                       enabledBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
@@ -128,17 +116,10 @@ final RegisterController registerController = Get.put(RegisterController());
                    TextFormField(
                     style: mediumNormal ,
                     controller: registerController.confirmPasswordController,
-                    // validator: (value){
-                    //   if(value!.isEmpty)
-                    //     return 'Please retype your password';
-                    //   if(value != registerController.passwordController.text)
-                    //     return 'Not Match';
-                    //   return null;
-                    // },
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: AppColors.lightblack ,
-                      hintText: 'Retype Your Password'.tr,
+                      hintText: 'Retype your password'.tr,
                       hintStyle: title1,
                       suffixIcon: IconButton(
                         icon: Icon(!registerController.passwordVisible.value
@@ -187,7 +168,7 @@ final RegisterController registerController = Get.put(RegisterController());
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                          'Have an Account ?'.tr,
+                          'Have an account ?'.tr,
                           style: title1),
                       InkWell(
                         onTap: () {

@@ -90,7 +90,7 @@ class CheckOutScreen extends StatelessWidget {
                                   controller: cartController.addressController,
                                   style: mediumNormal,
                                   decoration: InputDecoration(
-                                    hintText: "adresshint".tr,
+                                    hintText: "addressHint".tr,
                                     hintStyle: title1,
                                     filled: true,
                                     fillColor: AppColors.lightblack,
@@ -112,7 +112,7 @@ class CheckOutScreen extends StatelessWidget {
                                   controller: cartController.phoneController,
                                   style: mediumNormal,
                                   decoration: InputDecoration(
-                                    hintText: "mobile".tr,
+                                    hintText: "numberHint".tr,
                                     hintStyle: title1,
                                     filled: true,
                                     fillColor: AppColors.lightblack,
@@ -313,7 +313,7 @@ class CheckOutScreen extends StatelessWidget {
                                         children: [
                                           if (cartController.sendingOrder.value)
                                             loadingItem(false),
-                                          Text('sendorder'.tr,
+                                          Text('sendOrder'.tr,
                                               style: titleCopy),
                                         ],
                                       ),

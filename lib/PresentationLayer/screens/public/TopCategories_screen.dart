@@ -31,7 +31,7 @@ class TopCategories extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: pageTitle("topcategories".tr),
+                    child: pageTitle("Top Categories".tr),
                   ),
                   GetBuilder(
                       init: topCategoriesController,
