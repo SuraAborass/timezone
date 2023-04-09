@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:timezone/BusinessLayer/controllers/cart_controller.dart';
 import '../../../BusinessLayer/controllers/favourite_controller.dart';
+import '../../../Constants/Helpers/gender.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
 import '../../../Constants/routes.dart';
@@ -239,7 +240,7 @@ class ProductScreen extends StatelessWidget {
                           ),
                           SizedBox(width:5,),
                           Text(
-                            product.gender,
+                            Gender.getGender(product.gender),
                             style: title8.copyWith(
                                 fontSize: 15, fontWeight: FontWeight.normal),
                           )

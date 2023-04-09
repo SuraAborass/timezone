@@ -14,7 +14,7 @@ class Product {
   final List<String> images;
   final String category;
   final String reference_number;
-  final String gender;
+  final int gender;
 
   Product({
     required this.id,
@@ -56,7 +56,7 @@ class Product {
       name: map['name'] ?? "" ,
       price: map['price'].toString(),
       offer: map['offer'].toString(),
-      gender: map['gender'].toString(),
+      gender: map['gender'],
       reference_number: map['reference_number'] !=null? map['reference_number'].toString() : "",
       movement : map['movement'] !=null?map['movement']  :"",
       case_material : map['case_material'] !=null? map['case_material']  : "",
