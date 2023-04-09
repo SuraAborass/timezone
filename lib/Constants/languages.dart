@@ -16,7 +16,7 @@ class Languages extends Translations {
           " Create one": "أنشىء حسابك من هنا",
 
           /////sign up screen
-          "Create Account": "أنشئ حساباً",
+          "Create Account":"أنشئ حسابا",
           "To Get Full Access": "لتتمكن من استخدام التطبيق",
           "Enter your name": "أدخل اسمك هنا",
           "Retype your password": "تأكيد كلمة المرور",
@@ -26,7 +26,7 @@ class Languages extends Translations {
           /////home screen
           "Top Categories": "التصنيفات",
           "Top Brands": "العلامات التجارية",
-          "Featured Products": "الأكثر طلباً",
+          "Featured Products" : "الأكثر طلبا",
           "Favorites": "المفضلة",
 
           /////button navigation
@@ -92,9 +92,7 @@ class Languages extends Translations {
           "Add to cart" : "إضافة إلى السلة",
           "Brand:"  :"العلامة التجارية",
           "Reference N:" : "رقم الموديل",
-          "Gender:" : "الجنس",
-          'woman': 'نسائي',
-          'men': 'رجالي',
+          "Gender" : "الجنس",
           "Movement:"  : "الحركة",
           "Case_size:" : "الحجم",
           "Case_material:"  : "المادة",

@@ -169,6 +169,7 @@ class ProductScreen extends StatelessWidget {
                           width: 15,
                           color: AppColors.yellow,
                         ),
+                        SizedBox(width:8,),
                         Expanded(
                             child: Row(
                           children: [
@@ -199,6 +200,7 @@ class ProductScreen extends StatelessWidget {
                         width: 15,
                         color: AppColors.yellow,
                       ),
+                      SizedBox(width:8,),
                       Expanded(
                           child: Row(
                         children: [
@@ -231,6 +233,7 @@ class ProductScreen extends StatelessWidget {
                         width: 15,
                         color: AppColors.yellow,
                       ),
+                      SizedBox(width:8,),
                       Expanded(
                           child: Row(
                         children: [
@@ -263,6 +266,7 @@ class ProductScreen extends StatelessWidget {
                         width: 15,
                         color: AppColors.yellow,
                       ),
+                      SizedBox(width:8,),
                       Expanded(
                           child: Row(
                         children: [
@@ -295,6 +299,7 @@ class ProductScreen extends StatelessWidget {
                         width: 15,
                         color: AppColors.yellow,
                       ),
+                      SizedBox(width:8,),
                       Expanded(
                           child: Row(
                         children: [
@@ -327,6 +332,7 @@ class ProductScreen extends StatelessWidget {
                         width: 15,
                         color: AppColors.yellow,
                       ),
+                      SizedBox(width:8,),
                       Expanded(
                           child: Row(
                         children: [

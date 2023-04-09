@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timezone/Constants/routes.dart';
 
 import '../../../BusinessLayer/controllers/ProductsByBrandId_controller.dart';
 import '../../../BusinessLayer/controllers/cart_controller.dart';
@@ -32,7 +33,7 @@ class ProductsByBrandId extends StatelessWidget {
               backgroundColor: AppColors.black,
               actions: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () => Get.toNamed(AppRoutes.myBag),
                     icon: const Icon(
                       Icons.shopping_cart,
                       size: 30,
