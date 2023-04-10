@@ -184,7 +184,7 @@ class CartController extends GetxController {
     List<Map<String, dynamic>> cartItems = [];
     print("phoneController " + phoneController.value.toString());
     if (cartProducts.isEmpty) {
-      SnackBars.showWarning('You can\'t create an empty order'.tr);
+      SnackBars.showWarning('You can\'t send an empty order'.tr);
     } else if (nameController.value.text.toString().isEmpty ||
         emailController.value.text.toString().isEmpty ||
         addressController.value.text.toString().isEmpty ||

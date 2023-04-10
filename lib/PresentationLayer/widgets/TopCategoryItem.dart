@@ -21,7 +21,7 @@ class TopCategoryItem extends StatelessWidget {
                   Get.toNamed(AppRoutes.category, arguments: [category]),
               child: Container(
                 height: 160,
-                width: 90,
+                width: 100,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       image: NetworkImage(category.image), fit: BoxFit.cover),

@@ -16,7 +16,7 @@ class Languages extends Translations {
           " Create one": "أنشىء حسابك من هنا",
 
           /////sign up screen
-          "Create Account":"أنشئ حسابا",
+          "Create Account":"أنشئ حساباً",
           "To Get Full Access": "لتتمكن من استخدام التطبيق",
           "Enter your name": "أدخل اسمك هنا",
           "Retype your password": "تأكيد كلمة المرور",
@@ -26,7 +26,7 @@ class Languages extends Translations {
           /////home screen
           "Top Categories": "التصنيفات",
           "Top Brands": "العلامات التجارية",
-          "Featured Products" : "الأكثر طلبا",
+          "Featured Products" : "الأكثر طلباً",
           "Favorites": "المفضلة",
 
           /////button navigation
@@ -47,7 +47,7 @@ class Languages extends Translations {
           "Enter your address": "أدخل عنوانك الحالي",
           "Update Profile Info": "تحديث معلوماتك",
           "your information updated successfully" : "تم تحديث معلوماتك",
-          "wentWrong" : "لقد حدث خطأ ما ، أعد المحاولة",
+          "wentWrong" : "لقد حدث خطأ ما، أعد المحاولة",
 
           /////my bag
           "Edit" : "تعديل",
@@ -92,7 +92,7 @@ class Languages extends Translations {
           "Add to cart" : "إضافة إلى السلة",
           "Brand:"  :"العلامة التجارية",
           "Reference N:" : "رقم الموديل",
-          "Gender" : "الجنس",
+          "Gender:" : "الجنس",
           "Movement:"  : "الحركة",
           "Case_size:" : "الحجم",
           "Case_material:"  : "المادة",
@@ -111,9 +111,9 @@ class Languages extends Translations {
           "Added Successfully" : "تمت الإضافة بنجاح",
 
           ////search
-          "searchtitle": "إبحث عن المنتجات , الماركات , التصنيفات",
+          "searchtitle": "ابحث عن المنتجات , الماركات , التصنيفات",
           "result": "نتائج البحث",
-          "No Results" : "لا توجد نتائج"
+          "No Results" : "لاتوجد نتائج"
 
 
         },
@@ -129,7 +129,7 @@ class Languages extends Translations {
           " Create one": " Create one",
 
           /////sign up screen
-          "Create Account": "Create Accountً",
+          "Create Account": "Create Account",
           "To Get Full Access": "To Get Full Access",
           "Enter your name": "Enter your name",
           "Retype your password": "Retype your password",
@@ -139,7 +139,7 @@ class Languages extends Translations {
           /////home screen
           "Top Categories": "Top Categories",
           "Top Brands": "Top Brands",
-          "Featured Products": "Featured Productsً",
+          "Featured Products": "Featured Products",
           "Favorites": "Favorites",
 
           /////button navigation
@@ -181,14 +181,14 @@ class Languages extends Translations {
           "name": "name",
           "email": "email",
           "addressHint": "Enter your address",
-          "numberHint" : "أدخل رقمك للتواصل",
+          "numberHint" : "Enter your number to contact",
           "notes": "notes",
-          "Payment Method ": "Payment Method ",
+          "Payment Method ": "Payment Method",
           "Cash Payment": "Cash Payment",
           "Online Payment": "Online Payment",
           "Enter card number" : "Enter card number",
           "total": "Total",
-          "discount": "Discount ",
+          "discount": "Discount",
           "net": "Net value",
           "sendOrder": "send Order",
 
@@ -205,14 +205,12 @@ class Languages extends Translations {
           "Add to cart" : "Add to cart",
           "Brand:"  :"Brand:",
           "Reference N:" : "Reference N:",
-          "Gender:" : "Gender:``",
+          "Gender:" : "Gender:",
           'woman': 'woman',
           'men': 'men',
           "Movement:"  : "Movement:",
           "Case_size:" : "Case_size:",
           "Case_material:"  : "Case_material:",
-
-
 
           /////snackBars
           "Welcome" : "Welcome" ,
@@ -221,12 +219,12 @@ class Languages extends Translations {
           "there was an error, please check your internet connection" : "there was an error, please check your internet connection",
           "please check your card number" : "please check your card number",
           "order send successfully" : "order send successfully",
-          "You can\'t create an empty order" : "You can\'t create an empty order",
+          "You can\'t send an empty order" : "You can\'t send an empty order",
           "Removed Successfully" : "Removed Successfully",
           "Added Successfully" : "Added Successfully",
 
           ////search
-          "searchtitle": "search for products, brands, categories",
+          "searchtitle": "search for a products, brands, categories",
           "result": "search result",
           "No Results" : "No Results"
 

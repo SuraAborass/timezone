@@ -28,7 +28,7 @@ class FeaturedProductItem extends StatelessWidget {
                 tag: featuredProduct.id.toString() + featuredProduct.name,
                 child: Container(
                   width: 130,
-                  padding: EdgeInsets.all(15),
+                  padding: EdgeInsets.all(15.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: const BorderRadius.all(Radius.circular(20.0)),
@@ -56,9 +56,9 @@ class FeaturedProductItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(featuredProduct.brand, style: title5),
+                  Text(featuredProduct.brand, style: title5.copyWith(fontSize: 14)),
                   const SizedBox(
-                    width: 30,
+                    width: 20,
                     height: 1,
                   ),
                   Text(

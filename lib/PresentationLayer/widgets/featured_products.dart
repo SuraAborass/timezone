@@ -11,7 +11,6 @@ final FeaturedProductsController productsController = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    final deviceSize = MediaQuery.of(context).size;
     return Column(
       children: [
         GetBuilder(
@@ -19,7 +18,7 @@ final FeaturedProductsController productsController = Get.find();
             builder: (context) {
               return Container(
                 height: 250,
-                width: deviceSize.width,
+                width: Get.width,
                 decoration: const BoxDecoration(color: AppColors.black),
                 child: productsController.loading.value == true
                 ? SizedBox(

@@ -71,8 +71,8 @@ class LoginScreen extends StatelessWidget {
                           fillColor: AppColors.lightblack,
                           suffixIcon: IconButton(
                             icon: Icon(!loginController.passwordVisible.value
-                                ? Icons.visibility
-                                : Icons.visibility_off),
+                                ? Icons.visibility_off
+                                : Icons.visibility),
                             color: AppColors.grey2,
                             onPressed: () {
                               loginController.togglePasswordVisible();
